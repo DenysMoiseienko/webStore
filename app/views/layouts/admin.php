@@ -321,6 +321,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Validator -->
+<script src="/js/validator.js"></script>
 <!-- ChartJS -->
 <script src="adminLTE/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->

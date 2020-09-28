@@ -14,7 +14,7 @@
                     <li class="breadcrumb-item">
                         <a href="<?=ADMIN;?>">Home</a>
                     </li>
-                    <li class="active">
+                    <li class="breadcrumb-item">
                         <a href="<?=ADMIN;?>/order">Orders list</a>
                     </li>
                     <li>
