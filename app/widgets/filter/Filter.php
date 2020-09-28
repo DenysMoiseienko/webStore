@@ -22,13 +22,13 @@ class Filter {
         $this->groups = $cache->get('filter_group');
         if (!$this->groups) {
             $this->groups = $this->getGroups();
-            $cache->set('filter_group', $this->groups, 30);
+            $cache->set('filter_group', $this->groups, 3600);
         }
 
         $this->attrs = $cache->get('filter_attrs');
         if (!$this->attrs) {
             $this->attrs = self::getAttrs();
-            $cache->set('filter_attrs', $this->attrs, 30);
+            $cache->set('filter_attrs', $this->attrs, 3600);
         }
         $filters = $this->getHtml();
         echo $filters;
