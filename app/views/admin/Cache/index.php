@@ -51,7 +51,7 @@
                                     </tr>
                                     <tr>
                                         <td>Filter cache</td>
-                                        <td>Filters and filter groups cache: 1 hour/td>
+                                        <td>Filters and filter groups cache: 1 hour</td>
                                         <td>
                                             <a class="delete" href="<?=ADMIN;?>/cache/delete?key=filter">
                                                 <i class="fa fa-trash text-danger"></i></a>
