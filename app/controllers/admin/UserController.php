@@ -62,6 +62,17 @@ class UserController extends AppController {
         $this->setMeta('New user');
     }
 
+    public function deleteAction() {
+        $user_id = $this->getRequestID();
+        $ids = R::getAssoc("SELECT `id` FROM `order` WHERE `user_id` = {$user_id}");
+
+        R::trashBatch('order', $ids);
+        R::hunt('user', 'id = ?', [$user_id]);
+
+        $_SESSION['success'] = "User and his orders has been removed";
+        redirect(ADMIN . '/user');
+    }
+
     public function loginAdminAction() {
         if (!empty($_POST)) {
             $user = new \app\models\admin\User();
