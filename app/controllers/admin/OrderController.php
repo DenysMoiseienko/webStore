@@ -15,12 +15,7 @@ class OrderController extends AppController {
         $pagination = new Pagination($page, $perPage, $count);
         $start = $pagination->getStart();
 
-        $orders = R::getAll("SELECT `order`.`id`,
-            `order`.`user_id`, `order`.`status`, `order`.`date`, `order`.`update_at`,
-            `order`.`currency`, `user`.`name`, ROUND(SUM(`order_product`.`price` * `order_product`.`qty`), 2) AS `sum` 
-            FROM `order` JOIN `user` ON `order`.`user_id` = `user`.`id`
-            JOIN `order_product` ON `order`.`id` = `order_product`.`order_id`
-            GROUP BY `order`.`id` ORDER BY `order`.`status`, `order`.`id` DESC LIMIT $start, $perPage");
+        $orders = $this->getAllOrders($start, $perPage);
 
         $this->setMeta('Orders list');
         $this->set(compact('orders', 'pagination', 'count'));
@@ -28,14 +23,7 @@ class OrderController extends AppController {
 
     public function viewAction() {
         $order_id = $this->getRequestID();
-
-        $order = R::getRow("SELECT `order`.*, `user`.`name`,
-            ROUND(SUM(`order_product`.`price` * `order_product`.`qty`), 2) AS `sum` 
-            FROM `order`
-            JOIN `user` ON `order`.`user_id` = `user`.`id`
-            JOIN `order_product` ON `order`.`id` = `order_product`.`order_id`
-            WHERE `order`.`id` = ?
-            GROUP BY `order`.`id` ORDER BY `order`.`status`, `order`.`id` LIMIT 1", [$order_id]);
+        $order = $this->getOrderById($order_id);
 
         if (!$order) {
             throw new \Exception("Page not found", 404);
@@ -66,5 +54,24 @@ class OrderController extends AppController {
         R::trash($order);
         $_SESSION['success'] = 'Order has been removed';
         redirect(ADMIN . '/order');
+    }
+
+    private function getAllOrders($start, $perPage) {
+        return R::getAll("SELECT `order`.`id`,
+            `order`.`user_id`, `order`.`status`, `order`.`date`, `order`.`update_at`,
+            `order`.`currency`, `user`.`name`, ROUND(SUM(`order_product`.`price` * `order_product`.`qty`), 2) AS `sum` 
+            FROM `order` JOIN `user` ON `order`.`user_id` = `user`.`id`
+            JOIN `order_product` ON `order`.`id` = `order_product`.`order_id`
+            GROUP BY `order`.`id` ORDER BY `order`.`status`, `order`.`id` DESC LIMIT $start, $perPage");
+    }
+
+    private function getOrderById($order_id) {
+            return R::getRow("SELECT `order`.*, `user`.`name`,
+            ROUND(SUM(`order_product`.`price` * `order_product`.`qty`), 2) AS `sum` 
+            FROM `order`
+            JOIN `user` ON `order`.`user_id` = `user`.`id`
+            JOIN `order_product` ON `order`.`id` = `order_product`.`order_id`
+            WHERE `order`.`id` = ?
+            GROUP BY `order`.`id` ORDER BY `order`.`status`, `order`.`id` LIMIT 1", [$order_id]);
     }
 }
