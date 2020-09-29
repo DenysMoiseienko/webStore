@@ -4,7 +4,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">
-                    Edit profile: <?=h($user->name);?>
+                    New user
                 </h1>
             </div>
 
@@ -17,7 +17,7 @@
                         <a href="<?=ADMIN;?>/user">Users list</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <?=h($user->name);?>
+                        New user
                     </li>
                 </ol>
             </div>
@@ -33,53 +33,60 @@
             <div class="col-md-12">
                 <div class="box">
 
-                    <form action="<?=ADMIN;?>/user/edit" method="post" data-toggle="validator">
+                    <form action="user/signup" method="post" data-toggle="validator">
                         <div class="box-body">
                             <div class="form-group has-feedback">
                                 <label for="login">Login</label>
-                                <input type="text" class="form-control" name="login" id="login" value="<?=h($user->login);?>" required>
-                                <span class="glyphicon-form-control-feedback" aria-hidden="true"></span>
+                                <input type="text" class="form-control" name="login" id="login"
+                                       value="<?=isset($_SESSION['form-data']['login']) ? $_SESSION['form-data']['login'] : '' ;?>" required>
+
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group has-feedback">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter password"
+                                       data-minLength="6" data-error="Minimum of 6 characters" required>
+                                <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group has-feedback">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" id="name" value="<?=h($user->name);?>" required>
-                                <span class="glyphicon-form-control-feedback" aria-hidden="true"></span>
+                                <input type="text" class="form-control" name="name" id="name"
+                                       value="<?=isset($_SESSION['form-data']['name']) ? $_SESSION['form-data']['name'] : '' ;?>" required>
+
                             </div>
 
                             <div class="form-group has-feedback">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" value="<?=h($user->email);?>" required>
-                                <span class="glyphicon-form-control-feedback" aria-hidden="true"></span>
+                                <input type="email" class="form-control" name="email" id="email"
+                                       value="<?=isset($_SESSION['form-data']['email']) ? $_SESSION['form-data']['email'] : '' ;?>" required>
+
                             </div>
 
                             <div class="form-group has-feedback">
                                 <label for="address">Address</label>
-                                <input type="text" class="form-control" name="address" id="address" value="<?=h($user->address);?>" required>
-                                <span class="glyphicon-form-control-feedback" aria-hidden="true"></span>
+                                <input type="text" class="form-control" name="address" id="address"
+                                       value="<?=isset($_SESSION['form-data']['address']) ? $_SESSION['form-data']['address'] : '' ;?>" required>
+
                             </div>
 
                             <div class="form-group">
                                 <label>Role</label>
                                 <select name="role" id="role" class="form-control">
-                                    <option value="user" <?php  if ($user->role == 'user') echo 'selected'?>>User</option>
-                                    <option value="admin" <?php  if ($user->role == 'admin') echo 'selected'?>>Admin</option>
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
                                 </select>
                             </div>
 
                         </div>
 
                         <div class="box-footer text-right">
-                            <input type="hidden" name="id" value="<?=$user->id;?>">
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="submit" class="btn btn-success">Add</button>
                         </div>
-
                     </form>
+
+                    <?php if (isset($_SESSION['form-data'])) unset($_SESSION['form-data']); ?>
+
                 </div>
             </div>
         </div>

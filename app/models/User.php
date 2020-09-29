@@ -11,7 +11,8 @@ class User extends AppModel {
         'password' => '',
         'name' => '',
         'email' => '',
-        'address' => ''
+        'address' => '',
+        'role' => 'user'
     ];
 
     public $rules = [
@@ -33,6 +34,7 @@ class User extends AppModel {
     public function isUnique() {
         $user = R::findOne('user', 'login = ? OR email = ?',
             [$this->attributes['login'], $this->attributes['email']]);
+
         if ($user) {
             if ($user->login == $this->attributes['login']) {
                 $this->errors['unique'][]= 'this username already exists';
