@@ -3,3 +3,6 @@ $('.delete').click(function () {
     if (!res) return false;
 });
 
+$('#editor1').ckeditor();
+
+

@@ -322,7 +322,7 @@
 <!-- Bootstrap 4 -->
 <script src="adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Validator -->
-<script src="/js/validator.js"></script>
+<script src="public/js/validator.js"></script>
 <!-- ChartJS -->
 <script src="adminLTE/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
@@ -337,9 +337,14 @@
 <script src="adminLTE/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="adminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
 <!-- Summernote -->
 <script src="adminLTE/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
+
+<!-- CKEditor -->
+<script src="adminLTE/plugins/ckeditor/ckeditor.js"></script>
+<script src="adminLTE/plugins/ckeditor/adapters/jquery.js"></script>
+
 <script src="adminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="adminLTE/dist/js/adminlte.js"></script>
