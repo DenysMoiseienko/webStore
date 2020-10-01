@@ -18,7 +18,7 @@ class OrderController extends AppController {
         $orders = $this->getAllOrders($start, $perPage);
 
         $this->setMeta('Orders list');
-        $this->set(compact('orders', 'pagination', 'count'));
+        $this->set(compact('orders', 'pagination', 'count', 'start', 'page', 'perPage'));
     }
 
     public function viewAction() {

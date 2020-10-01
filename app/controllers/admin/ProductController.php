@@ -20,7 +20,7 @@ class ProductController extends AppController {
         $products = $this->getAllProducts($start, $perPage);
 
         $this->setMeta('Products list');
-        $this->set(compact('products', 'pagination', 'count'));
+        $this->set(compact('products', 'pagination', 'count', 'start', 'page', 'perPage'));
     }
 
     public function addAction() {
@@ -40,6 +40,8 @@ class ProductController extends AppController {
                 $p = R::load('product', $id);
                 $p->alias = $alias;
                 R::store($p);
+                $product->editFilter($id, $data);
+                $product->editRelatedProduct($id, $data);
                 $_SESSION['success'] = 'Product added';
             }
             redirect();
@@ -55,4 +57,23 @@ class ProductController extends AppController {
             JOIN category ON category.id = product.category_id ORDER BY product.title
             LIMIT $start, $perPage");
     }
+
+    public function relatedProductAction(){
+        $q = isset($_GET['q']) ? $_GET['q'] : '';
+        $data['items'] = [];
+        $products = R::getAssoc(
+            'SELECT id, title FROM product WHERE title LIKE ? LIMIT 10', ["%{$q}%"]);
+        if ($products) {
+            $i = 0;
+            foreach ($products as $id => $title) {
+                $data['items'][$i]['id'] = $id;
+                $data['items'][$i]['text'] = $title;
+                $i++;
+            }
+        }
+        echo json_encode($data);
+        die;
+    }
+
+
 }

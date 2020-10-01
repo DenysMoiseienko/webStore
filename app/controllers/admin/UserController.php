@@ -17,7 +17,7 @@ class UserController extends AppController {
         $start = $pagination->getStart();
         $users = R::findAll('user', "LIMIT $start, $perPage");
         $this->setMeta('Users list');
-        $this->set(compact('users', 'pagination', 'count'));
+        $this->set(compact('users', 'pagination', 'count', 'start', 'page', 'perPage'));
     }
 
     public function viewAction() {

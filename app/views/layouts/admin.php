@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="adminLTE/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="adminLTE/plugins/summernote/summernote-bs4.css">
+    <!-- Select 2 -->
+    <link rel="stylesheet" href="adminLTE/plugins/select2/css/select2.css">
     <!-- Google Font: Source Sans Pro-->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -337,13 +339,15 @@
 <script src="adminLTE/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="adminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-
 <!-- Summernote -->
 <script src="adminLTE/plugins/summernote/summernote-bs4.min.js"></script>
 
 <!-- CKEditor -->
 <script src="adminLTE/plugins/ckeditor/ckeditor.js"></script>
 <script src="adminLTE/plugins/ckeditor/adapters/jquery.js"></script>
+
+<!-- Select 2 -->
+<script src="adminLTE/plugins/select2/js/select2.full.js"></script>
 
 <script src="adminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->

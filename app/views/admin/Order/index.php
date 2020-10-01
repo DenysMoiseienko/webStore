@@ -69,8 +69,8 @@
 
                             </table>
                         </div>
-                        <div class="text-center">
-                            <p><?=count($orders);?> from <?=$count;?></p>
+                        <div class="text-left">
+                            <p>Showing <?=$start + 1;?> to <?=(($page * $perPage) > $count)? $count : ($page * $perPage);?> of <?=$count;?> orders</p>
                             <?php if ($pagination->countPages > 1): ?>
                                 <?=$pagination;?>
                             <?php endif; ?>

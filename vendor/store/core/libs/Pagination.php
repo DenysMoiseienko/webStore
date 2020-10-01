@@ -59,11 +59,11 @@ class Pagination {
 
         if ($this->currentPage > 1) {
             $back = "<li>
-                <a class='nav-link' href='{$this->uri}page=" . ($this->currentPage - 1) . "'>&lt;</a></li>";
+                <a class='page-link' href='{$this->uri}page=" . ($this->currentPage - 1) . "'>Previous</a></li>";
         }
         if ($this->currentPage < $this->countPages) {
             $forward = "<li>
-                <a class='nav-link' href='{$this->uri}page=" . ($this->currentPage + 1) . "'>&gt;</a></li>";
+                <a class='page-link' href='{$this->uri}page=" . ($this->currentPage + 1) . "'>Next</a></li>";
         }
 
         return '<ul class="pagination">' . $back . $forward . '</ul>';

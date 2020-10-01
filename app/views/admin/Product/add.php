@@ -96,12 +96,19 @@
                             </div>
 
                             <div class="form-group">
-                                <label><input type="checkbox" name="status" checked>Status</label>
+                                <label><input type="checkbox" name="status" checked> Status</label>
                             </div>
 
                             <div class="form-group">
-                                <label><input type="checkbox" name="hit">Hit</label>
+                                <label><input type="checkbox" name="hit"> Hit</label>
                             </div>
+
+                            <div class="form-group">
+                                <label for="related">Related products</label>
+                                <select name="related[]" class="form-control select2" id="related" multiple></select>
+                            </div>
+
+                            <?php new \app\widgets\filter\Filter(null, WWW . '/filter/admin_filter_tpl.php'); ?>
 
                         </div>
 
@@ -118,4 +125,5 @@
         </div>
     </div>
 </section>
+
 
