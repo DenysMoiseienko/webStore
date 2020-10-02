@@ -40,7 +40,7 @@
                                     <th>Title</th>
                                     <th>Price</th>
                                     <th>Status</th>
-                                    <th>View</th>
+                                    <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
@@ -55,7 +55,7 @@
                                         <td><?=$product['price'];?></td>
                                         <td><?=$product['status'] ? 'on' : 'off';?></td>
                                         <td><a href="<?=ADMIN;?>/product/edit?id=<?=$product['id'];?>">
-                                                <i class="fa fa-fw fa-eye text-black-50"></i></a>
+                                                <i class="fa fa-pen text-black-50"></i></a>
                                         </td>
                                         <td>
                                             <a class="delete" href="<?=ADMIN;?>/product/delete?id=<?=$product['id'];?>">

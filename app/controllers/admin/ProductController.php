@@ -38,6 +38,44 @@ class ProductController extends AppController {
         }
     }
 
+    public function editAction() {
+        if (!empty($_POST)) {
+            $id = $this->getRequestID(false);
+            $product = new Product();
+            $data = $_POST;
+            $product->load($data);
+            $product->attributes['status'] = $product->attributes['status'] ? 1 : 0;
+            $product->attributes['hit'] = $product->attributes['hit'] ? 1 : 0;
+            $product->attributes['old_price'] = $product->attributes['old_price'] ?: 0;
+            $product->getImg();
+            if (!$product->validate($data)) {
+                $product->getErrors();
+                redirect();
+            }
+            if ($product->update('product', $id)) {
+                $product->editFilter($id, $data);
+                $product->editRelatedProduct($id, $data);
+                $product->saveGallery($id);
+                $alias = AppModel::createAlias('product', 'alias', data['title'], $id);
+                $product = R::load('product', $id);
+                $product->alias = $alias;
+                R::store($product);
+                $_SESSION['success'] = 'Updated product';
+                redirect();
+            }
+        }
+
+        $id = $this->getRequestID();
+        $product = R::load('product', $id);
+        App::$app->setProperty('parent_id', $product->category_id);
+        $filter = R::getCol('SELECT attr_id FROM attribute_product WHERE product_id = ?', [$id]);
+        $related_product = $this->getRelatedProductById($id);
+        $gallery = R::getCol('SELECT img FROM gallery WHERE product_id = ?', [$id]);
+
+        $this->setMeta("Edit product {$product->title}");
+        $this->set(compact('product', 'filter', 'related_product', 'gallery'));
+    }
+
     public function addAction() {
         if (!empty($_POST)) {
             $product = new Product();
@@ -93,5 +131,22 @@ class ProductController extends AppController {
         die;
     }
 
+    private function getRelatedProductById($id) {
+        return R::getAll("SELECT related_product.related_id, product.title
+            FROM related_product JOIN product ON product.id = related_product.related_id 
+            WHERE related_product.product_id = ?", [$id]);
+    }
 
+    public function deleteGalleryAction() {
+        $id = isset($_POST['id']) ? $_POST['id'] : null;
+        $src = isset($_POST['src']) ? $_POST['src'] : null;
+        if (!$id || !$src) {
+            return;
+        }
+        if (R::exec("DELETE FROM gallery WHERE product_id = ? AND img = ?", [$id, $src])) {
+            @unlink(WWW . "/images/$src");
+            exit('1');
+        }
+        return;
+    }
 }

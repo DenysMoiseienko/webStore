@@ -17,7 +17,7 @@
                         <a href="<?=ADMIN;?>/user">Users list</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <?=h($user->name);?>
+                        Edit profile: <?=h($user->name);?>
                     </li>
                 </ol>
             </div>

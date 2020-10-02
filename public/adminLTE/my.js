@@ -3,6 +3,37 @@ $('.delete').click(function () {
     if (!res) return false;
 });
 
+$('.del-item').on('click', function () {
+    var res = confirm('Confirm action');
+    if (!res) return false;
+    var $this = $(this),
+        id = $this.data('id'),
+        src = $this.data('src');
+    $.ajax({
+        url: adminPath + '/product/delete-gallery',
+        data: {id: id, src: src},
+        type: 'POST',
+        beforeSend: function () {
+            $this.closest('.file-upload').find('.overlay').css({'display':'block'});
+        },
+        success: function (res) {
+            setTimeout(function () {
+                $this.closest('.file-upload').find('.overlay').css({'display':'none'});
+                if (res == 1) {
+                    $this.fadeOut();
+                }
+            }, 1000);
+        },
+        error: function () {
+            setTimeout(function () {
+                $this.closest('.file-upload').find('.overlay').css({'display':'none'});
+                alert("Error!");
+            }, 1000);
+        }
+    })
+});
+
+
 // CKEditor
 // $('#editor1').ckeditor();
 
