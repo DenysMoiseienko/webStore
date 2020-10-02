@@ -2,12 +2,12 @@
     <ul class="nav nav-pills mr-auto p-2">
 
         <?php  $i = 1; foreach ($this->groups as $group_id => $group_item): ?>
-        <li class="nav-item<?php if ($i == 1) echo 'class=" active"'; ?>">
-            <a class="nav-link" href="#tab_<?=$group_id?>" data-toggle="tab" aria-expanded="true"><?=$group_item?></a>
+        <li class="nav-item">
+            <a class="nav-link<?php if ($i == 1) echo ' active'; ?>" href="#tab_<?=$group_id?>" data-toggle="tab" aria-expanded="true"><?=$group_item?></a>
         </li>
         <?php $i++; endforeach; ?>
 
-        <li class="pull-right">
+        <li class="pull-right ml-2">
             <a href="#" id="reset-filter" class="btn btn-danger">Reset filters</a>
         </li>
     </ul>

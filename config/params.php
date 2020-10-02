@@ -9,5 +9,9 @@ return [
     'smtp_port' => '465',
     'smtp_protocol' => 'ssl',
     'smtp_login' => 'denis_m_@mail.ru',
-    'smtp_password' => ''
+    'smtp_password' => '',
+    'img_width' => 125,
+    'img_height' => 200,
+    'gallery_width' => 700,
+    'gallery_height' => 1000
 ];

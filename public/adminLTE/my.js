@@ -3,13 +3,22 @@ $('.delete').click(function () {
     if (!res) return false;
 });
 
-$('#editor1').ckeditor();
+// CKEditor
+// $('#editor1').ckeditor();
 
+// SummerNote editor
+$(function () {
+    // SummerNote
+    $('.textarea').summernote()
+})
+
+// Reset filters
 $('#reset-filter').click(function() {
     $('#filter input[type=radio]').prop('checked', false);
     return false;
 });
 
+// Select2
 $(".select2").select2({
     placeholder: 'Enter product name',
     minimumInputLength: 2,
@@ -28,6 +37,47 @@ $(".select2").select2({
             return {
                 results: data.items,
             }
-        },
-    },
+        }
+    }
 });
+
+// Upload images
+if ($('div').is('#single')) {
+    var buttonSingle = $('#single'),
+        buttonMulti = $('#multi'),
+        file;
+}
+
+var uploadImage = function (button) {
+    new AjaxUpload(button, {
+        action: adminPath + button.data('url') + '?upload=1',
+        data: {name: button.data('name')},
+        name: button.data('name'),
+        onSubmit: function (file, ext) {
+            if (!(ext && /^(jpg|png|jpeg|gif)$/i.test(ext))) {
+                alert('Error!');
+                return false;
+            }
+            button.closest('.file-upload').find('.overlay').css({'display': 'block'});
+        },
+        onComplete: function(file, response) {
+            setTimeout(function () {
+                button.closest('.file-upload').find('.overlay').css({'display':'none'});
+
+                response = JSON.parse(response);
+                $('.' + button.data('name')).html(
+                    '<img src="images/' + response.file + '" style="max-height: 150px;">');
+            }, 1000);
+        }
+    });
+}
+
+if (buttonSingle){
+    uploadImage(buttonSingle);
+}
+
+if (buttonMulti) {
+    uploadImage(buttonMulti);
+}
+
+

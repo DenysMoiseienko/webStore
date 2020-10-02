@@ -91,7 +91,7 @@
                             <div class="form-group has-feedback">
 
                                 <label for="content">Content</label>
-                                <textarea name="content" id="editor1" cols="80" rows="10"
+                                <textarea class="textarea" name="content" id="editor1" cols="80" rows="10"
                                           value="<?php isset($_SESSION['form-data']['content']) ? $_SESSION['form-data']['content'] : null ;?>"></textarea>
                             </div>
 
@@ -110,6 +110,40 @@
 
                             <?php new \app\widgets\filter\Filter(null, WWW . '/filter/admin_filter_tpl.php'); ?>
 
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <div class="card card-primary file-upload">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Upload image</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="single" class="btn btn-success" data-url="product/add-image" data-name="single">Choose file</div>
+                                            <p><small>Recommended sizes: 125x200 </small></p>
+                                            <div class="single"></div>
+                                        </div>
+                                        <div class="overlay">
+                                            <i class="fas fa-2x fa-sync-alt fa-spin"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="card card-primary file-upload">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Upload images</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="multi" class="btn btn-success" data-url="product/add-image" data-name="multi">Choose files</div>
+                                            <p><small>Recommended sizes: 700x1000 </small></p>
+                                            <div class="multi"></div>
+                                        </div>
+                                        <div class="overlay">
+                                            <i class="fas fa-2x fa-sync-alt fa-spin"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="box-footer text-right">
@@ -125,5 +159,3 @@
         </div>
     </div>
 </section>
-
-
