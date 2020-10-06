@@ -69,12 +69,20 @@
 
                             </table>
                         </div>
-                        <div class="text-left">
-                            <p>Showing <?=$start + 1;?> to <?=(($page * $perPage) > $count)? $count : ($page * $perPage);?> of <?=$count;?> orders</p>
-                            <?php if ($pagination->countPages > 1): ?>
-                                <?=$pagination;?>
-                            <?php endif; ?>
+
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="text-left">
+                                    <p>Showing <?=$start + 1;?> to <?=(($page * $perPage) > $count)? $count : ($page * $perPage);?> of <?=$count;?> products</p>
+                                </div>
+                                <div class="ml-auto">
+                                    <?php if ($pagination->countPages > 1): ?>
+                                        <?=$pagination;?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>

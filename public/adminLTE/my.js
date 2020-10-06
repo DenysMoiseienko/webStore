@@ -33,10 +33,6 @@ $('.del-item').on('click', function () {
     })
 });
 
-
-// CKEditor
-// $('#editor1').ckeditor();
-
 // SummerNote editor
 $(function () {
     // SummerNote
@@ -109,6 +105,17 @@ if (buttonSingle){
 
 if (buttonMulti) {
     uploadImage(buttonMulti);
+}
+
+$('#add').on('submit', function () {
+    if (!isNumeric($('#category_id').val())) {
+        alert('Choose category!');
+        return false;
+    }
+});
+
+function isNumeric(n) {
+ return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
 

@@ -2,6 +2,8 @@
 
 namespace app\controllers\admin;
 
+use DateTime;
+use DateTimeZone;
 use RedBeanPHP\R;
 use store\App;
 use store\libs\Pagination;
@@ -42,7 +44,7 @@ class OrderController extends AppController {
             throw new \Exception("Page not found", 404);
         }
         $order->status = $status;
-        $order->update_at = date("Y-m-d H:i:s");
+        $order->update_at = $this->getDate();
         R::store($order);
         $_SESSION['success'] = 'Changes saved';
         redirect();
@@ -73,5 +75,13 @@ class OrderController extends AppController {
             JOIN `order_product` ON `order`.`id` = `order_product`.`order_id`
             WHERE `order`.`id` = ?
             GROUP BY `order`.`id` ORDER BY `order`.`status`, `order`.`id` LIMIT 1", [$order_id]);
+    }
+
+    private function getDate() {
+        $timeZone = 'Europe/Warsaw';
+        $timestamp = time();
+        $dt = new DateTime("now", new DateTimeZone($timeZone));
+        $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
+        return $dt->format('Y-m-d H:i:s');
     }
 }

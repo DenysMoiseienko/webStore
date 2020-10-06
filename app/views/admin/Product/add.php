@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
-                    <form action="<?=ADMIN;?>/product/add" method="post" data-toggle="validator">
+                    <form action="<?=ADMIN;?>/product/add" method="post" data-toggle="validator" id="add">
 
                         <div class="box-body">
 
