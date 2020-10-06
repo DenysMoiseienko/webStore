@@ -7,16 +7,16 @@ tmp/*
 
 public/images/
 
-vendor/gabordemooij/
+/vendor/gabordemooij/
 
-vendor/vlucas/
+/vendor/vlucas/
 
-vendor/doctrine/
+/vendor/doctrine/
 
-vendor/egulias/
+/vendor/egulias/
 
-vendor/paragonie/
+/vendor/paragonie/
 
-vendor/swiftmailer/
+/vendor/swiftmailer/
 
-vendor/symfony/
+/vendor/symfony/

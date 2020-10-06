@@ -57,9 +57,7 @@
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
-                                    </tr>
                                 </tbody>
-
                             </table>
                         </div>
                     </div>
