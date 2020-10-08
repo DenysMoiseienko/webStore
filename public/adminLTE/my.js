@@ -36,7 +36,19 @@ $('.del-item').on('click', function () {
 // SummerNote editor
 $(function () {
     // SummerNote
-    $('.textarea').summernote()
+    $('.textarea').summernote({
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+        disableDragAndDrop: true
+    })
 })
 
 // Reset filters
