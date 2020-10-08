@@ -102,9 +102,47 @@ class ProductController extends AppController {
             }
             redirect();
         }
-
-
         $this->setMeta('New product');
+    }
+
+    public function deleteAction() {
+        $product_id = $this->getRequestID();
+
+        $related_ids = R::getAssoc('SELECT related_id FROM related_product WHERE product_id = ?', [$product_id]);
+        $attr_ids = R::getAssoc('SELECT attr_id FROM attribute_product WHERE product_id = ?', [$product_id]);
+        $gallery_ids = R::getAssoc('SELECT id FROM gallery WHERE product_id = ?', [$product_id]);
+        $mod_ids = R::getAssoc('SELECT id FROM modification WHERE product_id = ?', [$product_id]);
+
+        $gallery_items = R::getAssoc('SELECT img FROM gallery WHERE product_id = ?', [$product_id]);
+
+        if ($related_ids) {
+            R::exec('DELETE FROM related_product WHERE product_id = ?', [$product_id]);
+        }
+        if ($attr_ids) {
+            R::exec('DELETE FROM attribute_product WHERE product_id = ?', [$product_id]);
+        }
+        if ($gallery_ids) {
+            R::exec('DELETE FROM gallery WHERE product_id = ?', [$product_id]);
+        }
+        if ($mod_ids) {
+            R::exec('DELETE FROM modification WHERE product_id = ?', [$product_id]);
+        }
+
+        // remove base image
+        $img = R::getCell('SELECT img FROM product WHERE id= ?', [$product_id]);
+        $link = 'images/' . $img;
+        unlink($link);
+
+        // remove gallery image
+        foreach ($gallery_items as $img) {
+            $link = 'images/' . $img;
+            unlink($link);
+        }
+
+        R::exec('DELETE FROM product WHERE id = ?', [$product_id]);
+
+        $_SESSION['success'] = "Product and his orders has been removed";
+        redirect(ADMIN . '/product');
     }
 
     private function getAllProducts($start, $perPage) {
