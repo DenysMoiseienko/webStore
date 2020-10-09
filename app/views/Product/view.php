@@ -39,28 +39,11 @@
                     </div>
 
                     <!--start product-->
-                    <?php
-                    $curr = \store\App::$app->getProperty('currency');
-                    $cats = \store\App::$app->getProperty('cats');
-                    ?>
+                    <?php $curr = \store\App::$app->getProperty('currency'); ?>
 
                     <div class="col-md-7 single-top-right">
                         <div class="single-para simpleCart_shelfItem">
                             <h2><?=$product->title?></h2>
-                            <div class="star-on">
-                                <ul class="star-footer">
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                </ul>
-                                <div class="review">
-                                    <a href="#"> 1 customer review </a>
-
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
 
                             <h5 class="item_price" id="base-price" data-base="<?=$product->price * $curr['value'];?>">
                                 <?=$curr['symbol_left'];?><?=$product->price * $curr['value'];?><?=$curr['symbol_right'];?>
@@ -92,15 +75,9 @@
                             </div>
                             <?php endif; ?>
 
-                            <ul class="tag-men">
-                                <li><span>Category</span>
-                                    <span>: <a href="category/<?=$cats[$product->category_id]['alias'];?>">
-                                            <?=$cats[$product->category_id]['title'];?></a>
-                                    </span></li>
-                            </ul>
-                            <div class="quantity">
-                                <input type="number" size="4" value="1" name="quantity" min="1" step="1">
-                            </div>
+<!--                            <div class="quantity">-->
+<!--                                <input type="number" size="4" value="1" name="quantity" min="1" step="1">-->
+<!--                            </div>-->
 
                             <a id="productAdd" data-id="<?=$product->id?>" href="cart/add?id=<?=$product->id?>" class="add-cart item_add add-to-cart-link">
                                 ADD TO CART</a>
@@ -128,9 +105,7 @@
                                             <?=$item['title'];?>
                                         </a>
                                     </h3>
-                                    <p>Explore Now</p>
                                     <h4>
-                                        <a class="item_add add-to-cart-link" href="cart/add?id=<?=$item['id'];?>" data-id="<?=$item['id']?>"><i></i></a>
                                         <span class="item_price"><?=$curr['symbol_left'];?><?=$item['price'] * $curr['value'];?><?=$curr['symbol_right'];?></span>
 
                                         <?php if($item['old_price']): ?>
@@ -173,9 +148,7 @@
                                                     <?=$item['title'];?>
                                                 </a>
                                             </h3>
-                                            <p>Explore Now</p>
                                             <h4>
-                                                <a class="item_add add-to-cart-link" href="cart/add?id=<?=$item['id'];?>" data-id="<?=$item['id']?>"><i></i></a>
                                                 <span class="item_price"><?=$curr['symbol_left'];?><?=$item['price'] * $curr['value'];?><?=$curr['symbol_right'];?></span>
 
                                                 <?php if($item['old_price']): ?>

@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 body{
 	background:#fff;
-	font-family: 'Lato-Regular';
+	font-family: 'Quicksand-Light';
 }
 body a{
 	transition: 0.5s all;
@@ -16,20 +16,20 @@ body a{
 	-ms-transition: 0.5s all;
 }
 @font-face {
-    font-family: 'Lora-Regular';
-    src:url(../fonts/Lora-Regular.ttf) format('truetype');
+    font-family: 'Quicksand-Light';
+    src:url(../fonts/Quicksand-Light.ttf) format('truetype');
 }
 @font-face {
-    font-family: 'Muli-Regular';
-    src:url(../fonts/Muli-Regular.ttf) format('truetype');
+    font-family: 'Quicksand-Regular';
+    src:url(../fonts/Quicksand-Regular.ttf) format('truetype');
 }
 @font-face {
-    font-family: 'Lato-Regular';
-    src:url(../fonts/Lato-Regular.ttf) format('truetype');
+    font-family: 'Quicksand-Medium';
+    src:url(../fonts/Quicksand-Medium.ttf) format('truetype');
 }
 @font-face {
-    font-family: 'BreeSerif-Regular';
-    src:url(../fonts/BreeSerif-Regular.ttf) format('truetype');
+    font-family: 'Quicksand-Bold';
+    src:url(../fonts/Quicksand-Bold.ttf) format('truetype');
 }
 /*--starts-logo--*/
 .logo {
@@ -41,8 +41,8 @@ body a{
     font-size: 32px;
     color: #000000;
     margin: 0;
-    font-family: 'Lora-Regular';
-    text-transform: uppercase;
+    font-family: 'Quicksand-Regular';
+    /*text-transform: uppercase;*/
 	display: inline-block;
 }
 .logo a:hover{
@@ -628,14 +628,13 @@ figure.effect-bubba:hover p,figure.effect-bubba:hover h2 {
     font-size: 16px;
     color: #000;
     margin: 0;
-    text-transform: uppercase;
-	font-family: 'BreeSerif-Regular';
+	font-family: 'Quicksand-Regular';
 }
 .product-bottom h4 span{
     font-size: 17px;
     color: #000;
     margin: 5px 0 0 0;
-    font-family: 'BreeSerif-Regular';
+    font-family: 'Quicksand-Regular';
 }
 .product-bottom h4 i {
     background: url(../images/cart-2.png) no-repeat;
@@ -1580,7 +1579,7 @@ span.name {
     font-size: 2.2em;
     color: #000;
     margin: 0 0 0 0;
-    font-family: 'BreeSerif-Regular';
+    font-family: 'Quicksand-Regular';
 }
 .star-on {
     padding-top: 1.3em;
@@ -1667,7 +1666,7 @@ ul.tag-men li {
     margin: 5px 0;
     font-weight: 300;
     font-size: 0.9em;
-    font-family: 'BreeSerif-Regular';
+    font-family: 'Quicksand-Light';
 }
 ul.tag-men li span.women1 {
     margin-left: 9em;

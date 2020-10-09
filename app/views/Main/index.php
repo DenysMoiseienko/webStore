@@ -1,24 +1,3 @@
-<?php if($brands): ?>
-<div class="about">
-    <div class="container">
-        <div class="about-top grid-1">
-            <?php foreach ($brands as $brand): ?>
-            <div class="col-md-4 about-left">
-                <figure class="effect-bubba">
-                    <img class="img-responsive" src="images/<?=$brand->img;?>" alt=""/>
-                    <figcaption>
-                        <h2><?=$brand->title;?></h2>
-                        <p><?=$brand->description;?></p>
-                    </figcaption>
-                </figure>
-            </div>
-            <?php endforeach; ?>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
 <?php if($hits): ?>
 <?php  $curr = \store\App::$app->getProperty('currency'); ?>
 <div class="product">
@@ -32,9 +11,7 @@
                                     class="img-responsive zoom-img" src="images/<?=$hit->img;?>" alt="" /></a>
                         <div class="product-bottom">
                             <h3><a href="product/<?=$hit->alias;?>"><?=$hit->title;?></a></h3>
-                            <p>Explore Now</p>
                             <h4>
-                                <a data-id="<?=$hit->id?>" class="add-to-cart-link" href="cart/add?id=<?=$hit->id;?>"><i></i></a>
                                 <span class=" item_price">
                                     <?=$curr['symbol_left'];?><?=$hit->price * $curr['value'];?><?=$curr['symbol_right'];?>
                                 </span>

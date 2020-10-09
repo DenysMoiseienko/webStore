@@ -113,7 +113,7 @@
                                 </select>
                             </div>
 
-                            <?php new \app\widgets\filter\Filter($filter, WWW . '/filter/admin_filter_tpl.php'); ?>
+<!--                            --><?php //new \app\widgets\filter\Filter($filter, WWW . '/filter/admin_filter_tpl.php'); ?>
 
                             <div class="form-row">
                                 <div class="col-md-4">

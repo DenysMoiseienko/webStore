@@ -81,7 +81,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--start-logo-->
 
 <div class="logo">
-    <a href="<?=PATH;?>"><h1>Luxury Watches</h1></a>
+    <a href="<?=PATH;?>"><h1><?=\store\App::$app->getProperty('shop_name')?></h1></a>
 </div>
 
 <!--start-logo-->
@@ -137,25 +137,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
     <?=$content;?>
 </div>
-
-<!--footer-starts-->
-<div class="footer">
-    <div class="container">
-        <div class="footer-top">
-            <div class="col-md-6 footer-left">
-                <form>
-                    <input type="text" value="Enter Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
-                    <input type="submit" value="Subscribe">
-                </form>
-            </div>
-            <div class="col-md-6 footer-right">
-                <p>© 2015 Luxury Watches. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<!--footer-end-->
 
 <!-- start Modal -->
 <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

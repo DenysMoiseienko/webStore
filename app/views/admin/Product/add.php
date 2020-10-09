@@ -108,7 +108,7 @@
                                 <select name="related[]" class="form-control select2" id="related" multiple></select>
                             </div>
 
-                            <?php new \app\widgets\filter\Filter(null, WWW . '/filter/admin_filter_tpl.php'); ?>
+<!--                            --><?php //new \app\widgets\filter\Filter(null, WWW . '/filter/admin_filter_tpl.php'); ?>
 
                             <div class="form-row">
                                 <div class="col-md-4">
