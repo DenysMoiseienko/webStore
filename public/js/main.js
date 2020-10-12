@@ -109,10 +109,10 @@ function showCart(cart){
     $('#cart .modal-body').html(cart);
     $('#cart').modal();
 
-    if ($('.cart-sum').text()) {
-        $('.simpleCart_total').html($('#cart .cart-sum').text());
+    if ($('.cart-qty').text()) {
+        $('.simpleCart_total').html($('#cart .cart-qty').text());
     } else {
-        $('.simpleCart_total').text('Empty cart');
+        $('.simpleCart_total').text('');
     }
 }
 

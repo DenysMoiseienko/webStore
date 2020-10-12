@@ -40,9 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             Account<span class="caret"></span> </a>
                         <ul class="dropdown-menu">
                             <?php if (!empty($_SESSION['user'])): ?>
-                                <li><a href="#">
-                                        Welcome, <?=h($_SESSION['user']['name'])?>
-                                    </a></li>
+                                <li><a href="user/myaccount"><?=h($_SESSION['user']['name'])?></a></li>
                                 <li><a href="user/logout">Logout</a></li>
                             <?php else: ?>
                                 <a href="user/login">Login</a>
@@ -61,12 +59,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <img src="images/cart-1.png" alt=""/>
                             <?php if (!empty($_SESSION['cart'])): ?>
                                 <span class="simpleCart_total">
-                                    <?=$_SESSION['cart.currency']['symbol_left']
-                                    . $_SESSION['cart.sum']
-                                    . $_SESSION['cart.currency']['symbol_right'];?>
+                                    <?=$_SESSION['cart.qty']?>
                                 </span>
                             <?php else: ?>
-                                <span class="simpleCart_total">Empty cart</span>
+                                <span class="simpleCart_total"></span>
                             <?php endif; ?>
                         </div>
                     </a>
