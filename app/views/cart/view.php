@@ -83,10 +83,7 @@
                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     </div>
                                 <?php endif; ?>
-                                <div class="form-group">
-                                    <label for="address">Note</label>
-                                    <textarea name="note" class="form-control"></textarea>
-                                </div>
+
                                 <button type="submit" class="btn btn-default">Checkout</button>
                             </form>
                             <?php if(isset($_SESSION['form_data'])) unset($_SESSION['form_data']); ?>

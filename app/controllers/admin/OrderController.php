@@ -59,18 +59,14 @@ class OrderController extends AppController {
     }
 
     private function getAllOrders($start, $perPage) {
-        return R::getAll("SELECT `order`.`id`,
-            `order`.`user_id`, `order`.`status`, `order`.`date`, `order`.`update_at`,
-            `order`.`currency`, `user`.`name`, ROUND(SUM(`order_product`.`price` * `order_product`.`qty`), 2) AS `sum` 
+        return R::getAll("SELECT `order`.*, `user`.`name`
             FROM `order` JOIN `user` ON `order`.`user_id` = `user`.`id`
             JOIN `order_product` ON `order`.`id` = `order_product`.`order_id`
             GROUP BY `order`.`id` ORDER BY `order`.`status`, `order`.`id` DESC LIMIT $start, $perPage");
     }
 
     private function getOrderById($order_id) {
-            return R::getRow("SELECT `order`.*, `user`.`name`,
-            ROUND(SUM(`order_product`.`price` * `order_product`.`qty`), 2) AS `sum` 
-            FROM `order`
+            return R::getRow("SELECT `order`.*, `user`.`name` FROM `order`
             JOIN `user` ON `order`.`user_id` = `user`.`id`
             JOIN `order_product` ON `order`.`id` = `order_product`.`order_id`
             WHERE `order`.`id` = ?

@@ -67,32 +67,30 @@ class CartController extends AppController {
     }
 
     public function checkoutAction() {
-        if (!empty($_POST)) {
-            // user registration
-            if (!User::checkAuth()) {
-                $user = new User();
-                $data = $_POST;
-                $user->load($data);
-                if (!$user->validate($data) || !$user->isUnique()) {
-                    $user->getErrors();
-                    $_SESSION['form_data'] = $data;
+        // user registration
+        if (!User::checkAuth()) {
+            $user = new User();
+            $data = $_POST;
+            $user->load($data);
+            if (!$user->validate($data) || !$user->isUnique()) {
+                $user->getErrors();
+                $_SESSION['form_data'] = $data;
+                redirect();
+            } else {
+                $user->attributes['password'] =
+                    password_hash($user->attributes['password'], PASSWORD_DEFAULT);
+                if (!$user_id = $user->save('user')) {
+                    $_SESSION['error'] = 'Error!';
                     redirect();
-                } else {
-                    $user->attributes['password'] =
-                        password_hash($user->attributes['password'], PASSWORD_DEFAULT);
-                    if (!$user_id = $user->save('user')) {
-                        $_SESSION['error'] = 'Error!';
-                        redirect();
-                    }
                 }
             }
-            //save order
-            $data['user_id'] = isset($user_id) ? $user_id : $_SESSION['user']['id'];
-            $data['note'] = !empty($_POST['note']) ? $_POST['note'] : '';
-            $user_email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : $_POST['email'];
-            $order_id = Order::saveOrder($data);
-            Order::mailOrder($order_id, $user_email);
         }
+        //save order
+        $data['user_id'] = isset($user_id) ? $user_id : $_SESSION['user']['id'];
+        $user_email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : $_POST['email'];
+        $order_id = Order::saveOrder($data);
+        Order::mailOrder($order_id, $user_email);
+
         redirect();
     }
 }

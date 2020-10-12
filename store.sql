@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 09, 2020 at 06:01 PM
+-- Generation Time: Oct 12, 2020 at 08:18 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.4.2
 
@@ -241,8 +241,15 @@ CREATE TABLE `order` (
                          `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                          `update_at` timestamp NULL DEFAULT NULL,
                          `currency` varchar(10) NOT NULL,
-                         `note` text
+                         `sum` float NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id`, `user_id`, `status`, `date`, `update_at`, `currency`, `sum`) VALUES
+(1, 18, '0', '2020-10-12 07:30:41', '2020-10-12 08:12:56', 'USD', 170);
 
 -- --------------------------------------------------------
 
@@ -258,6 +265,13 @@ CREATE TABLE `order_product` (
                                  `title` varchar(255) NOT NULL,
                                  `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order_product`
+--
+
+INSERT INTO `order_product` (`id`, `order_id`, `product_id`, `qty`, `title`, `price`) VALUES
+(1, 1, 93, 1, 'Nike Air Max 95 \"Recycled Canvas\" Pack CK6478-001', 170);
 
 -- --------------------------------------------------------
 
@@ -496,13 +510,13 @@ ALTER TABLE `modification`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product`

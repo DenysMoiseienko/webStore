@@ -36,10 +36,6 @@
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
                                 <tbody>
-<!--                                    <tr>-->
-<!--                                        <td>Order nr</td>-->
-<!--                                        <td>--><?//=$order['id'];?><!--</td>-->
-<!--                                    </tr>-->
                                     <tr>
                                         <td>Order date</td>
                                         <td><?=$order['date'];?></td>
@@ -48,10 +44,6 @@
                                         <td>Status</td>
                                         <td><?=$order['status'] ? 'completed' : 'new';?></td>
                                     </tr>
-<!--                                    <tr>-->
-<!--                                        <td>Number of items in the order</td>-->
-<!--                                        <td>--><?//=count($order_products); ?><!--</td>-->
-<!--                                    </tr>-->
                                     <tr>
                                         <td>Amount</td>
                                         <td><?=$order['sum'];?> <?=$order['currency'];?></td>
@@ -59,11 +51,6 @@
                                     <tr>
                                         <td>Customer</td>
                                         <td><?=$order['name'];?></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Note</td>
-                                        <td><?=$order['note'];?></td>
                                     </tr>
                                 </tbody>
                             </table>
