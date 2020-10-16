@@ -17,7 +17,7 @@
                     <li class="breadcrumb-item">
                         <a href="<?=ADMIN;?>/order">Orders list</a>
                     </li>
-                    <li>
+                    <li class="breadcrumb-item">
                         Order: <?=$order['id'];?>
                     </li>
                 </ol>
@@ -68,6 +68,7 @@
                                     <th>Product ID</th>
                                     <th>Title</th>
                                     <th>Quantity</th>
+                                    <th>Size</th>
                                     <th>Price</th>
                                 </tr>
                                 </thead>
@@ -76,12 +77,13 @@
                                     <tr>
                                         <td><?=$product->id; ?></td>
                                         <td><?=$product->title; ?></td>
-                                        <td><?=$product->qty; $qty += $product->qty ?></td>
-                                        <td><?=$product->price; ?></td>
+                                        <td><?=$product->qty;   $qty += $product->qty ?></td>
+                                        <td><?=$product->size?></td>
+                                        <td><?=$product->price * $product->qty; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                                     <tr class="active">
-                                        <td colspan="2">
+                                        <td colspan="3">
                                             <b>Total: </b>
                                         </td>
                                         <td>

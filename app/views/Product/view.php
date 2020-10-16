@@ -17,7 +17,6 @@
             <div class="col-md-9 single-main-left">
                 <div class="sngl-top">
                     <div class="col-md-5 single-top-left">
-
                         <!--start gallery-->
                         <?php if($gallery): ?>
                         <div class="flexslider">
@@ -35,7 +34,6 @@
                             <img src="images/<?=$product->img;?>"/>
                         <?php endif; ?>
                         <!--end gallery-->
-
                     </div>
 
                     <!--start product-->
@@ -75,9 +73,27 @@
                             </div>
                             <?php endif; ?>
 
-<!--                            <div class="quantity">-->
-<!--                                <input type="number" size="4" value="1" name="quantity" min="1" step="1">-->
-<!--                            </div>-->
+                            <?php if ($sizes): ?>
+                                <div class="available">
+                                    <ul>
+                                        <li>Size
+                                            <select>
+                                                <option>Choose size</option>
+                                                <?php foreach($sizes as $size): ?>
+                                                    <option data-title="<?=$size['value'];?>" value="<?=$size['value'];?>">
+                                                        <?=$size['value'];?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </li>
+                                        <div class="clearfix"> </div>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="quantity">
+                                <input type="number" size="4" value="1" name="quantity" min="1" step="1">
+                            </div>
 
                             <a id="productAdd" data-id="<?=$product->id?>" href="cart/add?id=<?=$product->id?>" class="add-cart item_add add-to-cart-link">
                                 ADD TO CART</a>

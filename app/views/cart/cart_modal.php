@@ -5,17 +5,19 @@
                 <tr>
                     <th>Image</th>
                     <th>Name</th>
+                    <th>Size</th>
                     <th>Quantity</th>
                     <th>Price</th>
                     <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($_SESSION['cart'] as $id => $item): ?>
+            <?php foreach($_SESSION['cart'] as $id => $item): ?>
                     <tr>
                         <td><a href="product/<?=$item['alias'];?>"><img src="images/<?=$item['img'];?>" alt=""></a></td>
                         <td><a href="product/<?=$item['alias'];?>"><?=$item['title'];?></td>
-                        <td><?=$item['qty'];?></td>
+                        <td><?=$item['size']?></td>
+                        <td><input data-id="<?=$id;?>" class="cart-quantity" type="number" size="4" value="<?=$item['qty'];?>" name="quantity" min="1" step="1"></td>
                         <td><?=$item['price'];?></td>
                         <td><span data-id="<?=$id;?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
                     </tr>

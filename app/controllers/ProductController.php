@@ -38,11 +38,18 @@ class ProductController extends AppController {
         $gallery = R::findAll('gallery', 'product_id = ?', [$product->id]);
 
         // modifications
-        $mods = R::findAll('modification', 'product_id = ?', [$product->id]);
+        //$mods = R::findAll('modification', 'product_id = ?', [$product->id]);
+
+        // size
+        $sizes = R::getAll("SELECT `size`.`value` FROM `size` JOIN `product_size` 
+                         ON`size`.`id` = `product_size`.`size_id` WHERE `product_size`.`product_id` = ?", [$product->id]);
 
         $this->setMeta($product->title, $product->description, $product->keywords);
         $this->set(compact(
-            'product', 'related', 'gallery', 'recentlyViewed', 'breadcrumbs', 'mods'));
+            'product', 'related', 'gallery', 'recentlyViewed', 'breadcrumbs', 'sizes'));
+
+        //$this->set(compact(
+        //    'product', 'related', 'gallery', 'recentlyViewed', 'breadcrumbs', 'mods', 'sizes'));
     }
 
 }

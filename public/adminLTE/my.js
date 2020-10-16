@@ -57,6 +57,12 @@ $('#reset-filter').click(function() {
     return false;
 });
 
+// Reset size
+$('#reset-size').click(function() {
+    $('#reset select').prop('selectedIndex', 0);
+    return false;
+});
+
 // Select2
 $(".select2").select2({
     placeholder: 'Enter product name',
@@ -122,6 +128,17 @@ if (buttonMulti) {
 $('#add').on('submit', function () {
     if (!isNumeric($('#category_id').val())) {
         alert('Choose category!');
+        return false;
+    }
+});
+
+$('#details').on('submit', function () {
+    if (!isNumeric($('#size').val())) {
+        alert('Choose size!');
+        return false;
+    }
+    if (!isNumeric($('#quantity').val())) {
+        alert('Choose quantity!');
         return false;
     }
 });

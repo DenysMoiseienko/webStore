@@ -16,11 +16,29 @@ class ProductController extends AppController {
         $count = R::count('product');
         $pagination = new Pagination($page, $perPage, $count);
         $start = $pagination->getStart();
-
         $products = $this->getAllProducts($start, $perPage);
-
         $this->setMeta('Products list');
         $this->set(compact('products', 'pagination', 'count', 'start', 'page', 'perPage'));
+    }
+
+    public function viewAction() {
+        $id = $this->getRequestID();
+        $product = R::findOne('product', 'id = ?', [$id]);
+        $all_sizes = R::findAll('size', 'ORDER BY value');
+        $product_sizes = R::getAll("SELECT `size`.`value`, `product_size`.`qty` FROM `size` JOIN `product_size` 
+            ON`size`.`id` = `product_size`.`size_id` WHERE `product_size`.`product_id` = ? ORDER BY `size`.`value`", [$id]);
+
+        if (!empty($_POST)) {
+            $size = $_POST['size'];
+            $quantity = !empty($_POST['quantity']) ? $_POST['quantity'] : 0;
+            $id_size = R::findOne('size', 'value = ?', [$size]);
+
+            $this->addSizeAndQuantity($id_size['id'], $quantity, $id);
+            $_SESSION['success'] = 'Changes saved';
+            redirect();
+        }
+        $this->setMeta('Product');
+        $this->set(compact('product', 'product_sizes', 'all_sizes'));
     }
 
     public function addImageAction() {
@@ -64,7 +82,6 @@ class ProductController extends AppController {
                 redirect();
             }
         }
-
         $id = $this->getRequestID();
         $product = R::load('product', $id);
         App::$app->setProperty('parent_id', $product->category_id);
@@ -127,29 +144,30 @@ class ProductController extends AppController {
         if ($mod_ids) {
             R::exec('DELETE FROM modification WHERE product_id = ?', [$product_id]);
         }
-
         // remove base image
         $img = R::getCell('SELECT img FROM product WHERE id= ?', [$product_id]);
         $link = 'images/' . $img;
         unlink($link);
-
         // remove gallery image
         foreach ($gallery_items as $img) {
             $link = 'images/' . $img;
             unlink($link);
         }
-
         R::exec('DELETE FROM product WHERE id = ?', [$product_id]);
-
         $_SESSION['success'] = "Product and his orders has been removed";
         redirect(ADMIN . '/product');
     }
 
-    private function getAllProducts($start, $perPage) {
-        return R::getAll("SELECT product.id, product.title, 
-            product.price, product.status, category.title AS cat FROM product
-            JOIN category ON category.id = product.category_id ORDER BY product.title
-            LIMIT $start, $perPage");
+    public function deleteGalleryAction() {
+        $id = isset($_POST['id']) ? $_POST['id'] : null;
+        $src = isset($_POST['src']) ? $_POST['src'] : null;
+        if (!$id || !$src) {
+            return;
+        }
+        if (R::exec("DELETE FROM gallery WHERE product_id = ? AND img = ?", [$id, $src])) {
+            @unlink(WWW . "/images/$src");
+            exit('1');
+        }
     }
 
     public function relatedProductAction(){
@@ -169,22 +187,22 @@ class ProductController extends AppController {
         die;
     }
 
+    private function getAllProducts($start, $perPage) {
+        return R::getAll("SELECT id, title, price, status, img FROM product ORDER BY product.title
+            LIMIT $start, $perPage");
+    }
+
     private function getRelatedProductById($id) {
         return R::getAll("SELECT related_product.related_id, product.title
             FROM related_product JOIN product ON product.id = related_product.related_id 
             WHERE related_product.product_id = ?", [$id]);
     }
 
-    public function deleteGalleryAction() {
-        $id = isset($_POST['id']) ? $_POST['id'] : null;
-        $src = isset($_POST['src']) ? $_POST['src'] : null;
-        if (!$id || !$src) {
-            return;
+    private function addSizeAndQuantity($size_id, $qty, $product_id) {
+        $data = R::findOne('product_size', 'size_id = ? AND product_id = ?', [$size_id, $product_id]);
+        if ($data) {
+            R::exec("DELETE FROM product_size WHERE size_id = ? AND product_id = ?", [$size_id, $product_id]);
         }
-        if (R::exec("DELETE FROM gallery WHERE product_id = ? AND img = ?", [$id, $src])) {
-            @unlink(WWW . "/images/$src");
-            exit('1');
-        }
-        return;
+        R::exec("INSERT INTO product_size (size_id, qty, product_id) VALUES ($size_id, $qty, $product_id)");
     }
 }

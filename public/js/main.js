@@ -68,17 +68,22 @@ $('body').on('click', '.add-to-cart-link', function(e) {
 
     var id = $(this).data('id'),
         qty = $('.quantity input').val() ? $('.quantity input').val() : 1,
-        mod = $('.available select').val();
+        //mod = $('.available select').val(),
+        size = $('.available select').val();
 
     $.ajax({
         url: 'cart/add',
-        data: {id: id, qty: qty, mod: mod},
+        //data: {id: id, qty: qty, mod: mod, size: size},
+        data: {id: id, qty: qty, size: size},
         type: 'GET',
         success: function (res) {
             showCart(res);
         },
         error: function () {
-            alert('Error! Try again later')
+            if (size != '') {
+                alert('Choose size')
+            }
+            //alert('Error! Try again later');
         }
     });
 
@@ -102,9 +107,9 @@ $('#cart .modal-body').on('click', '.del-item', function () {
 
 function showCart(cart){
     if($.trim(cart) == '<h3>Cart is Empty</h3>') {
-        $('#cart .modal-footer a, #cart .modal-footer .btn-danger').css('display', 'none');
+        $('#cart .modal-footer a, #cart .modal-footer .btn-danger, #cart .modal-footer .btn-primary').css('display', 'none');
     } else {
-        $('#cart .modal-footer a, #cart .modal-footer .btn-danger').css('display', 'inline-block');
+        $('#cart .modal-footer a, #cart .modal-footer .btn-danger, #cart .modal-footer .btn-primary').css('display', 'inline-block');
     }
     $('#cart .modal-body').html(cart);
     $('#cart').modal();
@@ -141,6 +146,29 @@ function clearCart() {
         }
     });
 }
+
+function recalculate() {
+    var qty = [],
+        id = [];
+
+    $('input.cart-quantity').each(function () {
+        qty.push($(this).val());
+        id.push($(this).data('id'));
+    });
+
+    $.ajax({
+        url: 'cart/recalculate',
+        data: {qty: qty, id: id},
+        type: 'GET',
+        success: function (res) {
+            showCart(res);
+        },
+        error: function () {
+            alert('Error! Try again later')
+        }
+    });
+}
+
 
 /* Currency */
 $('#currency'). change(function() {

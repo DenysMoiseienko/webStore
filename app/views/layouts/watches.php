@@ -151,7 +151,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continue shopping</button>
-                <a href="cart/view" type="button" class="btn btn-primary">Order</a>
+                <button type="button" class="btn btn-primary" onclick="recalculate()">Recalculate</button>
+                <a href="cart/view" type="button" class="btn btn-success">Order</a>
                 <button type="button" class="btn btn-danger" onclick="clearCart()">Empty cart</button>
             </div>
         </div>
