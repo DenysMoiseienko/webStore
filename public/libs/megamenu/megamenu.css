@@ -1,0 +1,112 @@
+  :root{
+      --main-color: #97b498;
+      --secondary-color: #c7e5c8;
+  }
+  .sidebar-nav{
+    font-size: 1.4rem;
+  }
+  .sidebar-nav .menu-dropdown-icon {
+    border:none;
+    color: #fff!important;
+  }
+  .navbar-light .navbar-nav .nav-link {
+    color:#fff;
+  }
+  .sidebar-nav > ul {
+    margin: 0 auto;
+    width: 100%;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  .sidebar-nav a.closebtn {
+    font-size: 1.5rem;
+    margin-left: auto;
+    display: block;
+    padding: 10px 15px;
+    color: var(--main-color);
+    width: 60px;
+    text-align: center;
+  }
+  .sidebar-nav > ul > li {
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar-nav > ul > li a {
+    text-decoration: none;
+    display: inline-block;
+    color:#fff;
+    padding: 10px 15px!important;
+  }
+  .sidebar-nav > ul > li:hover {
+    background: var(--secondary-color);
+  }
+  .sidebar-nav > ul > li.active{
+    background: var(--secondary-color);
+  }
+  .sidebar-nav > ul > li button.menu-has-items-toggle {
+    border: none;
+    background: transparent;
+    color: #fff;
+  }
+  .sidebar-nav > ul > li.active a, 
+  .sidebar-nav > ul > li.active button,
+  .sidebar-nav > ul > li.active button.menu-has-items-toggle {
+    color: #000;
+  }
+  .sidebar-nav > ul > li.active button.menu-has-items-toggle.active {
+    transform: rotate(90deg);
+  }
+  button.menu-has-items-toggle:focus {
+    outline: unset;
+  }
+  .sidebar-nav li.nav-item.active .nav-item {
+    border-bottom: 1px solid var(--secondary-color);
+  }
+  .sidebar-nav > ul > li:hover > a, .sidebar-nav > ul > li:hover > button{
+    color: #000;
+  }
+  .sidebar-nav > ul > li > ul {
+    display: none;
+    width: 100%;
+    background:var(--main-color);
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  .sidebar-nav > ul > li > ul > li {
+    margin: 0;
+    padding-bottom: 0;
+    list-style: none;
+    background: none;
+  }
+  .sidebar-nav > ul > li > ul > li a {
+    padding: 10px 5px;
+    display: inline-block;
+  }
+  .sidebar-nav > ul > li > ul > li > ul {
+    display: none;
+    padding: 0;
+    margin: 10px 0 0;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  
+  .sidebar-nav > ul > li > ul > li > ul > li {
+    width: 100%;
+    padding: 0 25px;
+    margin: 0;
+    font-size: 0.8em;
+  }
+  .sidebar-nav > ul > li > ul > li > ul > li a {
+    border: 0;
+  }
+  .sidebar-nav > ul > li > ul.normal-sub {
+    padding: 10px 20px;
+  }
+  .sidebar-nav > ul > li > ul.normal-sub > li {
+    width: 100%;
+  }
+  .sidebar-nav > ul > li > ul.normal-sub > li a {
+    border: 0;
+    padding: 1em 0;
+  }

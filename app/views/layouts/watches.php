@@ -28,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="col-md-6 top-header-left">
                 <div class="drop">
                     <div class="box">
-
+                    
                         <select id="currency" tabindex="4" class="dropdown drop">
                             <?php new \app\widgets\currency\Currency()?>
                         </select>
@@ -40,9 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             Account<span class="caret"></span> </a>
                         <ul class="dropdown-menu">
                             <?php if (!empty($_SESSION['user'])): ?>
-                                <li><a href="#">
-                                        Welcome, <?=h($_SESSION['user']['name'])?>
-                                    </a></li>
+                                <li><a href="user/myaccount"><?=h($_SESSION['user']['name'])?></a></li>
                                 <li><a href="user/logout">Logout</a></li>
                             <?php else: ?>
                                 <a href="user/login">Login</a>

@@ -13,7 +13,7 @@ class Menu {
     protected $menuHtml;
     protected $tpl;
     protected $container = 'ul';
-    protected $class = 'menu';
+    protected $class = 'menu navbar-nav';
     protected $table = 'category';
     protected $cache = 3600;
     protected $cacheKey = 'store_menu';
