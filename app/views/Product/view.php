@@ -80,7 +80,7 @@
                                             <select>
                                                 <option>Choose size</option>
                                                 <?php foreach($sizes as $size): ?>
-                                                    <option data-title="<?=$size['value'];?>" value="<?=$size['value'];?>">
+                                                    <option data-id="<?=$size['id'];?>" data-qty="<?=$size['qty'];?>" value="<?=$size['value'];?>">
                                                         <?=$size['value'];?>
                                                     </option>
                                                 <?php endforeach; ?>

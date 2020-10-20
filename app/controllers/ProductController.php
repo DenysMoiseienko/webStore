@@ -41,7 +41,7 @@ class ProductController extends AppController {
         //$mods = R::findAll('modification', 'product_id = ?', [$product->id]);
 
         // size
-        $sizes = R::getAll("SELECT `size`.`value` FROM `size` JOIN `product_size` 
+        $sizes = R::getAll("SELECT `size`.*, `product_size`.`qty` FROM `size` JOIN `product_size` 
                          ON`size`.`id` = `product_size`.`size_id` WHERE `product_size`.`product_id` = ?", [$product->id]);
 
         $this->setMeta($product->title, $product->description, $product->keywords);

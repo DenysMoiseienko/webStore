@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\admin\ProductSize;
 use app\models\Cart;
 use app\models\Order;
 use app\models\User;
@@ -37,10 +38,13 @@ class CartController extends AppController {
     public function addAction() {
         $id = !empty($_GET['id']) ? (int)$_GET['id'] : null;
         $qty = !empty($_GET['qty']) ? (int)$_GET['qty'] : null;
-        //size
         $size = !empty($_GET['size']) ? (int)$_GET['size'] : null;
+        $size_id = !empty($_GET['size_id']) ? (int)$_GET['size_id'] : null;
+        $available_qty = !empty($_GET['available_qty']) ? (int)$_GET['available_qty'] : null;
 
         $mod = null;
+
+        //debug($_GET, 1);
 
         if($id) {
             $product = R::findOne('product', 'id = ?', [$id]);
@@ -48,10 +52,13 @@ class CartController extends AppController {
                 return false;
             }
         }
+        if ($qty > $available_qty) {
+            return false;
+        }
 
         if ($size) {
             $cart = new Cart();
-            $cart->addToCart($product, $qty, $size);
+            $cart->addToCart($product, $qty, $size, $available_qty, $size_id);
 
             if ($this->isAjax()) {
                 $this->loadView('cart_modal');
@@ -130,6 +137,7 @@ class CartController extends AppController {
         $data['user_id'] = isset($user_id) ? $user_id : $_SESSION['user']['id'];
         $user_email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : $_POST['email'];
         $order_id = Order::saveOrder($data);
+        ProductSize::updateSizeAndQuantity();
         Order::mailOrder($order_id, $user_email);
 
         redirect();

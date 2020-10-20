@@ -39,10 +39,10 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><img src="images/<?=$product->img;?>" alt="" /></td>
-                                        <td><?=$product->title;?></td>
-                                    </tr>
+                                <tr>
+                                    <td><img src="images/<?=$product->img;?>" alt="" /></td>
+                                    <td><?=$product->title;?></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -76,7 +76,7 @@
                             </div>
                         </div>
 
-                        <form action="<?=ADMIN;?>/product/view?id=<?=$product['id'];?>" method="post" id="details">
+                        <form action="<?=ADMIN;?>/productsize/view?id=<?=$product['id'];?>" method="post" id="details">
                             <div class="card card-secondary collapsed-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Size and quantity</h3>

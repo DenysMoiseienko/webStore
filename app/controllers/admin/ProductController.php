@@ -3,6 +3,7 @@
 namespace app\controllers\admin;
 
 use app\models\admin\Product;
+use app\models\admin\ProductSize;
 use app\models\AppModel;
 use RedBeanPHP\R;
 use store\App;
@@ -19,26 +20,6 @@ class ProductController extends AppController {
         $products = $this->getAllProducts($start, $perPage);
         $this->setMeta('Products list');
         $this->set(compact('products', 'pagination', 'count', 'start', 'page', 'perPage'));
-    }
-
-    public function viewAction() {
-        $id = $this->getRequestID();
-        $product = R::findOne('product', 'id = ?', [$id]);
-        $all_sizes = R::findAll('size', 'ORDER BY value');
-        $product_sizes = R::getAll("SELECT `size`.`value`, `product_size`.`qty` FROM `size` JOIN `product_size` 
-            ON`size`.`id` = `product_size`.`size_id` WHERE `product_size`.`product_id` = ? ORDER BY `size`.`value`", [$id]);
-
-        if (!empty($_POST)) {
-            $size = $_POST['size'];
-            $quantity = !empty($_POST['quantity']) ? $_POST['quantity'] : 0;
-            $id_size = R::findOne('size', 'value = ?', [$size]);
-
-            $this->addSizeAndQuantity($id_size['id'], $quantity, $id);
-            $_SESSION['success'] = 'Changes saved';
-            redirect();
-        }
-        $this->setMeta('Product');
-        $this->set(compact('product', 'product_sizes', 'all_sizes'));
     }
 
     public function addImageAction() {
@@ -196,13 +177,5 @@ class ProductController extends AppController {
         return R::getAll("SELECT related_product.related_id, product.title
             FROM related_product JOIN product ON product.id = related_product.related_id 
             WHERE related_product.product_id = ?", [$id]);
-    }
-
-    private function addSizeAndQuantity($size_id, $qty, $product_id) {
-        $data = R::findOne('product_size', 'size_id = ? AND product_id = ?', [$size_id, $product_id]);
-        if ($data) {
-            R::exec("DELETE FROM product_size WHERE size_id = ? AND product_id = ?", [$size_id, $product_id]);
-        }
-        R::exec("INSERT INTO product_size (size_id, qty, product_id) VALUES ($size_id, $qty, $product_id)");
     }
 }

@@ -68,22 +68,27 @@ $('body').on('click', '.add-to-cart-link', function(e) {
 
     var id = $(this).data('id'),
         qty = $('.quantity input').val() ? $('.quantity input').val() : 1,
+        size = $('.available select').val(),
+        size_id = $('.available select').find('option').filter(':selected').data('id'),
+        available_qty = $('.available select').find('option').filter(':selected').data('qty');
         //mod = $('.available select').val(),
-        size = $('.available select').val();
 
     $.ajax({
         url: 'cart/add',
         //data: {id: id, qty: qty, mod: mod, size: size},
-        data: {id: id, qty: qty, size: size},
+        data: {id: id, qty: qty, size: size, size_id: size_id, available_qty: available_qty},
+        //data: {id: id, qty: qty},
         type: 'GET',
         success: function (res) {
             showCart(res);
         },
         error: function () {
-            if (size != '') {
-                alert('Choose size')
+            if (!isNumeric(size)) {
+                alert('Choose size');
             }
-            //alert('Error! Try again later');
+            if (qty > available_qty) {
+                alert('Error! invalid amount');
+            }
         }
     });
 
@@ -179,6 +184,8 @@ $('.available select').on('change', function () {
     var modId = $(this).val(),
         color = $(this).find('option').filter(':selected').data('title'),
         price = $(this).find('option').filter(':selected').data('price'),
+        // size_id = $(this).find('option').filter(':selected').data('testId'),
+        // available_qty = $(this).find('option').filter(':selected').data('testQty'),
         basePrice = $('#base-price').data('base');
     if (price) {
         $('#base-price').text(symbolLeft + price + symbolRight);
@@ -186,3 +193,7 @@ $('.available select').on('change', function () {
         $('#base-price').text(symbolLeft + basePrice + symbolRight);
     }
 });
+
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
