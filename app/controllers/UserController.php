@@ -92,7 +92,7 @@ class UserController extends AppController {
         if (!User::checkAuth()) {
             redirect('/webStore/user/login');
         }
-        $orders = R::findAll('order', 'user_id = ?',  [$_SESSION['user']['id']]);
+        $orders = R::findAll('order', 'user_id = ? ORDER BY date DESC',  [$_SESSION['user']['id']]);
         $this->setMeta('Order history');
         $this->set(compact('orders'));
     }

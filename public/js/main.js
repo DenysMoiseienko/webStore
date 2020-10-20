@@ -184,9 +184,13 @@ $('.available select').on('change', function () {
     var modId = $(this).val(),
         color = $(this).find('option').filter(':selected').data('title'),
         price = $(this).find('option').filter(':selected').data('price'),
-        // size_id = $(this).find('option').filter(':selected').data('testId'),
-        // available_qty = $(this).find('option').filter(':selected').data('testQty'),
+        available_qty = $(this).find('option').filter(':selected').data('qty'),
         basePrice = $('#base-price').data('base');
+
+    $('.quantity input').val('1');
+    if (available_qty) {
+        $('.quantity input').attr('max', available_qty);
+    }
     if (price) {
         $('#base-price').text(symbolLeft + price + symbolRight);
     } else {
