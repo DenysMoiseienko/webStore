@@ -7,6 +7,7 @@ use app\models\Category;
 use app\widgets\filter\Filter;
 use RedBeanPHP\R;
 use store\App;
+use store\Cache;
 use store\libs\Pagination;
 
 class CategoryController extends AppController {
@@ -45,8 +46,13 @@ class CategoryController extends AppController {
         $pagination = new Pagination($page, $perPage, $total);
         $start = $pagination->getStart();
 
-        $products = R::find('product', "status = '1' AND category_id IN ($ids) $sql_part LIMIT $start, $perPage");
-
+        // sort by price
+        $data = !empty($_GET['sort']) ? $_GET['sort'] : null;
+        $orderBy = '';
+        if ($data) {
+            $orderBy .= "ORDER BY price {$data}";
+        }
+        $products = R::find('product', "status = '1' AND category_id IN ($ids) $sql_part $orderBy LIMIT $start, $perPage");
         if ($this->isAjax()) {
             $this->loadView('filter', compact('products', 'pagination', 'total'));
         }

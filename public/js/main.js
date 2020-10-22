@@ -1,6 +1,6 @@
 /* Filters */
-$("body").on('change', '.w_sidebar input', function () {
-    var checked = $('.w_sidebar input:checked'),
+$("body").on('change', '.filter_bar input', function () {
+    var checked = $('.filter_bar input:checked'),
         data = '';
 
     checked.each(function () {
@@ -12,20 +12,13 @@ $("body").on('change', '.w_sidebar input', function () {
             url: location.href,
             data: {filter: data},
             type: 'GET',
-            beforeSend: function () {
-                $('.preloader').fadeIn(300, function () {
-                    $('.product-one').hide();
-                });
-            },
             success: function (res) {
-                $('.preloader').delay(500).fadeOut('slow', function () {
-                    $('.product-one').html(res).fadeIn();
-                    var url = location.search.replace(/filter(.+?)(&|$)/g, '');
-                    var newURL = location.pathname + url + (location.search ? "&" : "?") + "filter=" + data;
-                    newURL = newURL.replace('&&', '&');
-                    newURL = newURL.replace('?&', '?');
-                    history.pushState({}, '', newURL);
-                });
+                $('.product-one').html(res);
+                var url = location.search.replace(/filter(.+?)(&|$)/g, '');
+                var newURL = location.pathname + url + (location.search ? "&" : "?") + "filter=" + data;
+                newURL = newURL.replace('&&', '&');
+                newURL = newURL.replace('?&', '?');
+                history.pushState({}, '', newURL);
             },
             error: function () {
                 alert('Error!');
@@ -201,3 +194,27 @@ $('.available select').on('change', function () {
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
+
+// sort by price (test)
+$('.sort select').on('change', function () {
+    var sort = $(this).val();
+
+
+    $.ajax({
+        url: location.href,
+        data: {sort: sort},
+        type: 'GET',
+        success: function (res) {
+            $('.product-one').html(res);
+
+            var url = location.search.replace(/sort(.+?)(&|$)/g, '');
+            var newURL = location.pathname + url + (location.search ? "&" : "?") + "sort=" + sort;
+            newURL = newURL.replace('&&', '&');
+            newURL = newURL.replace('?&', '?');
+            history.pushState({}, '', newURL);
+            },
+            error: function () {
+                alert("Error!!!");
+            }
+        });
+});

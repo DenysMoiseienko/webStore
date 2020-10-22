@@ -106,7 +106,7 @@
                                 </div>
                             </div>
 
-<!--                        --><?php //new \app\widgets\filter\Filter($filter, WWW . '/filter/admin_filter_tpl.php'); ?>
+                        <?php new \app\widgets\filter\Filter($filter, WWW . '/filter/admin_filter_tpl.php'); ?>
 
                             <div class="card card-secondary collapsed-card">
                                 <div class="card-header">
