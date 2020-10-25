@@ -27,7 +27,7 @@ class CategoryController extends AppController {
 
         // pagination
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $perpage = App::$app->getProperty('pagination');
+        $perPage = App::$app->getProperty('pagination');
 
         // filters
         $sql_part = '';
@@ -41,10 +41,11 @@ class CategoryController extends AppController {
         }
 
         $total = R::count('product', "category_id IN ($ids) $sql_part");
-        $pagination = new Pagination($page, $perpage, $total);
-        $start = $pagination->getStart();////
+        //$total = R::count('product', "category_id IN ($ids)");
+        $pagination = new Pagination($page, $perPage, $total);
+        $start = $pagination->getStart();
 
-        $products = R::find('product', "status = '1' AND category_id IN ($ids) $sql_part LIMIT $start, $perpage");
+        $products = R::find('product', "status = '1' AND category_id IN ($ids) $sql_part LIMIT $start, $perPage");
 
         if ($this->isAjax()) {
             $this->loadView('filter', compact('products', 'pagination', 'total'));

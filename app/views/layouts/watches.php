@@ -59,12 +59,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <img src="images/cart-1.png" alt=""/>
                             <?php if (!empty($_SESSION['cart'])): ?>
                                 <span class="simpleCart_total">
-                                    <?=$_SESSION['cart.currency']['symbol_left']
-                                    . $_SESSION['cart.sum']
-                                    . $_SESSION['cart.currency']['symbol_right'];?>
+                                    <?=$_SESSION['cart.qty']?>
                                 </span>
                             <?php else: ?>
-                                <span class="simpleCart_total">Empty cart</span>
+                                <span class="simpleCart_total"></span>
                             <?php endif; ?>
                         </div>
                     </a>
@@ -153,7 +151,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continue shopping</button>
-                <a href="cart/view" type="button" class="btn btn-primary">Order</a>
+                <button type="button" class="btn btn-primary" onclick="recalculate()">Recalculate</button>
+                <a href="cart/view" type="button" class="btn btn-success">Order</a>
                 <button type="button" class="btn btn-danger" onclick="clearCart()">Empty cart</button>
             </div>
         </div>

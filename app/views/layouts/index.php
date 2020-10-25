@@ -5,20 +5,19 @@
     <?=$this->getMeta();?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />    
-    <link href="libs/megamenu/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
     <link href="fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
 
 </head>
 <body>
-<header class="navbar navbar-light bg-light">
+<header class="navbar main-navbar">
     <div>
         <button class="open-nav" onclick="openNav()">&#9776;</button>
         <a class="navbar-brand" href="<?=PATH;?>"><h1><?=\store\App::$app->getProperty('shop_name')?></h1></a>
         <nav id="sidebar-nav" class="sidebar-nav">  
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
             <?php new \app\widgets\menu\Menu(['tpl' => WWW . '/menu/menu.php']); ?>
             
             <ul class="menu navbar-nav">
@@ -46,15 +45,16 @@
     <div class="box d-flex align-middle"> 
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control custom-input mr-sm-2 typeahead" type="text" id="typeahead" name="s" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-dark my-2 my-sm-0" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
         </form>                   
         <!-- <select id="currency" tabindex="4" class="dropdown drop"> -->
             <?php// new \app\widgets\currency\Currency()?>
         <!-- </select> -->
         <div class="cart box_1">
-            <a href="cart/show" onclick="getCart(); return false;">
-                <div class="total">
-                    <img src="images/cart-1.png" alt=""/>
+            <a class="btn btn-dark my-2 my-sm-0 ml-2" href="cart/show" onclick="getCart(); return false;">
+                <div class="total">                    
                     <?php if (!empty($_SESSION['cart'])): ?>
                         <span class="simpleCart_total">
                             <?=$_SESSION['cart.qty'];?>
@@ -92,7 +92,8 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continue shopping</button>
-                <a href="cart/view" type="button" class="btn btn-primary">Order</a>
+                <button type="button" class="btn btn-primary" onclick="recalculate()">Recalculate</button>
+                <a href="cart/view" type="button" class="btn btn-success">Order</a>
                 <button type="button" class="btn btn-danger" onclick="clearCart()">Empty cart</button>
             </div>
         </div>
@@ -111,6 +112,7 @@
 <script src="libs/jquery.min.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
 <script src="libs/validator.js"></script>
+<script src="libs/megamenu/megamenu.js"></script>
 <script src="libs/typeahead.bundle.js"></script>
 <script src="js/main.js"></script>
 

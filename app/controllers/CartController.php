@@ -9,10 +9,37 @@ use RedBeanPHP\R;
 
 class CartController extends AppController {
 
+//    public function addAction() {
+//        $id = !empty($_GET['id']) ? (int)$_GET['id'] : null;
+//        $qty = !empty($_GET['qty']) ? (int)$_GET['qty'] : null;
+//        $mod_Id = !empty($_GET['mod']) ? (int)$_GET['mod'] : null;
+//        $mod = null;
+//
+//        if($id) {
+//            $product = R::findOne('product', 'id = ?', [$id]);
+//            if(!$product){
+//                return false;
+//            }
+//            if($mod_Id) {
+//                $mod = R::findOne('modification', 'id = ? AND product_id = ?',
+//                    [$mod_Id, $id]);
+//            }
+//        }
+//        $cart = new Cart();
+//        $cart->addToCart($product, $qty, $mod);
+//
+//        if ($this->isAjax()) {
+//            $this->loadView('cart_modal');
+//        }
+//        redirect();
+//    }
+
     public function addAction() {
         $id = !empty($_GET['id']) ? (int)$_GET['id'] : null;
         $qty = !empty($_GET['qty']) ? (int)$_GET['qty'] : null;
-        $mod_Id = !empty($_GET['mod']) ? (int)$_GET['mod'] : null;
+        //size
+        $size = !empty($_GET['size']) ? (int)$_GET['size'] : null;
+
         $mod = null;
 
         if($id) {
@@ -20,14 +47,28 @@ class CartController extends AppController {
             if(!$product){
                 return false;
             }
-            if($mod_Id) {
-                $mod = R::findOne('modification', 'id = ? AND product_id = ?',
-                    [$mod_Id, $id]);
-            }
         }
-        $cart = new Cart();
-        $cart->addToCart($product, $qty, $mod);
 
+        if ($size) {
+            $cart = new Cart();
+            $cart->addToCart($product, $qty, $size);
+
+            if ($this->isAjax()) {
+                $this->loadView('cart_modal');
+            }
+            redirect();
+        }
+        return false;
+    }
+
+    public function recalculateAction() {
+        $id = !empty($_GET['id']) ? $_GET['id'] : null;
+        $qty = !empty($_GET['qty']) ? $_GET['qty'] : null;
+
+        for ($i = 0; $i < count($id); $i++){
+            $cart = new Cart();
+            $cart->recalculateItem($id[$i], $qty[$i]);
+        }
         if ($this->isAjax()) {
             $this->loadView('cart_modal');
         }

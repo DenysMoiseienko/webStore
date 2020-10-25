@@ -25,10 +25,10 @@ class Order extends AppModel {
         foreach ($_SESSION['cart'] as $product_id => $product) {
             $product_id = (int) $product_id;
             $sql_part .= "($order_id, $product_id,
-                 {$product['qty']}, '{$product['title']}', {$product['price']}),";
+                 {$product['qty']},{$product['size']}, '{$product['title']}', {$product['price']}),";
         }
         $sql_part = rtrim($sql_part, ',');
-        R::exec("INSERT INTO order_product (order_id, product_id, qty, title, price) VALUES $sql_part");
+        R::exec("INSERT INTO order_product (order_id, product_id, qty, size, title, price) VALUES $sql_part");
     }
 
     public static function mailOrder($order_id, $user_email) {

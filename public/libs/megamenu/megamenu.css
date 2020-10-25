@@ -1,7 +1,23 @@
-  :root{
-      --main-color: #97b498;
-      --secondary-color: #c7e5c8;
-  }
+
+  /* sidebar-nav */
+  .sidebar-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0; 
+    left: 0;
+    background-color: #5a5a5a;
+    overflow-x: hidden;
+    transition:  all 0.1s linear;
+    color: #fff;
+}
+.open-nav{
+    border: none;
+    padding: 5px 10px;
+    background: transparent;
+    font-size: 1.8rem;
+}
   .sidebar-nav{
     font-size: 1.4rem;
   }

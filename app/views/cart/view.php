@@ -28,6 +28,7 @@
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Quantity</th>
+                                    <th>Size</th>
                                     <th>Price</th>
                                     <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
                                 </tr>
@@ -38,6 +39,7 @@
                                         <td><a href="product/<?=$item['alias'] ?>"><img src="images/<?= $item['img'] ?>" alt="<?=$item['title'] ?>"></a></td>
                                         <td><a href="product/<?=$item['alias'] ?>"><?=$item['title'] ?></a></td>
                                         <td><?=$item['qty'] ?></td>
+                                        <td><?=$item['size'] ?></td>
                                         <td><?=$item['price'] ?></td>
                                         <td><a href="cart/delete/?id=<?=$id ?>"><span data-id="<?=$id ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></a></td>
                                     </tr>

@@ -35,11 +35,12 @@
 
                                 <thead>
                                 <tr>
+                                    <th>image</th>
                                     <th>ID</th>
-                                    <th>Category</th>
                                     <th>Title</th>
                                     <th>Price</th>
                                     <th>Status</th>
+                                    <th>Details</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -49,11 +50,14 @@
                                 <?php foreach ($products as $product): ?>
 
                                     <tr>
+                                        <td><img src="images/<?=$product['img'];?>" alt="" /></td>
                                         <td><?=$product['id'];?></td>
-                                        <td><?=$product['cat'];?></td>
                                         <td><?=$product['title'];?></td>
                                         <td><?=$product['price'];?></td>
-                                        <td><?=$product['status'] ? 'on' : 'off';?></td>
+                                        <td><?=$product['status'] ? 'In stock' : 'Out of stock';?></td>
+                                        <td><a href="<?=ADMIN;?>/product/view?id=<?=$product['id'];?>">
+                                                <i class="fa fa-eye text-black-50"></i></a>
+                                        </td>
                                         <td><a href="<?=ADMIN;?>/product/edit?id=<?=$product['id'];?>">
                                                 <i class="fa fa-pen text-black-50"></i></a>
                                         </td>

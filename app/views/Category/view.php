@@ -51,6 +51,7 @@
                     <h3>No products in this category yet</h3>
                 <?php endif; ?>
             </div>
+
 <!--            <div class="col-md-3 prdt-right">-->
 <!--                <div class="w_sidebar">-->
 <!---->
@@ -58,6 +59,7 @@
 <!---->
 <!--                </div>-->
 <!--            </div>-->
+
             <div class="clearfix"></div>
         </div>
     </div>
