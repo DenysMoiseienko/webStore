@@ -7,6 +7,8 @@ tmp/*
 
 public/images/
 
+public/receipts/
+
 /vendor/gabordemooij/
 
 /vendor/vlucas/
