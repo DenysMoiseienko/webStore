@@ -124,6 +124,20 @@
                                 </div>
                             </div>
 
+                            <div class="card card-secondary collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Filters</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                            <i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="display: none;">
+                                    <?php new \app\widgets\filter\Filter(null, WWW . '/filter/admin_filter_tpl.php'); ?>
+                                </div>
+                            </div>
+
 <!--                            --><?php //new \app\widgets\filter\Filter(null, WWW . '/filter/admin_filter_tpl.php'); ?>
 
                             <div class="card card-secondary collapsed-card">

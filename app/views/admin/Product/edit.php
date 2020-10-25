@@ -106,8 +106,6 @@
                                 </div>
                             </div>
 
-                        <?php new \app\widgets\filter\Filter($filter, WWW . '/filter/admin_filter_tpl.php'); ?>
-
                             <div class="card card-secondary collapsed-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Content</h3>
@@ -121,6 +119,20 @@
                                     <div class="form-group has-feedback">
                                         <textarea class="textarea" name="content" id="editor1" cols="80" rows="10"><?=$product->content;?></textarea>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="card card-secondary collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Filters</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                            <i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="display: none;">
+                                    <?php new \app\widgets\filter\Filter($filter, WWW . '/filter/admin_filter_tpl.php'); ?>
                                 </div>
                             </div>
 
