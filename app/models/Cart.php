@@ -40,7 +40,11 @@ class Cart extends AppModel {
 //
 //    }
 
+<<<<<<< HEAD
     public function addToCart($product, $qty = 1, $size) {
+=======
+    public function addToCart($product, $qty = 1, $size, $available_qty, $size_id) {
+>>>>>>> f85bd1de183cf87a22997687460469dca83c27d0
         if (!isset($_SESSION['cart.currency'])) {
             $_SESSION['cart.currency'] = App::$app->getProperty('currency');
         }
@@ -49,12 +53,17 @@ class Cart extends AppModel {
         $price = $product->price;
 
         if (isset($_SESSION['cart'][$ID])) {
+            if ($_SESSION['cart'][$ID]['qty'] + $qty > $available_qty) {
+                return false;
+            }
             $_SESSION['cart'][$ID]['qty'] += $qty;
         } else {
             $_SESSION['cart'][$ID] = [
                 'qty' => $qty,
+                'available_qty' => $available_qty,
                 'title' => $title,
                 'size' => $size,
+                'size_id' => $size_id,
                 'alias' => $product->alias,
                 'price' => $price * $_SESSION['cart.currency']['value'],
                 'img' => $product->img
@@ -79,14 +88,17 @@ class Cart extends AppModel {
     }
 
     public function recalculateItem($id, $qty) {
-            $old_price = $_SESSION['cart'][$id]['qty'] * $_SESSION['cart'][$id]['price'];
-            $old_qty = $_SESSION['cart'][$id]['qty'];
+        if ($qty > $_SESSION['cart'][$id]['available_qty']) {
+            return false;
+        }
+        $old_price = $_SESSION['cart'][$id]['qty'] * $_SESSION['cart'][$id]['price'];
+        $old_qty = $_SESSION['cart'][$id]['qty'];
 
-            $_SESSION['cart'][$id]['qty'] = $qty;
-            $new_price = $_SESSION['cart'][$id]['qty'] * $_SESSION['cart'][$id]['price'];
+        $_SESSION['cart'][$id]['qty'] = $qty;
+        $new_price = $_SESSION['cart'][$id]['qty'] * $_SESSION['cart'][$id]['price'];
 
-            $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - $old_price + $new_price;
-            $_SESSION['cart.qty'] = $_SESSION['cart.qty'] - $old_qty + $qty;
+        $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - $old_price + $new_price;
+        $_SESSION['cart.qty'] = $_SESSION['cart.qty'] - $old_qty + $qty;
     }
 
     public static function recalc($curr) {

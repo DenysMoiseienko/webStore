@@ -55,7 +55,7 @@
                                         <td><?=$product['title'];?></td>
                                         <td><?=$product['price'];?></td>
                                         <td><?=$product['status'] ? 'In stock' : 'Out of stock';?></td>
-                                        <td><a href="<?=ADMIN;?>/product/view?id=<?=$product['id'];?>">
+                                        <td><a href="<?=ADMIN;?>/product-size/view?id=<?=$product['id'];?>">
                                                 <i class="fa fa-eye text-black-50"></i></a>
                                         </td>
                                         <td><a href="<?=ADMIN;?>/product/edit?id=<?=$product['id'];?>">

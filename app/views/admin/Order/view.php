@@ -30,7 +30,10 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <form class="col-md-12">
+
+                <div class="wrap"></div>
+
                 <div class="box">
                     <div class="box-body">
                         <div class="table-responsive">
@@ -66,6 +69,7 @@
                                 <thead>
                                 <tr>
                                     <th>Product ID</th>
+
                                     <th>Title</th>
                                     <th>Quantity</th>
                                     <th>Size</th>
@@ -77,7 +81,7 @@
                                     <tr>
                                         <td><?=$product->id; ?></td>
                                         <td><?=$product->title; ?></td>
-                                        <td><?=$product->qty;   $qty += $product->qty ?></td>
+                                        <td><?=$product->qty; $qty += $product->qty ?></td>
                                         <td><?=$product->size?></td>
                                         <td><?=$product->price * $product->qty; ?></td>
                                     </tr>
@@ -100,16 +104,20 @@
                 </div>
 
                 <div class="text-right">
+                    <a href="<?=ADMIN;?>/order/submit?id=<?=$order['id'];?>"
+                       class="order btn btn-default ml-3">PDF</a>
                     <?php if (!$order['status']): ?>
                         <a href="<?=ADMIN;?>/order/edit?id=<?=$order['id'];?>&status=1"
-                           class="btn btn-success">Approve</a>
+                           class="btn btn-success ml-3">Approve</a>
                     <?php else: ?>
                         <a href="<?=ADMIN;?>/order/edit?id=<?=$order['id'];?>&status=0"
-                           class="btn btn-default">Return for revision</a>
+                           class="btn btn-default ml-3 ">Return for revision</a>
                     <?php endif; ?>
                     <a href="<?=ADMIN;?>/order/delete?id=<?=$order['id'];?>"
                        class="delete btn btn-danger ml-3">Delete</a>
                 </div>
+
+                <?php if (isset($_SESSION['form-data'])) unset($_SESSION['form-data']) ;?>
 
             </div>
         </div>

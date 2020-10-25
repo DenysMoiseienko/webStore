@@ -2,7 +2,7 @@
 
     <?php $curr = \store\App::$app->getProperty('currency') ; ?>
     <?php foreach($products as $product): ?>
-        <div class="col-md-4 product-left p-left">
+        <div class="col-md-3 product-left p-left">
             <div class="product-main simpleCart_shelfItem">
                 <a href="product/<?=$product->alias;?>" class="mask"><img class="img-responsive zoom-img" src="images/<?=$product->img;?>" alt="" /></a>
                 <div class="product-bottom">

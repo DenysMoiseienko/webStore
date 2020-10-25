@@ -2,6 +2,7 @@
 
 namespace app\controllers\admin;
 
+use app\models\admin\Receipt;
 use DateTime;
 use DateTimeZone;
 use RedBeanPHP\R;
@@ -50,6 +51,15 @@ class OrderController extends AppController {
         redirect();
     }
 
+    public function submitAction() {
+        $order_id = $this->getRequestID();
+        $order = $this->getOrderById($order_id);
+        $order_products = R::findAll('order_product', "order_id = ?", [$order_id]);
+        $this->generateReceipt($order, $order_products);
+        $this->setMeta("Receipt: {$order_id}");
+        $this->set(compact('order_id'));
+    }
+
     public function deleteAction() {
         $order_id = $this->getRequestID();
         $order = R::load('order', $order_id);
@@ -79,5 +89,28 @@ class OrderController extends AppController {
         $dt = new DateTime("now", new DateTimeZone($timeZone));
         $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
         return $dt->format('Y-m-d H:i:s');
+    }
+
+    private function generateReceipt ($order, $order_products) {
+        $pdf = new Receipt();
+        $pdf->AddPage();
+
+        $pdf->SetFont('Quicksand', '', 12);
+        $pdf->SetY(100);
+        $pdf->Cell(100, 13, 'Ordered by: ');
+
+        $pdf->SetFont('Quicksand', '', 12);
+        $pdf->Cell(100, 13, $order['name']);
+
+        $pdf->SetFont('Quicksand', '', 12);
+        $pdf->Cell(50, 13, 'Date: ');
+
+        $pdf->SetFont('Quicksand', '', 12);
+        $pdf->Cell(100, 13, date('F j, Y'), 0, 1);
+        $pdf->Ln(100);
+
+        $pdf->ProductsTable($order_products, $order);
+
+        $pdf->Output("receipts/receipt_{$order['id']}.pdf",'F');
     }
 }

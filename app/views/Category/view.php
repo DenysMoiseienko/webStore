@@ -10,6 +10,22 @@
 </div>
 <!--end-breadcrumbs-->
 
+<div id="filters" class="col-md-4 filters">
+    <h4><a rel="nofollow" href="#">Filters</a></h4>
+    <div class="filter_bar">
+        <?php new \app\widgets\filter\Filter(); ?>
+    </div>
+</div>
+
+<div class="col-md-4 sort">
+    <?php $selected= $_GET['sort'] ;?>
+    <h4>Sort</h4>
+    <select class="form-control" name="sort">
+        <option data-desc="desc" <?php if($selected == 'desc') echo("selected");?>>desc</option>
+        <option data-asc="asc" <?php if($selected == 'asc') echo("selected"); ?>>asc</option>
+    </select>
+</div>
+
 <div class="prdt">
     <div class="container">
         <div class="prdt-top">
@@ -51,14 +67,6 @@
                     <h3>No products in this category yet</h3>
                 <?php endif; ?>
             </div>
-
-<!--            <div class="col-md-3 prdt-right">-->
-<!--                <div class="w_sidebar">-->
-<!---->
-<!--                    --><?php //new \app\widgets\filter\Filter(); ?>
-<!---->
-<!--                </div>-->
-<!--            </div>-->
 
             <div class="clearfix"></div>
         </div>

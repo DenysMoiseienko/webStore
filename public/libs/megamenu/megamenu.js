@@ -1,11 +1,33 @@
 /* open/close main sidebar menu */
 function openNav() {
-    document.getElementById("sidebar-nav").style.width = "300px";
+    $("#sidebar-nav").css('width', '300px');
+    $('.menu.navbar-nav:first-child .nav-item').focus();
+    $('body').addClass('show-nav');
 }
-
 function closeNav() {
-    document.getElementById("sidebar-nav").style.width = "0";
+    $("#sidebar-nav").css('width', '0px');
+    $('body').removeClass('show-nav');
 }
+var nav_container = $("#sidebar-nav");
+$(document).mouseup(function(e) 
+  {
+    if($('body').hasClass('show-nav')){      
+      if (!nav_container.is(e.target) && nav_container.has(e.target).length === 0) 
+      {
+        closeNav();
+      }
+    }
+  });
+$(document).keyup(function(e) 
+  {
+    if($('body').hasClass('show-nav') && (e.keyCode === 27)){
+      if (!nav_container.is(e.target) && nav_container.has(e.target).length === 0) 
+      {
+        closeNav();
+      }
+    }
+  });
+
 
 /*global $ */
 
