@@ -3,7 +3,7 @@
 return [
     'admin' => 'denis_m_@mail.ru',
     'shop_name' => 'TheBestStore',
-    'pagination' => 4,
+    'pagination' => 6,
     'adminPagination' => 10,
     'smtp_host' => 'smtp.mail.ru',
     'smtp_port' => '465',

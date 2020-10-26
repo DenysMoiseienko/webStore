@@ -58,6 +58,16 @@ button:focus{
 .main-navbar .open-nav{
     color: var(--nav-text-color);
 }
+
+/*breadcrambs*/
+.breadcrumb{
+    background: var(--secondary-bg);
+    padding: 5px 15px;
+    border-radius: 0;
+}
+.breadcrumb a{
+    color: var(--light-text-color);
+}
     
 /* search */
 @media (min-width: 576px) {
@@ -65,6 +75,17 @@ button:focus{
         width: 250px;
     }
 }
+::-webkit-input-placeholder { /* Edge */
+    color: var(--main-color)!important;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:var(--main-color)!important;
+  }
+  
+  ::placeholder {
+    color: var(--main-color)!important;
+  }
 .custom-input{
     padding: 7px;
     border: 1px solid #eee;

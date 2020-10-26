@@ -47,7 +47,7 @@ class CategoryController extends AppController {
         $start = $pagination->getStart();
 
         // sort by price
-        $data = !empty($_GET['sort']) ? $_GET['sort'] : null;
+        $data = !empty($_GET['sort']) ? $_GET['sort'] : 'desc';
         $orderBy = '';
         if ($data) {
             $orderBy .= "ORDER BY price {$data}";

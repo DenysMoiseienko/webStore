@@ -1,54 +1,49 @@
+
 <!--start-breadcrumbs-->
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="breadcrumbs-main">
-            <ol class="breadcrumb">
-                <li class="active"><a href="<?=PATH;?>">Home</a></li>
-                <li>Search by "<?=h($query);?>"</li>
-            </ol>
-        </div>
-    </div>
+<div class="container-fluid p-0">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="<?=PATH;?>">Home</a></li>
+            <li class="breadcrumb-item">Search by "<?=h($query);?>"</li>
+        </ol>
+    </nav>
 </div>
 <!--end-breadcrumbs-->
 
-<!--prdt-starts-->
-<div class="prdt">
-    <div class="container">
-        <div class="prdt-top">
-            <div class="col-md-9 prdt-left">
-                <?php if(!empty($products)): ?>
-                    <div class="product-one">
-                        <?php $curr = \store\App::$app->getProperty('currency') ; ?>
-                        <?php foreach($products as $product): ?>
-                            <div class="col-md-4 product-left p-left">
-                                <div class="product-main simpleCart_shelfItem">
-                                    <a href="product/<?=$product->alias;?>" class="mask"><img class="img-responsive zoom-img" src="images/<?=$product->img;?>" alt="" /></a>
-                                    <div class="product-bottom">
-                                        <h3><?=$product->title;?></h3>
-                                        <h4>
-                                            <span class=" item_price"><?=$curr['symbol_left'];?><?=$product->price * $curr['value'];?><?=$curr['symbol_right'];?></span>
-                                            <?php if($product->old_price): ?>
-                                                <small><del><?=$curr['symbol_left'];?><?=$product->old_price * $curr['value'];?><?=$curr['symbol_right'];?></del></small>
-                                            <?php endif; ?>
-                                        </h4>
-                                    </div>
-
-                                    <?php if($product['old_price']): ?>
-                                        <div class="srch srch1">
-                                            <span>-<?= round(100 - ($product['price'] * 100) / $product['old_price'], 1);?>%</span>
-                                        </div>
-                                    <?php endif; ?>
-
-                                </div>
+<div class="container-fluid">
+    <div class="row">
+        <?php if(!empty($products)): ?>
+            <?php $curr = \store\App::$app->getProperty('currency') ; ?>                        
+            <?php foreach($products as $product): ?>
+                <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+                    <div class="card h-100">
+                        <a href="product/<?=$product->alias;?>" class="mask">
+                            <img class="card-img-top" src="images/<?=$product->img;?>" alt="" />
+                        </a>
+                        <div class="card-body">
+                            <a class="card-link" href="product/<?=$product->alias;?>"><?=$product->title;?></a>
+                        </div>
+                        <div class="card-footer">
+                            <?php if($product->old_price): ?>
+                                <small>
+                                    <del>
+                                        <?=$curr['symbol_left'];?><?=$product->old_price * $curr['value'];?><?=$curr['symbol_right'];?>
+                                    </del>
+                                </small>
+                            <?php endif; ?>
+                            <span class="item_price">
+                                <?=$curr['symbol_left'];?><?=$product->price * $curr['value'];?><?=$curr['symbol_right'];?>
+                            </span>
+                        </div>
+                        <?php if($product->old_price): ?>
+                            <div class="srch">
+                                <span>-<?= round(100 - ($product->price * 100) / $product->old_price, 1);?>%</span>
                             </div>
-                        <?php endforeach; ?>
-                        <div class="clearfix"></div>
+                        <?php endif; ?>
                     </div>
-                <?php endif; ?>
-            </div>
-            <div class="clearfix"></div>
-        </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 </div>
-<!--product-end-->
 

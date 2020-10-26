@@ -1,12 +1,10 @@
 <!--start-breadcrumbs-->
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="breadcrumbs-main">
-            <ol class="breadcrumb">
-                <?=$breadcrumbs;?>
-            </ol>
-        </div>
-    </div>
+<div class="container-fluid p-0">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <?=$breadcrumbs; ?>
+        </ol>
+    </nav>
 </div>
 <!--end-breadcrumbs-->
 
@@ -55,7 +53,7 @@
 
                             <?=$product->content;?>
 
-                            <?php if ($mods): ?>
+                            <!-- <?php if ($mods): ?>
                             <div class="available">
                                 <ul>
                                     <li>Color
@@ -71,7 +69,7 @@
                                     <div class="clearfix"> </div>
                                 </ul>
                             </div>
-                            <?php endif; ?>
+                            <?php endif; ?> -->
 
                             <?php if ($sizes): ?>
                                 <div class="available">
@@ -108,95 +106,83 @@
                     <!--end product-->
 
                 </div>
-
-                <!--start related products-->
-                <?php if($related):?>
-                <div class="latestproducts">
-                    <div class="product-one">
-                        <h3>With this product also bought:</h3>
-                        <?php foreach($related as $item): ?>
-                        <div class="col-md-4 product-left p-left">
-                            <div class="product-main simpleCart_shelfItem">
-                                <a href="product/<?=$item['alias'];?>" class="mask">
-                                    <img class="img-responsive zoom-img" src="images/<?=$item['img'];?>" alt="" />
-                                </a>
-                                <div class="product-bottom">
-                                    <h3>
-                                        <a href="product/<?=$item['alias'];?>">
-                                            <?=$item['title'];?>
-                                        </a>
-                                    </h3>
-                                    <h4>
-                                        <span class="item_price"><?=$curr['symbol_left'];?><?=$item['price'] * $curr['value'];?><?=$curr['symbol_right'];?></span>
-
-                                        <?php if($item['old_price']): ?>
-                                            <del>
-                                                <?=$curr['symbol_left'];?><?=$item['old_price'] * $curr['value'];?><?=$curr['symbol_right'];?>
-                                            </del>
-                                        <?php endif; ?>
-                                    </h4>
-                                </div>
-
-                                <?php if($item['old_price']): ?>
-                                    <div class="srch">
-                                        <span>-<?= round(100 - ($item['price'] * 100) / $item['old_price'], 1);?>%</span>
-                                    </div>
-                                <?php endif; ?>
-
-                            </div>
-                        </div>
-                        <?php endforeach; ?>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <?php endif; ?>
-                <!--end related products-->
-
-                <!--start recently viewed products-->
-                <?php if($recentlyViewed):?>
-                    <div class="latestproducts">
-                        <div class="product-one">
-                            <h3>Recently viewed products:</h3>
-                            <?php foreach($recentlyViewed as $item): ?>
-                                <div class="col-md-4 product-left p-left">
-                                    <div class="product-main simpleCart_shelfItem">
-                                        <a href="product/<?=$item['alias'];?>" class="mask">
-                                            <img class="img-responsive zoom-img" src="images/<?=$item['img'];?>" alt="" />
-                                        </a>
-                                        <div class="product-bottom">
-                                            <h3>
-                                                <a href="product/<?=$item['alias'];?>">
-                                                    <?=$item['title'];?>
-                                                </a>
-                                            </h3>
-                                            <h4>
-                                                <span class="item_price"><?=$curr['symbol_left'];?><?=$item['price'] * $curr['value'];?><?=$curr['symbol_right'];?></span>
-
-                                                <?php if($item['old_price']): ?>
-                                                    <del>
-                                                        <?=$curr['symbol_left'];?><?=$item['old_price'] * $curr['value'];?><?=$curr['symbol_right'];?>
-                                                    </del>
-                                                <?php endif; ?>
-                                            </h4>
-                                        </div>
-
-                                        <?php if($item['old_price']): ?>
-                                            <div class="srch">
-                                                <span>-<?= round(100 - ($item['price'] * 100) / $item['old_price'], 1);?>%</span>
-                                            </div>
-                                        <?php endif; ?>
-
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-                <!--end recently viewed products-->
             </div>
-
-            <div class="clearfix"> </div>
         </div>
     </div>
+    <!--start related products-->
+    <?php if($related):?>
+    <div class="container-fluid">
+        <h3 class="mt-3">With this product also bought:</h3>
+        <div class="row">
+            <?php foreach($related as $product): ?>
+            <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+                <div class="card h-100">
+                    <a href="product/<?=$product['alias'];?>" class="mask">
+                        <img class="card-img-top" src="images/<?=$product['img'];?>" alt="" />
+                    </a>
+                    <div class="card-body">
+                        <a class="card-link" href="product/<?=$product['alias'];?>"><?=$product['title'];?></a>
+                    </div>
+                    <div class="card-footer">
+                        <?php if($product['old_price']): ?>
+                            <small>
+                                <del>
+                                    <?=$curr['symbol_left'];?><?=$product['old_price'] * $curr['value'];?><?=$curr['symbol_right'];?>
+                                </del>
+                            </small>
+                        <?php endif; ?>
+                        <span class="item_price">
+                            <?=$curr['symbol_left'];?><?=$product['price'] * $curr['value'];?><?=$curr['symbol_right'];?>
+                        </span>
+                    </div>
+                    <?php if($product['old_price']): ?>
+                        <div class="srch srch1">
+                        <span>-<?= round(100 - ($product['price'] * 100) / $product['old_price'], 1);?>%</span>
+                        </div>
+                    <?php endif; ?>
+                </div><!--/.card-->
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+    <!--end related products-->
+    <!--start recently viewed products-->
+    <?php if($related):?>
+    <div class="container-fluid">
+        <h3 class="mt-3">Recently viewed products:</h3>
+        <div class="row">
+            <?php foreach($recentlyViewed as $product): ?>
+            <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+                <div class="card h-100">
+                    <a href="product/<?=$product['alias'];?>" class="mask">
+                        <img class="card-img-top" src="images/<?=$product['img'];?>" alt="" />
+                    </a>
+                    <div class="card-body">
+                        <a class="card-link" href="product/<?=$product['alias'];?>"><?=$product['title'];?></a>
+                    </div>
+                    <div class="card-footer">
+                        <?php if($product['old_price']): ?>
+                            <small>
+                                <del>
+                                    <?=$curr['symbol_left'];?><?=$product['old_price'] * $curr['value'];?><?=$curr['symbol_right'];?>
+                                </del>
+                            </small>
+                        <?php endif; ?>
+                        <span class="item_price">
+                            <?=$curr['symbol_left'];?><?=$product['price'] * $curr['value'];?><?=$curr['symbol_right'];?>
+                        </span>
+                    </div>
+                    <?php if($product['old_price']): ?>
+                        <div class="srch srch1">
+                        <span>-<?= round(100 - ($product['price'] * 100) / $product['old_price'], 1);?>%</span>
+                        </div>
+                    <?php endif; ?>
+                </div><!--/.card-->
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+    <!--end recently viewed products-->
 </div>

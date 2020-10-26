@@ -43,7 +43,7 @@
         </nav>
     </div>
     <div class="box d-flex align-middle"> 
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" action="search" method="get" autocomplete="off">
             <input class="form-control custom-input mr-sm-2 typeahead" type="text" id="typeahead" name="s" placeholder="Search" aria-label="Search">
             <button class="btn btn-dark my-2 my-sm-0" type="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
