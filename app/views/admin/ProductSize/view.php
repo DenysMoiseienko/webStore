@@ -4,7 +4,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">
-                    Details: <?=$title;?>
+                    Details: <?=$product->title;?>
                 </h1>
             </div>
             <div class="col-sm-6">
@@ -16,7 +16,7 @@
                         <a href="<?=ADMIN;?>/product">Products list</a>
                     </li>
                     <li class="breadcrumb-item">
-                        Details: <?=$title;?>
+                        Details: <?=$product->title;?>
                     </li>
                 </ol>
             </div>

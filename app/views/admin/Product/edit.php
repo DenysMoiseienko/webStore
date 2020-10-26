@@ -178,7 +178,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div id="single" class="btn btn-success" data-url="product/add-image" data-name="single">Choose file</div>
-                                                    <p><small>Recommended sizes: 125x200 </small></p>
+                                                    <p><small>Recommended sizes: 700x1000 </small></p>
                                                     <div class="single">
                                                         <img src="images/<?=$product->img;?>" alt="" style="max-height: 150px;">
                                                     </div>

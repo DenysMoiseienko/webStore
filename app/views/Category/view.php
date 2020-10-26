@@ -18,7 +18,7 @@
 </div>
 
 <div class="col-md-4 sort">
-    <?php $selected= !empty($_GET['sort']) ? $_GET['sort'] : 'desc';?>
+    <?php $selected = !empty($_GET['sort']) ? $_GET['sort'] : 'desc';?>
     <h4>Sort</h4>
     <select class="form-control" name="sort">
         <option data-desc="desc" <?php if($selected == 'desc') echo("selected");?>>desc</option>
