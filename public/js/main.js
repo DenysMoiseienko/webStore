@@ -196,7 +196,6 @@ function isNumeric(n) {
 $('.sort select').on('change', function () {
     var sort = $(this).val();
 
-
     $.ajax({
         url: location.href,
         data: {sort: sort},

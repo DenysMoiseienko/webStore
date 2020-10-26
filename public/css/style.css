@@ -58,6 +58,15 @@ button:focus{
 .main-navbar .open-nav{
     color: var(--nav-text-color);
 }
+/*breadcrambs*/
+.breadcrumb{
+    background: var(--secondary-bg);
+    padding: 5px 15px;
+    border-radius: 0;
+}
+.breadcrumb a{
+    color: var(--light-text-color);
+}
     
 /* search */
 @media (min-width: 576px) {

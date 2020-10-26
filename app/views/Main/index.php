@@ -24,13 +24,12 @@
                                 <?=$curr['symbol_left'];?><?=$hit->price * $curr['value'];?><?=$curr['symbol_right'];?>
                             </span>
                         </div>
-                            <?php if($hit->old_price): ?>
-                                <div class="srch">
-                                <span>-<?= round(100 - ($hit->price * 100) / $hit->old_price, 1);?>%</span>
-                                </div>
-                            <?php endif; ?>
-                        
-                    </div>
+                        <?php if($hit->old_price): ?>
+                            <div class="srch">
+                            <span>-<?= round(100 - ($hit->price * 100) / $hit->old_price, 1);?>%</span>
+                            </div>
+                        <?php endif; ?>
+                    </div><!--/.card-->
                 </div>
              <?php endforeach; ?>
         </div>
