@@ -11,14 +11,14 @@
 <!--end-breadcrumbs-->
 
 <div id="filters" class="col-md-4 filters">
-    <h4><a rel="nofollow" href="#">Filters</a></h4>
+    <h4>Filters</h4>
     <div class="filter_bar">
         <?php new \app\widgets\filter\Filter(); ?>
     </div>
 </div>
 
 <div class="col-md-4 sort">
-    <?php $selected= $_GET['sort'] ;?>
+    <?php $selected= !empty($_GET['sort']) ? $_GET['sort'] : 'desc';?>
     <h4>Sort</h4>
     <select class="form-control" name="sort">
         <option data-desc="desc" <?php if($selected == 'desc') echo("selected");?>>desc</option>

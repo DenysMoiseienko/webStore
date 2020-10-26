@@ -49,7 +49,6 @@ class Pagination {
 
         if (isset($url[1]) && $url[1] != '') {
             $params = explode('&' , $url[1]);
-            debug($params);
             foreach ($params as $param) {
                 if (!preg_match("#page=#", $param) && $param != '') {
                         //$uri .= "{$param}&amp";

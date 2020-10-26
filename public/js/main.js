@@ -53,7 +53,7 @@ $("#typeahead").typeahead({
 
 $('#typeahead').bind('typeahead:select', function (ev, suggestion) {
     //console.log(suggestion);
-    window.location = path + '/search/?s=' + encodeURIComponent(suggestion.title);
+    window.location = path + 'search/?s=' + encodeURIComponent(suggestion.title);
 });
 
 /* Cart */

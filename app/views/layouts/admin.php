@@ -251,7 +251,7 @@
 <script src="adminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="adminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
-<script src="js/ajaxupload.js"></script>
+<script src="libs/ajaxupload.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
@@ -259,7 +259,7 @@
 <!-- Bootstrap 4 -->
 <script src="adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Validator -->
-<script src="public/js/validator.js"></script>
+<script src="libs/validator.js"></script>
 <!-- ChartJS -->
 <script src="adminLTE/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->

@@ -8,7 +8,7 @@ define("CORE", ROOT . '/vendor/store/core');
 define("LIBS", ROOT . '/vendor/store/core/libs');
 define("CACHE", ROOT . '/tmp/cache');
 define("CONF", ROOT . '/config');
-define("LAYOUT", 'watches');
+define("LAYOUT", 'index');
 
 // http://localhost:8888/webStore/public/index.php
 $app_path = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}";
