@@ -53,7 +53,7 @@ $("#typeahead").typeahead({
 
 $('#typeahead').bind('typeahead:select', function (ev, suggestion) {
     //console.log(suggestion);
-    window.location = path + '/search/?s=' + encodeURIComponent(suggestion.title);
+    window.location = path + 'search?s=' + encodeURIComponent(suggestion.title);
 });
 
 /* Cart */
@@ -68,9 +68,7 @@ $('body').on('click', '.add-to-cart-link', function(e) {
 
     $.ajax({
         url: 'cart/add',
-        //data: {id: id, qty: qty, mod: mod, size: size},
         data: {id: id, qty: qty, size: size, size_id: size_id, available_qty: available_qty},
-        //data: {id: id, qty: qty},
         type: 'GET',
         success: function (res) {
             showCart(res);
@@ -167,7 +165,6 @@ function recalculate() {
     });
 }
 
-
 /* Currency */
 $('#currency'). change(function() {
     window.location = 'currency/change?curr=' + $(this).val();
@@ -195,7 +192,7 @@ function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-// sort by price (test)
+// sort by price
 $('.sort select').on('change', function () {
     var sort = $(this).val();
 
