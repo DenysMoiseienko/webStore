@@ -167,3 +167,10 @@ select#currency {
     font-family: 'FontAwesome';
     margin-right: 5px;
 }
+
+/*product page*/
+    /*slider*/
+    .slick-slide img {
+        display: block;
+        max-width: 100%;
+    }

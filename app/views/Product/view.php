@@ -9,104 +9,109 @@
 <!--end-breadcrumbs-->
 
 <!--start-single-->
-<div class="single contact">
-    <div class="container">
-        <div class="single-main">
-            <div class="col-md-9 single-main-left">
-                <div class="sngl-top">
-                    <div class="col-md-5 single-top-left">
-                        <!--start gallery-->
-                        <?php if($gallery): ?>
-                        <div class="flexslider">
-                            <ul class="slides">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 single-top-left">
+                <!--start gallery-->
+                <?php if($gallery): ?>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            <div id="slider" class="slider-nav">
                                 <?php foreach($gallery as $item): ?>
-                                <li data-thumb="images/<?=$item->img;?>">
-                                    <div class="thumb-image">
-                                        <img src="images/<?=$item->img;?>" data-imagezoom="true" class="img-responsive" alt=""/>
-                                    </div>
-                                </li>
+                                <div>
+                                    <img src="images/<?=$item->img;?>" data-imagezoom="true" class="img-responsive" alt=""/>
+                                </div>
                                 <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div id="carousel" class="slider-for">
+                                <?php foreach($gallery as $item): ?>
+                                <div>
+                                    <img src="images/<?=$item->img;?>" data-imagezoom="true" class="img-responsive" alt=""/>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php else: ?>
+                    <img src="images/<?=$product->img;?>"/>
+                <?php endif; ?>
+                <!--end gallery-->
+            </div>
+
+            <!--start product-->
+            <?php $curr = \store\App::$app->getProperty('currency'); ?>
+
+            <div class="col-md-7 single-top-right">
+                <div class="single-para simpleCart_shelfItem">
+                    <h2><?=$product->title?></h2>
+
+                    <h5 class="item_price" id="base-price" data-base="<?=$product->price * $curr['value'];?>">
+                        <?=$curr['symbol_left'];?><?=$product->price * $curr['value'];?><?=$curr['symbol_right'];?>
+                    </h5>
+
+                    <?php if($product->old_price): ?>
+                        <del>
+                            <?=$curr['symbol_left'];?><?=$product->old_price * $curr['value'];?><?=$curr['symbol_right'];?>
+                        </del>
+                    <?php endif; ?>
+
+                    <?=$product->content;?>
+
+                    <!-- <?php if ($mods): ?>
+                    <div class="available">
+                        <ul>
+                            <li>Color
+                                <select>
+                                    <option>Choose color</option>
+                                    <?php foreach($mods as $mod): ?>
+                                        <option data-title="<?=$mod->title;?>" data-price="<?=$mod->price * $curr['value'];?>" value="<?=$mod->id;?>">
+                                            <?=$mod->title;?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </li>
+                            <div class="clearfix"> </div>
+                        </ul>
+                    </div>
+                    <?php endif; ?> -->
+
+                    <?php if ($sizes): ?>
+                        <div class="available">
+                            <ul>
+                                <li>Size
+                                    <select>
+                                        <option>Choose size</option>
+                                        <?php foreach($sizes as $size): ?>
+                                            <option data-id="<?=$size['id'];?>" data-qty="<?=$size['qty'];?>" value="<?=$size['value'];?>">
+                                                <?=$size['value'];?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </li>
+                                <div class="clearfix"> </div>
                             </ul>
                         </div>
-                        <?php else: ?>
-                            <img src="images/<?=$product->img;?>"/>
-                        <?php endif; ?>
-                        <!--end gallery-->
-                    </div>
 
-                    <!--start product-->
-                    <?php $curr = \store\App::$app->getProperty('currency'); ?>
-
-                    <div class="col-md-7 single-top-right">
-                        <div class="single-para simpleCart_shelfItem">
-                            <h2><?=$product->title?></h2>
-
-                            <h5 class="item_price" id="base-price" data-base="<?=$product->price * $curr['value'];?>">
-                                <?=$curr['symbol_left'];?><?=$product->price * $curr['value'];?><?=$curr['symbol_right'];?>
-                            </h5>
-
-                            <?php if($product->old_price): ?>
-                                <del>
-                                    <?=$curr['symbol_left'];?><?=$product->old_price * $curr['value'];?><?=$curr['symbol_right'];?>
-                                </del>
-                            <?php endif; ?>
-
-                            <?=$product->content;?>
-
-                            <!-- <?php if ($mods): ?>
-                            <div class="available">
-                                <ul>
-                                    <li>Color
-                                        <select>
-                                            <option>Choose color</option>
-                                            <?php foreach($mods as $mod): ?>
-                                                <option data-title="<?=$mod->title;?>" data-price="<?=$mod->price * $curr['value'];?>" value="<?=$mod->id;?>">
-                                                    <?=$mod->title;?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </li>
-                                    <div class="clearfix"> </div>
-                                </ul>
-                            </div>
-                            <?php endif; ?> -->
-
-                            <?php if ($sizes): ?>
-                                <div class="available">
-                                    <ul>
-                                        <li>Size
-                                            <select>
-                                                <option>Choose size</option>
-                                                <?php foreach($sizes as $size): ?>
-                                                    <option data-id="<?=$size['id'];?>" data-qty="<?=$size['qty'];?>" value="<?=$size['value'];?>">
-                                                        <?=$size['value'];?>
-                                                    </option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </li>
-                                        <div class="clearfix"> </div>
-                                    </ul>
-                                </div>
-
-                                <div class="quantity">
-                                    <input type="number" size="4" value="1" name="quantity" min="1" step="1">
-                                </div>
-
-                                <a id="productAdd" data-id="<?=$product->id?>" href="cart/add?id=<?=$product->id?>" class="add-cart item_add add-to-cart-link">
-                                    ADD TO CART</a>
-                            <?php else: ?>
-                                <div>
-                                    <h3>Out of stock</h3>
-                                </div>
-                            <?php endif; ?>
-
+                        <div class="quantity">
+                            <input type="number" size="4" value="1" name="quantity" min="1" step="1">
                         </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                    <!--end product-->
+
+                        <a id="productAdd" data-id="<?=$product->id?>" href="cart/add?id=<?=$product->id?>" class="add-cart item_add add-to-cart-link">
+                            ADD TO CART</a>
+                    <?php else: ?>
+                        <div>
+                            <h3>Out of stock</h3>
+                        </div>
+                    <?php endif; ?>
 
                 </div>
             </div>
+            <!--end product-->
         </div>
     </div>
     <!--start related products-->
@@ -148,7 +153,7 @@
     <?php endif; ?>
     <!--end related products-->
     <!--start recently viewed products-->
-    <?php if($related):?>
+    <?php if($recentlyViewed):?>
     <div class="container-fluid">
         <h3 class="mt-3">Recently viewed products:</h3>
         <div class="row">
