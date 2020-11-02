@@ -48,9 +48,9 @@
         </ul>
 
         <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
+        <form class="form-inline ml-3" action="<?=ADMIN;?>/search" method="get" autocomplete="off">
             <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control form-control-navbar typeahead" type="text" id="typeahead" name="s" placeholder="Search" aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-navbar" type="submit">
                         <i class="fas fa-search"></i>
@@ -68,7 +68,7 @@
         <a href="<?=PATH; ?>" class="brand-link" target="_blank">
             <img src="adminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <span class="brand-text font-weight-light">TheBestStore</span>
         </a>
 
         <!-- Sidebar -->
@@ -231,13 +231,13 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.5
-        </div>
-    </footer>
+<!--    <footer class="main-footer">-->
+<!--        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>-->
+<!--        All rights reserved.-->
+<!--        <div class="float-right d-none d-sm-inline-block">-->
+<!--            <b>Version</b> 3.0.5-->
+<!--        </div>-->
+<!--    </footer>-->
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -287,6 +287,7 @@
 <script src="adminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="adminLTE/dist/js/adminlte.js"></script>
+<script src="libs/typeahead.bundle.js"></script>
 
 <script src="adminLTE/my.js"></script>
 
