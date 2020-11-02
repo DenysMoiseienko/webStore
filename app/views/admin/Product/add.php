@@ -138,8 +138,6 @@
                                 </div>
                             </div>
 
-<!--                            --><?php //new \app\widgets\filter\Filter(null, WWW . '/filter/admin_filter_tpl.php'); ?>
-
                             <div class="card card-secondary collapsed-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Related products</h3>

@@ -148,6 +148,11 @@
                             <i class="fa fa-database"></i>
                             <p>Caching</p></a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?=ADMIN;?>/image" class="nav-link">
+                            <i class="fa fa-images"></i>
+                            <p>Images</p></a>
+                    </li>
                     <li class="nav-item has-treeview menu-close">
                         <a href="#" class="nav-link">
                             <i class="fa fa-filter"></i>
