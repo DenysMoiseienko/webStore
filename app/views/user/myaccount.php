@@ -1,13 +1,11 @@
 <!--start-breadcrumbs-->
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="breadcrumbs-main">
-            <ol class="breadcrumb">
-                <li><a href="<?= PATH ?>">Home</a></li>
-                <li>My account</li>
-            </ol>
-        </div>
-    </div>
+<div class="container-fluid p-0">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li><a href="<?= PATH ?>">Home / </a></li>
+            <li>My account</li>
+        </ol>
+    </nav>
 </div>
 <!--end-breadcrumbs-->
 

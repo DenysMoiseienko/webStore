@@ -1,13 +1,11 @@
 <!--start-breadcrumbs-->
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="breadcrumbs-main">
-            <ol class="breadcrumb">
-                <li><a href="<?= PATH ?>">Home</a></li>
-                <li>Cart</li>
-            </ol>
-        </div>
-    </div>
+<div class="container-fluid p-0">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li><a href="<?= PATH ?>">Home /</a></li>
+            <li>Cart</li>
+        </ol>
+    </nav>
 </div>
 <!--end-breadcrumbs-->
 
@@ -86,7 +84,7 @@
                                     </div>
                                 <?php endif; ?>
 
-                                <button type="submit" class="btn btn-default">Checkout</button>
+                                <button type="submit" class="btn btn-success">Checkout</button>
                             </form>
                             <?php if(isset($_SESSION['form_data'])) unset($_SESSION['form_data']); ?>
                         </div>
