@@ -58,6 +58,10 @@
                 </div>
             </div>
         </form>
+        <div class="navbar-nav ml-auto">
+<!--            <a href="user/logout" class="btn btn-sm btn-default">Logout</a>-->
+            <a href="admin/user/logout" class="btn btn-sm btn-default">Logout</a>
+        </div>
 
     </nav>
     <!-- /.navbar -->
@@ -76,9 +80,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="<?=ADMIN;?>" class=""><?=$_SESSION['user']['name'];?></a>
-<!--                    <a href="--><?//=ADMIN;?><!--/user/edit?id=--><?//=$_SESSION['user']['id']?><!--" class="">Profile</a>-->
-<!--                    <a href="user/logout" class="">Logout</a>-->
+                    <a href="<?=ADMIN;?>/user/edit?id=<?=$_SESSION['user']['id']?>" class=""><?=$_SESSION['user']['name'];?></a>
                 </div>
             </div>
 

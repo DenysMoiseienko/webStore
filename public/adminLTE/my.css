@@ -31,3 +31,7 @@
 .overlay{
     display: none!important;
 }
+
+img{
+    height: 125px;
+}

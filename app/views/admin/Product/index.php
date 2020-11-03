@@ -68,7 +68,7 @@
                                         <td><?=$product['id'];?></td>
                                         <td><?=$product['title'];?></td>
                                         <td><?=$product['price'];?></td>
-                                        <td><?=$product['status'] ? 'In stock' : 'Out of stock';?></td>
+                                        <td><?=$product['status'] ? 'On' : 'Off';?></td>
                                         <td><a href="<?=ADMIN;?>/product-size/view?id=<?=$product['id'];?>">
                                                 <i class="fa fa-eye text-black-50"></i></a>
                                         </td>

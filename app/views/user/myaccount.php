@@ -2,8 +2,8 @@
 <div class="container-fluid p-0">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li><a href="<?= PATH ?>">Home / </a></li>
-            <li>My account</li>
+            <li class="breadcrumb-item"><a href="<?= PATH ?>">Home</a></li>
+            <li class="breadcrumb-item">My account</li>
         </ol>
     </nav>
 </div>

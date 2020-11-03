@@ -33,10 +33,6 @@
                 <div class="box">
                     <div class="box-body">
                         <div class="table-responsive">
-
-                            <a href="<?=ADMIN;?>/filter/attribute-add?" class="btn btn-primary">
-                                <i class="fa fa-plus"></i> Add attribute</a>
-
                             <table class="table table-bordered table-hover">
 
                                 <thead>
@@ -69,6 +65,9 @@
                         </div>
                     </div>
                 </div>
+
+                <a href="<?=ADMIN;?>/filter/attribute-add?" class="btn btn-primary">
+                    <i class="fa fa-plus"></i> Add attribute</a>
             </div>
         </div>
     </div>

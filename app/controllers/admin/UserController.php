@@ -88,6 +88,11 @@ class UserController extends AppController {
         $this->layout = 'login';
     }
 
+    public function logoutAction() {
+        if (isset($_SESSION['user'])) unset($_SESSION['user']);
+        redirect('/webStore/admin/user/login-admin');
+    }
+
     private function getAllOrdersByUser($user_id) {
         return R::getAll("SELECT `order`.`id`,
             `order`.`user_id`, `order`.`status`, `order`.`date`, `order`.`update_at`,

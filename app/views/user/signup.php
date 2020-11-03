@@ -1,13 +1,11 @@
 <!--start-breadcrumbs-->
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="breadcrumbs-main">
-            <ol class="breadcrumb">
-                <li><a href="<?= PATH ?>">Home</a></li>
-                <li>Register</li>
-            </ol>
-        </div>
-    </div>
+<div class="container-fluid p-0">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?= PATH ?>">Home</a></li>
+            <li class="breadcrumb-item">Register</li>
+        </ol>
+    </nav>
 </div>
 <!--end-breadcrumbs-->
 
@@ -62,7 +60,7 @@
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
 
-                                <button type="submit" class="btn btn-default">Sign in</button>
+                                <button type="submit" class="btn btn-success">Sign in</button>
                             </form>
                             <?php if (isset($_SESSION['form_data'])) unset($_SESSION['form_data']); ?>
                         </div>

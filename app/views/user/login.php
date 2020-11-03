@@ -1,13 +1,11 @@
 <!--start-breadcrumbs-->
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="breadcrumbs-main">
-            <ol class="breadcrumb">
-                <li><a href="<?= PATH ?>">Home</a></li>
-                <li>LogIn</li>
-            </ol>
-        </div>
-    </div>
+<div class="container-fluid p-0">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?= PATH ?>">Home</a></li>
+            <li class="breadcrumb-item">Login</li>
+        </ol>
+    </nav>
 </div>
 <!--end-breadcrumbs-->
 
@@ -38,7 +36,7 @@
                                     <div class="help-block with-errors"></div>
                                 </div>
 
-                                <button type="submit" class="btn btn-default">Log in</button>
+                                <button type="submit" class="btn btn-success">Log in</button>
                             </form>
 
                         </div>
