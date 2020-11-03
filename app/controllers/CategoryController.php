@@ -41,7 +41,7 @@ class CategoryController extends AppController {
             }
         }
 
-        $total = R::count('product', "category_id IN ($ids) $sql_part");
+        $total = R::count('product', "status = 1 AND category_id IN ($ids) $sql_part");
         $pagination = new Pagination($page, $perPage, $total);
         $start = $pagination->getStart();
 

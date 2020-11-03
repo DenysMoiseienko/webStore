@@ -43,6 +43,11 @@
                     </div>
                 </div>
             <?php endforeach; ?>
+            <div class="text-center col-12">
+                <?php if ($pagination->countPages > 1): ?>
+                    <?=$pagination;?>
+                <?php endif; ?>
+            </div>
         <?php endif; ?>
     </div>
 </div>

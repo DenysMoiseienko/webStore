@@ -8,21 +8,36 @@
 </div>
 <!--end-breadcrumbs-->
 
-<div id="filters" class="col-md-4 filters">
-    <h4>Filters</h4>
-    <div class="filter_bar">
-        <?php new \app\widgets\filter\Filter(); ?>
+<div class=" container fluid text-right">
+    <a class="btn btn-default" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fa fa-sort-amount-asc"></i></a>
+    <a class="btn btn-default" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><i class="fa fa-filter"></i></a>
+    <a class="btn btn-default" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">All</a>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="col-md-4 sort">
+                <p>Sort by price</p>
+                <?php $selected = !empty($_GET['sort']) ? $_GET['sort'] : 'desc'; ?>
+                <select class="form-control" name="sort">
+                    <option data-desc="desc" <?php if($selected == 'desc') echo("selected");?>>desc</option>
+                    <option data-asc="asc" <?php if($selected == 'asc') echo("selected"); ?>>asc</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <div id="filters" class="col-md-4 filters">
+                <p>Filters</p>
+                <div class="filter_bar">
+                    <?php new \app\widgets\filter\Filter(); ?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="col-md-4 sort">
-    <?php $selected = !empty($_GET['sort']) ? $_GET['sort'] : 'desc'; ?>
-    <h4>Sort</h4>
-    <select class="form-control" name="sort">
-        <option data-desc="desc" <?php if($selected == 'desc') echo("selected");?>>desc</option>
-        <option data-asc="asc" <?php if($selected == 'asc') echo("selected"); ?>>asc</option>
-    </select>
-</div>
 <div class="container-fluid">
         <?php if(!empty($products)): ?>
             <div class="product-one row">

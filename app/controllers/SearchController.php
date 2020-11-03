@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use RedBeanPHP\R;
+use store\App;
+use store\libs\Pagination;
 
 class SearchController extends AppController {
 
@@ -22,9 +24,16 @@ class SearchController extends AppController {
     public function indexAction() {
         $query = !empty(trim($_GET['s'])) ? trim($_GET['s']) : null;
         if ($query) {
-            $products = R::find('product', "title LIKE ? AND status = '1'", ["%{$query}%"]);
+            // pagination
+            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $perPage = App::$app->getProperty('pagination');
+            $total = R::count('product', "title LIKE ? AND status = '1'", ["%{$query}%"]);
+            $pagination = new Pagination($page, $perPage, $total);
+            $start = $pagination->getStart();
+
+            $products = R::find('product', "title LIKE ? AND status = '1' LIMIT $start, $perPage", ["%{$query}%"]);
             $this->setMeta('Search by: ' . h($query));
-            $this->set(compact('products', 'query'));
+            $this->set(compact('products', 'query', 'pagination'));
         }
     }
 }
