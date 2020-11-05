@@ -10,7 +10,7 @@
                             <img class="card-img-top" src="images/<?=$hit->img;?>" alt="" />
                         </a>
                         <div class="card-body">
-                            <a class="card-link" href="product/<?=$hit->alias;?>"><?=$hit->title;?></a>
+                            <a class="card-link" href="product/<?=$hit->alias;?>"><?=$hit->title;?> <?=$hit->color;?></a>
                         </div>
                         <div class="card-footer">
                             <?php if($hit->old_price): ?>

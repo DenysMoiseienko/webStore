@@ -21,12 +21,9 @@ class AppModel extends Model {
     }
 
     public static function str2url($str) {
-
         $str = strtolower($str);
         $str = preg_replace('~[^-a-z0-9_]+~u', '-', $str);
         $str= trim($str, "-");
-
         return $str;
     }
-
 }

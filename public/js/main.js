@@ -49,6 +49,11 @@ $("#typeahead").typeahead({
     display: 'title',
     limit: 9,
     source: products
+    // templates: {
+    //     suggestion: function(data) {
+    //         return '<p><img src="images/' + data.img + '" alt=""/>' + data.title + '</p>';
+    //     }
+    // }
 });
 
 $('#typeahead').bind('typeahead:select', function (ev, suggestion) {
@@ -64,7 +69,6 @@ $('body').on('click', '.add-to-cart-link', function(e) {
         size = $('.available select').val(),
         size_id = $('.available select').find('option').filter(':selected').data('id'),
         available_qty = $('.available select').find('option').filter(':selected').data('qty');
-        //mod = $('.available select').val(),
 
     $.ajax({
         url: 'cart/add',

@@ -52,7 +52,7 @@
                                     <tr>
                                         <td><img src="images/<?=$product['img'];?>" alt="" /></td>
                                         <td><?=$product['id'];?></td>
-                                        <td><?=$product['title'];?></td>
+                                        <td><?=$product['title'];?> <?=$product['color'];?></td>
                                         <td><?=$product['price'];?></td>
                                         <td><?=$product['status'] ? 'In stock' : 'Out of stock';?></td>
                                         <td><a href="<?=ADMIN;?>/product-size/view?id=<?=$product['id'];?>">

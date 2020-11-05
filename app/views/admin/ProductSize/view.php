@@ -4,7 +4,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">
-                    Details: <?=$product->title;?>
+                    Details: <?=$product->title;?> <?=$product->color;?>
                 </h1>
             </div>
             <div class="col-sm-6">
@@ -16,7 +16,7 @@
                         <a href="<?=ADMIN;?>/product">Products list</a>
                     </li>
                     <li class="breadcrumb-item">
-                        Details: <?=$product->title;?>
+                        Details: <?=$product->title;?> <?=$product->color;?>
                     </li>
                 </ol>
             </div>
@@ -41,7 +41,7 @@
                                 <tbody>
                                 <tr>
                                     <td><img src="images/<?=$product->img;?>" alt="" /></td>
-                                    <td><?=$product->title;?></td>
+                                    <td><?=$product->title;?> <?=$product->color;?></td>
                                 </tr>
                                 </tbody>
                             </table>

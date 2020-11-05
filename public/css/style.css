@@ -162,3 +162,11 @@ select#currency {
         display: block;
         max-width: 100%;
     }
+
+.box img{
+    height: 80px;
+}
+
+.color-choice img{
+    height: 80px;
+}

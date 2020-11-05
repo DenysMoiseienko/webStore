@@ -8,7 +8,7 @@
                     <img class="card-img-top" src="images/<?=$product->img;?>" alt="" />
                 </a>
                 <div class="card-body">
-                    <a class="card-link" href="product/<?=$product->alias;?>"><?=$product->title;?></a>
+                    <a class="card-link" href="product/<?=$product->alias;?>"><?=$product->title;?> <?=$product->color;?></a>
                 </div>
                 <div class="card-footer">
                     <?php if($product->old_price): ?>

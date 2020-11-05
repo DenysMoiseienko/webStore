@@ -55,7 +55,7 @@ class ProductController extends AppController {
                 $product->editFilter($id, $data);
                 $product->editRelatedProduct($id, $data);
                 $product->saveGallery($id);
-                $alias = AppModel::createAlias('product', 'alias', data['title'], $id);
+                $alias = AppModel::createAlias('product', 'alias', $data['title'] . '-' . $data['color'], $id);
                 $product = R::load('product', $id);
                 $product->alias = $alias;
                 R::store($product);
@@ -90,7 +90,7 @@ class ProductController extends AppController {
             }
             if ($id = $product->save('product')) {
                 $product->saveGallery($id);
-                $alias = AppModel::createAlias('product', 'alias', $data['title'], $id);
+                $alias = AppModel::createAlias('product', 'alias', $data['title'] . '-' . $data['color'], $id);
                 $p = R::load('product', $id);
                 $p->alias = $alias;
                 R::store($p);
@@ -109,7 +109,6 @@ class ProductController extends AppController {
         $related_ids = R::getAssoc('SELECT related_id FROM related_product WHERE product_id = ?', [$product_id]);
         $attr_ids = R::getAssoc('SELECT attr_id FROM attribute_product WHERE product_id = ?', [$product_id]);
         $gallery_ids = R::getAssoc('SELECT id FROM gallery WHERE product_id = ?', [$product_id]);
-        $mod_ids = R::getAssoc('SELECT id FROM modification WHERE product_id = ?', [$product_id]);
 
         $gallery_items = R::getAssoc('SELECT img FROM gallery WHERE product_id = ?', [$product_id]);
 
@@ -121,9 +120,6 @@ class ProductController extends AppController {
         }
         if ($gallery_ids) {
             R::exec('DELETE FROM gallery WHERE product_id = ?', [$product_id]);
-        }
-        if ($mod_ids) {
-            R::exec('DELETE FROM modification WHERE product_id = ?', [$product_id]);
         }
         // remove base image
         $img = R::getCell('SELECT img FROM product WHERE id= ?', [$product_id]);
@@ -155,7 +151,7 @@ class ProductController extends AppController {
         $q = isset($_GET['q']) ? $_GET['q'] : '';
         $data['items'] = [];
         $products = R::getAssoc(
-            'SELECT id, title FROM product WHERE title LIKE ? LIMIT 10', ["%{$q}%"]);
+            'SELECT id, CONCAT(title, " ", color) AS title FROM product WHERE title LIKE ? LIMIT 10', ["%{$q}%"]);
         if ($products) {
             $i = 0;
             foreach ($products as $id => $title) {
@@ -169,7 +165,7 @@ class ProductController extends AppController {
     }
 
     private function getAllProducts($start, $perPage) {
-        return R::getAll("SELECT id, title, price, status, img FROM product ORDER BY product.title
+        return R::getAll("SELECT id, title, color, price, status, img FROM product ORDER BY product.title
             LIMIT $start, $perPage");
     }
 
