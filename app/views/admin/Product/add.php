@@ -217,6 +217,8 @@
                     </form>
 
                     <?php if (isset($_SESSION['form-data'])) unset($_SESSION['form-data']) ;?>
+                    <?php if (isset($_SESSION['single'])) unset($_SESSION['single']) ;?>
+                    <?php if (isset($_SESSION['multi'])) unset($_SESSION['multi']) ;?>
 
                 </div>
             </div>

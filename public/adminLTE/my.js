@@ -119,37 +119,51 @@ if ($('div').is('#single')) {
         buttonMulti = $('#multi'),
         file;
 }
-
-var uploadImage = function (button) {
-    new AjaxUpload(button, {
-        action: adminPath + button.data('url') + '?upload=1',
-        data: {name: button.data('name')},
-        name: button.data('name'),
+if (buttonSingle){
+    new AjaxUpload(buttonSingle, {
+        action: adminPath + buttonSingle.data('url') + '?upload=1',
+        data: {name: buttonSingle.data('name')},
+        name: buttonSingle.data('name'),
         onSubmit: function (file, ext) {
             if (!(ext && /^(jpg|png|jpeg|gif)$/i.test(ext))) {
                 alert('Error!');
                 return false;
             }
-            button.closest('.file-upload').find('.overlay').css({'display': 'block'});
+            buttonSingle.closest('.file-upload').find('.overlay').css({'display': 'block'});
         },
         onComplete: function(file, response) {
             setTimeout(function () {
-                button.closest('.file-upload').find('.overlay').css({'display':'none'});
+                buttonSingle.closest('.file-upload').find('.overlay').css({'display':'none'});
 
                 response = JSON.parse(response);
-                $('.' + button.data('name')).html(
+                $('.' + buttonSingle.data('name')).html(
                     '<img src="images/' + response.file + '" style="max-height: 150px;">');
             }, 1000);
         }
     });
 }
-
-if (buttonSingle){
-    uploadImage(buttonSingle);
-}
-
 if (buttonMulti) {
-    uploadImage(buttonMulti);
+    new AjaxUpload(buttonMulti, {
+        action: adminPath + buttonMulti.data('url') + '?upload=1',
+        data: {name: buttonMulti.data('name')},
+        name: buttonMulti.data('name'),
+        onSubmit: function (file, ext) {
+            if (!(ext && /^(jpg|png|jpeg|gif)$/i.test(ext))) {
+                alert('Error!');
+                return false;
+            }
+            buttonMulti.closest('.file-upload').find('.overlay').css({'display': 'block'});
+        },
+        onComplete: function(file, response) {
+            setTimeout(function () {
+                buttonMulti.closest('.file-upload').find('.overlay').css({'display':'none'});
+
+                response = JSON.parse(response);
+                $('.' + buttonMulti.data('name')).append(
+                    '<img src="images/' + response.file + '" style="max-height: 150px;">');
+            }, 1000);
+        }
+    });
 }
 
 $('#add').on('submit', function () {

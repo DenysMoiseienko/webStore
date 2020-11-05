@@ -231,6 +231,10 @@
                         </div>
 
                     </form>
+
+                    <?php if (isset($_SESSION['single'])) unset($_SESSION['single']) ;?>
+                    <?php if (isset($_SESSION['multi'])) unset($_SESSION['multi']) ;?>
+
                 </div>
             </div>
         </div>
