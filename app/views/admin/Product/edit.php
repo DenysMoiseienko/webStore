@@ -187,7 +187,8 @@
                                                     <div id="single" class="btn btn-success" data-url="product/add-image" data-name="single">Choose file</div>
                                                     <p><small>Recommended sizes: 700x1000 </small></p>
                                                     <div class="single">
-                                                        <img src="images/<?=$product->img;?>" alt="" style="max-height: 150px;">
+                                                        <img src="images/<?=$product->img;?>" alt="" style="max-height: 150px; cursor: pointer;"
+                                                             data-id="<?=$product->id;?>" data-src="<?=$product->img;?>" class="del-image">
                                                     </div>
                                                 </div>
                                                 <div class="overlay">

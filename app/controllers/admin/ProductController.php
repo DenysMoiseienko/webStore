@@ -147,6 +147,19 @@ class ProductController extends AppController {
         }
     }
 
+    public function deleteImageAction() {
+        $id = isset($_POST['id']) ? $_POST['id'] : null;
+        $src = isset($_POST['src']) ? $_POST['src'] : null;
+        if (!$id || !$src) {
+            return;
+        }
+        $product = R::load('product', $id);
+        $product->img = '';
+        unlink(WWW . "/images/$src");
+        R::store($product);
+        exit('1');
+    }
+
     public function relatedProductAction(){
         $q = isset($_GET['q']) ? $_GET['q'] : '';
         $data['items'] = [];

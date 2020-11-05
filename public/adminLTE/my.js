@@ -13,22 +13,34 @@ $('.del-item').on('click', function () {
         url: adminPath + '/product/delete-gallery',
         data: {id: id, src: src},
         type: 'POST',
-        beforeSend: function () {
-            $this.closest('.file-upload').find('.overlay').css({'display':'block'});
-        },
         success: function (res) {
-            setTimeout(function () {
-                $this.closest('.file-upload').find('.overlay').css({'display':'none'});
-                if (res == 1) {
-                    $this.fadeOut();
-                }
-            }, 1000);
+            if (res == 1) {
+                $this.fadeOut();
+            }
         },
         error: function () {
-            setTimeout(function () {
-                $this.closest('.file-upload').find('.overlay').css({'display':'none'});
-                alert("Error!");
-            }, 1000);
+            alert("Error!");
+        }
+    })
+});
+
+$('.del-image').on('click', function () {
+    var res = confirm('Confirm action');
+    if (!res) return false;
+    var $this = $(this),
+        id = $this.data('id'),
+        src = $this.data('src');
+    $.ajax({
+        url: adminPath + '/product/delete-image',
+        data: {id: id, src: src},
+        type: 'POST',
+        success: function (res) {
+            if (res == 1) {
+                $this.fadeOut();
+            }
+        },
+        error: function () {
+            alert("Error!");
         }
     })
 });
@@ -129,16 +141,11 @@ if (buttonSingle){
                 alert('Error!');
                 return false;
             }
-            buttonSingle.closest('.file-upload').find('.overlay').css({'display': 'block'});
         },
         onComplete: function(file, response) {
-            setTimeout(function () {
-                buttonSingle.closest('.file-upload').find('.overlay').css({'display':'none'});
-
-                response = JSON.parse(response);
+            response = JSON.parse(response);
                 $('.' + buttonSingle.data('name')).html(
                     '<img src="images/' + response.file + '" style="max-height: 150px;">');
-            }, 1000);
         }
     });
 }
@@ -152,16 +159,11 @@ if (buttonMulti) {
                 alert('Error!');
                 return false;
             }
-            buttonMulti.closest('.file-upload').find('.overlay').css({'display': 'block'});
         },
         onComplete: function(file, response) {
-            setTimeout(function () {
-                buttonMulti.closest('.file-upload').find('.overlay').css({'display':'none'});
-
-                response = JSON.parse(response);
+            response = JSON.parse(response);
                 $('.' + buttonMulti.data('name')).append(
                     '<img src="images/' + response.file + '" style="max-height: 150px;">');
-            }, 1000);
         }
     });
 }
