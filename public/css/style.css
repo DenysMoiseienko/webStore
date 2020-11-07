@@ -24,6 +24,9 @@ body{
 main{
     position: relative;
 }
+.bg-container{
+    background: var(--secondary-bg);
+}
 /*buttons*/
 button{
     border-radius: 0.4rem;
@@ -60,11 +63,17 @@ button:focus{
 .main-navbar .open-nav{
     color: var(--nav-text-color);
 }
+/*top-container*/
+.top-container{
+    background: var(--secondary-bg);
+    margin-bottom: 15px;
+}
 /*breadcrambs*/
 .breadcrumb{
     background: var(--secondary-bg);
     padding: 5px 15px;
     border-radius: 0;
+    margin: 0;
 }
 .breadcrumb a{
     color: var(--light-text-color);
@@ -181,7 +190,7 @@ select#currency {
     padding: 0 15px;
 }
 .toggle-filtres{
-    color: var(--main-color);
+    color: var(--light-text-color);
 }
 .toggle-filtres:hover{
     color: var(--light-text-color);
@@ -241,7 +250,7 @@ select#currency {
     padding: 5px;
 }
 .sort-label{
-    color: var(--main-color);
+    color: var(--light-text-color);
 }
 .select2-container--default .select2-selection--single {
     border: none;
@@ -250,12 +259,20 @@ select#currency {
     height: auto;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    color: var(--main-color);
+    color: var(--light-text-color);
     line-height: inherit;
+    background: var(--secondary-bg);
 }
 .select2-container {
     width: 65px!important;
     margin-top: -2px;
+    padding: .3rem 0;
+}
+.select2-container--open .select2-dropdown--below {
+    overflow: hidden;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100%;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
     border-color: var(--main-color) transparent transparent transparent;

@@ -1,22 +1,27 @@
-<!--start-breadcrumbs-->
-<div class="container-fluid p-0">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <?=$breadcrumbs; ?>
-        </ol>
-    </nav>
-</div>
-<!--end-breadcrumbs-->
-
-<div class=" container-fluid d-flex justify-content-end align-items-center my-3">
-    <a class="btn btn-default toggle-filtres" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><i class="fa fa-filter"></i><span class="ml-2 mr-5">Filters</span></a>
-    <div class="sort">
-            <label class="sort-label m-0" for="sort-select"><span class="ml-2">Sort by price:</span></label>
-            <?php $selected = !empty($_GET['sort']) ? $_GET['sort'] : 'desc'; ?>
-            <select class="custom-select" id="sort-select" name="sort">
-                <option data-desc="desc" <?php if($selected == 'desc') echo("selected");?>>desc</option>
-                <option data-asc="asc" <?php if($selected == 'asc') echo("selected"); ?>>asc</option>
-            </select>
+<div class="container-fluid bg-container mb-3">
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <!--start-breadcrumbs-->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <?=$breadcrumbs; ?>
+                </ol>
+            </nav>
+            <!--end-breadcrumbs-->
+        </div>
+        <div class="col-12 col-md-4">
+            <div class=" container-fluid d-flex justify-content-end align-items-center">
+                <a class="btn btn-default toggle-filtres" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><i class="fa fa-filter"></i><span class="ml-3 mr-5">Filters</span></a>
+                <div class="sort">
+                        <label class="sort-label m-0" for="sort-select"><span class="ml-2">Sort by price:</span></label>
+                        <?php $selected = !empty($_GET['sort']) ? $_GET['sort'] : 'desc'; ?>
+                        <select class="custom-select" id="sort-select" name="sort">
+                            <option data-desc="desc" <?php if($selected == 'desc') echo("selected");?>>desc</option>
+                            <option data-asc="asc" <?php if($selected == 'asc') echo("selected"); ?>>asc</option>
+                        </select>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -32,7 +37,7 @@
                 </div>
             </div>
             <div class="products-container">
-                <div class="product-one row m-0">
+                <div class="product-one row">
                     <?php $curr = \store\App::$app->getProperty('currency') ; ?>
                     <?php foreach($products as $product): ?>
                         <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
