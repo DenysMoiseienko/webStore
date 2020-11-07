@@ -1,16 +1,22 @@
-<!--start-breadcrumbs-->
-<div class="container-fluid p-0">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <?=$breadcrumbs; ?>
-        </ol>
-    </nav>
+<div class="container-fluid bg-container">
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <!--start-breadcrumbs-->
+            <div class="container-fluid p-0">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <?=$breadcrumbs; ?>
+                    </ol>
+                </nav>
+            </div>        
+        </div>
+    </div>
 </div>
 <!--end-breadcrumbs-->
 
 <!--start-single-->
 
-    <div class="container-fluid">
+    <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-md-5 single-top-left">
                 <!--start gallery-->
@@ -60,8 +66,6 @@
                         </del>
                     <?php endif; ?>
 
-                    <?=$product->content;?>
-
                     <?php if ($colors): ?>
                     <p>Colors:</p>
                     <div class="color-choice">
@@ -78,7 +82,7 @@
                         <div class="available">
                             <ul>
                                 <li>Size
-                                    <select>
+                                    <select class="custom-size-select">
                                         <option>Choose size</option>
                                         <?php foreach($sizes as $size): ?>
                                             <option data-id="<?=$size['id'];?>" data-qty="<?=$size['qty'];?>" value="<?=$size['value'];?>">
@@ -95,8 +99,9 @@
                             <input type="number" size="4" value="1" name="quantity" min="1" step="1">
                         </div>
 
-                        <a id="productAdd" data-id="<?=$product->id?>" href="cart/add?id=<?=$product->id?>" class="add-cart item_add add-to-cart-link">
-                            ADD TO CART</a>
+                        <a id="productAdd" class="btn custom-btn mt-3 add-cart item_add add-to-cart-link" data-id="<?=$product->id?>" href="cart/add?id=<?=$product->id?>">
+                            Add to cart
+                        </a>
                     <?php else: ?>
                         <div>
                             <h3>Out of stock</h3>
@@ -107,7 +112,16 @@
             </div>
             <!--end product-->
         </div>
+        <div class="row">
+            <div class="col-12">
+                <h2>Description</h2>
+                <hr>
+                <?=$product->content;?>
+                <hr>
+            </div>
+        </div>
     </div>
+
     <!--start related products-->
     <?php if($related):?>
     <div class="container-fluid">

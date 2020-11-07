@@ -221,7 +221,12 @@ $('.sort select').on('change', function () {
 
 //select2
 $(document).ready(function() {
-    $('.custom-select').select2({
+    $('.custom-sort-select').select2({
+        dropdownCssClass: 'custom-sort-select-dropdown',
+        minimumResultsForSearch: Infinity
+    });
+    $('.custom-size-select').select2({
+        dropdownCssClass: 'custom-size-select-dropdown',
         minimumResultsForSearch: Infinity
     });
 });
