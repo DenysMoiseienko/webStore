@@ -8,6 +8,7 @@
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
     <link href="fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="libs/slick/slick.css" rel="stylesheet">
+    <link rel="stylesheet" href="adminLTE/plugins/select2/css/select2.css">
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
 
@@ -111,11 +112,13 @@
 </script>
 
 <script src="libs/jquery.min.js"></script>
+<script src="libs/popper.min.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
 <script src="libs/slick/slick.min.js"></script>
 <script src="libs/validator.js"></script>
 <script src="libs/megamenu/megamenu.js"></script>
 <script src="libs/typeahead.bundle.js"></script>
+<script src="adminLTE/plugins/select2/js/select2.full.js"></script>
 <script src="js/main.js"></script>
 
 </body>

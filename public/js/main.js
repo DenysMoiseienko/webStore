@@ -214,6 +214,15 @@ $('.sort select').on('change', function () {
             }
         });
 });
+
+//select2
+$(document).ready(function() {
+    $('.custom-select').select2({
+        minimumResultsForSearch: Infinity
+    });
+});
+
+//slider - product page
 $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -230,3 +239,8 @@ $('.slider-nav').slick({
     vertical: true,
     arrows: true,
 });
+
+//tools
+$('.toggle-filtres').click(function(){
+    $('.filters').toggleClass('show');
+})
