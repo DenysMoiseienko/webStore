@@ -10,41 +10,12 @@ use RedBeanPHP\R;
 
 class CartController extends AppController {
 
-//    public function addAction() {
-//        $id = !empty($_GET['id']) ? (int)$_GET['id'] : null;
-//        $qty = !empty($_GET['qty']) ? (int)$_GET['qty'] : null;
-//        $mod_Id = !empty($_GET['mod']) ? (int)$_GET['mod'] : null;
-//        $mod = null;
-//
-//        if($id) {
-//            $product = R::findOne('product', 'id = ?', [$id]);
-//            if(!$product){
-//                return false;
-//            }
-//            if($mod_Id) {
-//                $mod = R::findOne('modification', 'id = ? AND product_id = ?',
-//                    [$mod_Id, $id]);
-//            }
-//        }
-//        $cart = new Cart();
-//        $cart->addToCart($product, $qty, $mod);
-//
-//        if ($this->isAjax()) {
-//            $this->loadView('cart_modal');
-//        }
-//        redirect();
-//    }
-
     public function addAction() {
         $id = !empty($_GET['id']) ? (int)$_GET['id'] : null;
         $qty = !empty($_GET['qty']) ? (int)$_GET['qty'] : null;
         $size = !empty($_GET['size']) ? (int)$_GET['size'] : null;
         $size_id = !empty($_GET['size_id']) ? (int)$_GET['size_id'] : null;
         $available_qty = !empty($_GET['available_qty']) ? (int)$_GET['available_qty'] : null;
-
-        $mod = null;
-
-        //debug($_GET, 1);
 
         if($id) {
             $product = R::findOne('product', 'id = ?', [$id]);
@@ -115,6 +86,9 @@ class CartController extends AppController {
     }
 
     public function checkoutAction() {
+        if (!$_SESSION['cart']) {
+            redirect();
+        }
         // user registration
         if (!User::checkAuth()) {
             $user = new User();

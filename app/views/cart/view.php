@@ -2,8 +2,8 @@
 <div class="container-fluid p-0">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li><a href="<?= PATH ?>">Home /</a></li>
-            <li>Cart</li>
+            <li class="breadcrumb-item"><a href="<?= PATH ?>">Home</a></li>
+            <li class="breadcrumb-item">Cart</li>
         </ol>
     </nav>
 </div>
@@ -34,17 +34,17 @@
                                 <tbody>
                                 <?php foreach($_SESSION['cart'] as $id => $item): ?>
                                     <tr>
-                                        <td><a href="product/<?=$item['alias'] ?>"><img src="images/<?= $item['img'] ?>" alt="<?=$item['title'] ?>"></a></td>
-                                        <td><a href="product/<?=$item['alias'] ?>"><?=$item['title'] ?></a></td>
-                                        <td><?=$item['qty'] ?></td>
-                                        <td><?=$item['size'] ?></td>
-                                        <td><?=$item['price'] ?></td>
-                                        <td><a href="cart/delete/?id=<?=$id ?>"><span data-id="<?=$id ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></a></td>
+                                        <td><a href="product/<?=$item['alias'];?>"><img src="images/<?= $item['img'];?>" alt="<?=$item['title'];?>"></a></td>
+                                        <td><a href="product/<?=$item['alias'];?>"><?=$item['title'];?></a></td>
+                                        <td><?=$item['qty'];?></td>
+                                        <td><?=$item['size'];?></td>
+                                        <td><?=$item['price'];?></td>
+                                        <td><a href="cart/delete/?id=<?=$id ?>"><span data-id="<?=$id;?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></a></td>
                                     </tr>
                                 <?php endforeach;?>
                                 <tr>
                                     <td>Total:</td>
-                                    <td colspan="4" class="text-right cart-qty"><?=$_SESSION['cart.qty'] ?></td>
+                                    <td colspan="4" class="text-right cart-qty"><?=$_SESSION['cart.qty']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Total price:</td>

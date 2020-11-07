@@ -4,7 +4,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">
-                    Edit product: <?=$product->title;?>
+                    Edit product: <?=$product->title;?> <?=$product->color;?>
                 </h1>
             </div>
 
@@ -17,7 +17,7 @@
                         <a href="<?=ADMIN;?>/product">Products list</a>
                     </li>
                     <li class="breadcrumb-item">
-                        Edit product: <?=$product->title;?>
+                        Edit product: <?=$product->title;?> <?=$product->color;?>
                     </li>
                 </ol>
             </div>
@@ -50,6 +50,13 @@
                                         <label for="title">Product title</label>
                                         <input type="text" name="title" class="form-control" id="title" placeholder="Product title"
                                                value="<?=h($product->title);?>" required>
+                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    </div>
+
+                                    <div class="form-group has-feedback">
+                                        <label for="title">Color</label>
+                                        <input type="text" name="color" class="form-control" id="color" placeholder="Color"
+                                               value="<?=h($product->color);?>" required>
                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     </div>
 
@@ -180,7 +187,8 @@
                                                     <div id="single" class="btn btn-success" data-url="product/add-image" data-name="single">Choose file</div>
                                                     <p><small>Recommended sizes: 700x1000 </small></p>
                                                     <div class="single">
-                                                        <img src="images/<?=$product->img;?>" alt="" style="max-height: 150px;">
+                                                        <img src="images/<?=$product->img;?>" alt="" style="max-height: 150px; cursor: pointer;"
+                                                             data-id="<?=$product->id;?>" data-src="<?=$product->img;?>" class="del-image">
                                                     </div>
                                                 </div>
                                                 <div class="overlay">
@@ -224,6 +232,10 @@
                         </div>
 
                     </form>
+
+                    <?php if (isset($_SESSION['single'])) unset($_SESSION['single']) ;?>
+                    <?php if (isset($_SESSION['multi'])) unset($_SESSION['multi']) ;?>
+
                 </div>
             </div>
         </div>

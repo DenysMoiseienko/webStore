@@ -66,7 +66,7 @@
                                     <tr>
                                         <td><img src="images/<?=$product['img'];?>" alt="" /></td>
                                         <td><?=$product['id'];?></td>
-                                        <td><?=$product['title'];?></td>
+                                        <td><?=$product['title'];?> <?=$product['color'];?></td>
                                         <td><?=$product['price'];?></td>
                                         <td><?=$product['status'] ? 'On' : 'Off';?></td>
                                         <td><a href="<?=ADMIN;?>/product-size/view?id=<?=$product['id'];?>">

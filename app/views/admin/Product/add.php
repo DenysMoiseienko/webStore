@@ -54,6 +54,14 @@
                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     </div>
 
+                                    <div class="form-group has-feedback">
+                                        <label for="title">Color</label>
+                                        <input type="text" name="color" class="form-control" id="color" placeholder="Color"
+                                               value="<?php isset($_SESSION['form-data']['color']) ?
+                                                   h($_SESSION['form-data']['color']) : null ;?>" required>
+                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="category_id">Parent category</label>
                                         <?php new \app\widgets\menu\Menu([
@@ -209,6 +217,8 @@
                     </form>
 
                     <?php if (isset($_SESSION['form-data'])) unset($_SESSION['form-data']) ;?>
+                    <?php if (isset($_SESSION['single'])) unset($_SESSION['single']) ;?>
+                    <?php if (isset($_SESSION['multi'])) unset($_SESSION['multi']) ;?>
 
                 </div>
             </div>

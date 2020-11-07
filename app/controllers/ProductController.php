@@ -16,12 +16,12 @@ class ProductController extends AppController {
         }
 
         // bread crumbs
-        $breadcrumbs = Breadcrumbs::getBreadcrumbs($product->category_id, $product->title);
+        $breadcrumbs = Breadcrumbs::getBreadcrumbs($product->category_id, $product->title . ' ' . $product->color);
 
         // related products
         $related = R::getAll(
             "SELECT * FROM related_product JOIN product ON
-    product.id = related_product.related_id WHERE related_product.product_id=?",[$product->id]);
+            product.id = related_product.related_id WHERE related_product.product_id=?",[$product->id]);
 
         // storing the requested products in cookies
         $p_model = new Product();
@@ -31,14 +31,14 @@ class ProductController extends AppController {
         $r_viewed = $p_model->getRecentlyViewed();
         $recentlyViewed = null;
         if ($r_viewed) {
-            $recentlyViewed = R::find('product', 'id IN (' . R::genSlots($r_viewed) . ') LIMIT 3', $r_viewed);
+            $recentlyViewed = R::find('product', 'id IN (' . R::genSlots($r_viewed) . ') LIMIT 6', $r_viewed);
         }
 
         // gallery
         $gallery = R::findAll('gallery', 'product_id = ?', [$product->id]);
 
-        // modifications
-        //$mods = R::findAll('modification', 'product_id = ?', [$product->id]);
+        // colors
+        $colors = R::getAll("SELECT alias, img FROM product WHERE title LIKE ? AND id != ? AND status = 1", [$product->title, $product->id]);
 
         // size
         $sizes = R::getAll("SELECT `size`.*, `product_size`.`qty` FROM `size` JOIN `product_size` 
@@ -46,10 +46,6 @@ class ProductController extends AppController {
 
         $this->setMeta($product->title, $product->description, $product->keywords);
         $this->set(compact(
-            'product', 'related', 'gallery', 'recentlyViewed', 'breadcrumbs', 'sizes'));
-
-        //$this->set(compact(
-        //    'product', 'related', 'gallery', 'recentlyViewed', 'breadcrumbs', 'mods', 'sizes'));
+            'product', 'related', 'gallery', 'recentlyViewed', 'breadcrumbs', 'sizes', 'colors'));
     }
-
 }

@@ -48,7 +48,7 @@
 
             <div class="col-md-7 single-top-right">
                 <div class="single-para simpleCart_shelfItem">
-                    <h2><?=$product->title?></h2>
+                    <h2><?=$product->title?> <?=$product->color?></h2>
 
                     <h5 class="item_price" id="base-price" data-base="<?=$product->price * $curr['value'];?>">
                         <?=$curr['symbol_left'];?><?=$product->price * $curr['value'];?><?=$curr['symbol_right'];?>
@@ -62,23 +62,17 @@
 
                     <?=$product->content;?>
 
-                    <!-- <?php if ($mods): ?>
-                    <div class="available">
-                        <ul>
-                            <li>Color
-                                <select>
-                                    <option>Choose color</option>
-                                    <?php foreach($mods as $mod): ?>
-                                        <option data-title="<?=$mod->title;?>" data-price="<?=$mod->price * $curr['value'];?>" value="<?=$mod->id;?>">
-                                            <?=$mod->title;?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </li>
-                            <div class="clearfix"> </div>
-                        </ul>
+                    <?php if ($colors): ?>
+                    <p>Colors:</p>
+                    <div class="color-choice">
+                        <?php foreach ($colors as $color): ?>
+                        <a href="product/<?=$color['alias'];?>" class="mask">
+                            <img src="images/<?=$color['img'];?>" alt="" />
+                        </a>
+                        <?php endforeach;?>
                     </div>
-                    <?php endif; ?> -->
+
+                    <?php endif; ?>
 
                     <?php if ($sizes): ?>
                         <div class="available">
@@ -122,11 +116,11 @@
             <?php foreach($related as $product): ?>
             <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
                 <div class="card h-100">
-                    <a href="product/<?=$product['alias'];?>" class="mask">
+                    <a href="product/<?=$product['alias'];?>">
                         <img class="card-img-top" src="images/<?=$product['img'];?>" alt="" />
                     </a>
                     <div class="card-body">
-                        <a class="card-link" href="product/<?=$product['alias'];?>"><?=$product['title'];?></a>
+                        <a class="card-link" href="product/<?=$product['alias'];?>"><?=$product['title'];?> <?=$product['color'];?></a>
                     </div>
                     <div class="card-footer">
                         <?php if($product['old_price']): ?>
@@ -164,7 +158,7 @@
                         <img class="card-img-top" src="images/<?=$product['img'];?>" alt="" />
                     </a>
                     <div class="card-body">
-                        <a class="card-link" href="product/<?=$product['alias'];?>"><?=$product['title'];?></a>
+                        <a class="card-link" href="product/<?=$product['alias'];?>"><?=$product['title'];?> <?=$product['color'];?></a>
                     </div>
                     <div class="card-footer">
                         <?php if($product['old_price']): ?>
@@ -190,4 +184,3 @@
     </div>
     <?php endif; ?>
     <!--end recently viewed products-->
-</div>

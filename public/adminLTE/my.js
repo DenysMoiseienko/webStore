@@ -13,22 +13,34 @@ $('.del-item').on('click', function () {
         url: adminPath + '/product/delete-gallery',
         data: {id: id, src: src},
         type: 'POST',
-        beforeSend: function () {
-            $this.closest('.file-upload').find('.overlay').css({'display':'block'});
-        },
         success: function (res) {
-            setTimeout(function () {
-                $this.closest('.file-upload').find('.overlay').css({'display':'none'});
-                if (res == 1) {
-                    $this.fadeOut();
-                }
-            }, 1000);
+            if (res == 1) {
+                $this.fadeOut();
+            }
         },
         error: function () {
-            setTimeout(function () {
-                $this.closest('.file-upload').find('.overlay').css({'display':'none'});
-                alert("Error!");
-            }, 1000);
+            alert("Error!");
+        }
+    })
+});
+
+$('.del-image').on('click', function () {
+    var res = confirm('Confirm action');
+    if (!res) return false;
+    var $this = $(this),
+        id = $this.data('id'),
+        src = $this.data('src');
+    $.ajax({
+        url: adminPath + '/product/delete-image',
+        data: {id: id, src: src},
+        type: 'POST',
+        success: function (res) {
+            if (res == 1) {
+                $this.fadeOut();
+            }
+        },
+        error: function () {
+            alert("Error!");
         }
     })
 });
@@ -119,37 +131,41 @@ if ($('div').is('#single')) {
         buttonMulti = $('#multi'),
         file;
 }
-
-var uploadImage = function (button) {
-    new AjaxUpload(button, {
-        action: adminPath + button.data('url') + '?upload=1',
-        data: {name: button.data('name')},
-        name: button.data('name'),
+if (buttonSingle){
+    new AjaxUpload(buttonSingle, {
+        action: adminPath + buttonSingle.data('url') + '?upload=1',
+        data: {name: buttonSingle.data('name')},
+        name: buttonSingle.data('name'),
         onSubmit: function (file, ext) {
             if (!(ext && /^(jpg|png|jpeg|gif)$/i.test(ext))) {
                 alert('Error!');
                 return false;
             }
-            button.closest('.file-upload').find('.overlay').css({'display': 'block'});
         },
         onComplete: function(file, response) {
-            setTimeout(function () {
-                button.closest('.file-upload').find('.overlay').css({'display':'none'});
-
-                response = JSON.parse(response);
-                $('.' + button.data('name')).html(
+            response = JSON.parse(response);
+                $('.' + buttonSingle.data('name')).html(
                     '<img src="images/' + response.file + '" style="max-height: 150px;">');
-            }, 1000);
         }
     });
 }
-
-if (buttonSingle){
-    uploadImage(buttonSingle);
-}
-
 if (buttonMulti) {
-    uploadImage(buttonMulti);
+    new AjaxUpload(buttonMulti, {
+        action: adminPath + buttonMulti.data('url') + '?upload=1',
+        data: {name: buttonMulti.data('name')},
+        name: buttonMulti.data('name'),
+        onSubmit: function (file, ext) {
+            if (!(ext && /^(jpg|png|jpeg|gif)$/i.test(ext))) {
+                alert('Error!');
+                return false;
+            }
+        },
+        onComplete: function(file, response) {
+            response = JSON.parse(response);
+                $('.' + buttonMulti.data('name')).append(
+                    '<img src="images/' + response.file + '" style="max-height: 150px;">');
+        }
+    });
 }
 
 $('#add').on('submit', function () {

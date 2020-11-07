@@ -9,6 +9,7 @@ class Product extends AppModel {
 
     public $attributes = [
         'title' => '',
+        'color' => '',
         'category_id' => '',
         'price' => '',
         'old_price' => '',
@@ -21,6 +22,7 @@ class Product extends AppModel {
     public $rules = [
         'required' => [
             ['title'],
+            ['color'],
             ['category_id'],
             ['price']
         ],

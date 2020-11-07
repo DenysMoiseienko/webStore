@@ -22,7 +22,7 @@ class Product extends AppModel {
         if (!empty($_COOKIE['recentlyViewed'])) {
             $recentlyViewed = $_COOKIE['recentlyViewed'];
             $recentlyViewed = explode('.', $recentlyViewed);
-            return array_slice($recentlyViewed, -3);
+            return array_slice($recentlyViewed, -6);
         }
         return false;
     }
