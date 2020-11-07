@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="products-container">
-                <div class="product-one row">
+                <div class="product-one row m-0">
                     <?php $curr = \store\App::$app->getProperty('currency') ; ?>
                     <?php foreach($products as $product): ?>
                         <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
