@@ -1,4 +1,4 @@
-<div class="container-fluid bg-container mb-3">
+<div class="container-fluid bg-container">
     <div class="row">
         <div class="col-12 col-md-8">
             <!--start-breadcrumbs-->
@@ -15,7 +15,7 @@
                 <div class="sort">
                         <label class="sort-label m-0" for="sort-select"><span class="ml-2">Sort by price:</span></label>
                         <?php $selected = !empty($_GET['sort']) ? $_GET['sort'] : 'desc'; ?>
-                        <select class="custom-select" id="sort-select" name="sort">
+                        <select class="custom-sort-select" id="sort-select" name="sort">
                             <option data-desc="desc" <?php if($selected == 'desc') echo("selected");?>>desc</option>
                             <option data-asc="asc" <?php if($selected == 'asc') echo("selected"); ?>>asc</option>
                         </select>
@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<div class="container-fluid clearfix">    
+<div class="container-fluid clearfix mt-3">    
         <?php if(!empty($products)): ?>
             <div id="filters" class="filters">
                 <div class="filters-wrapper">
