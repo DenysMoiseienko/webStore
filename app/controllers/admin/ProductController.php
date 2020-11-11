@@ -106,30 +106,40 @@ class ProductController extends AppController {
     public function deleteAction() {
         $product_id = $this->getRequestID();
 
-        $related_ids = R::getAssoc('SELECT related_id FROM related_product WHERE product_id = ?', [$product_id]);
-        $attr_ids = R::getAssoc('SELECT attr_id FROM attribute_product WHERE product_id = ?', [$product_id]);
-        $gallery_ids = R::getAssoc('SELECT id FROM gallery WHERE product_id = ?', [$product_id]);
+        $product_size = R::count( 'product_size', ' product_id = ? ', [$product_id] );
+        $related_ids = R::count('related_product', 'product_id = ?', [$product_id]);
+        $attr_ids = R::count('attribute_product', 'product_id = ?', [$product_id]);
+        $gallery_ids = R::count('gallery', 'product_id = ?', [$product_id]);
 
         $gallery_items = R::getAssoc('SELECT img FROM gallery WHERE product_id = ?', [$product_id]);
 
+        // remove from product_size
+        if ($product_size) {
+            R::exec('DELETE FROM product_size WHERE product_id = ?', [$product_id]);
+        }
+
+        // remove related products
         if ($related_ids) {
             R::exec('DELETE FROM related_product WHERE product_id = ?', [$product_id]);
         }
+        // remove attributes
         if ($attr_ids) {
             R::exec('DELETE FROM attribute_product WHERE product_id = ?', [$product_id]);
         }
+        // remove gallery images fom db
         if ($gallery_ids) {
             R::exec('DELETE FROM gallery WHERE product_id = ?', [$product_id]);
         }
-        // remove base image
+        // remove base image from /images/
         $img = R::getCell('SELECT img FROM product WHERE id= ?', [$product_id]);
         $link = 'images/' . $img;
         unlink($link);
-        // remove gallery image
+        // remove gallery image from /images/
         foreach ($gallery_items as $img) {
             $link = 'images/' . $img;
             unlink($link);
         }
+        // remove product
         R::exec('DELETE FROM product WHERE id = ?', [$product_id]);
         $_SESSION['success'] = "Product and his orders has been removed";
         redirect(ADMIN . '/product');

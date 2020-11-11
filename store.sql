@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 05, 2020 at 09:48 AM
+-- Generation Time: Nov 08, 2020 at 04:54 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.4.2
 
@@ -13,8 +13,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `store`
 --
-CREATE DATABASE IF NOT EXISTS `store` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `store`;
 
 -- --------------------------------------------------------
 
@@ -32,8 +30,7 @@ CREATE TABLE `attribute_group` (
 --
 
 INSERT INTO `attribute_group` (`id`, `title`) VALUES
-(6, 'testGroup'),
-(7, 'nextTestGroup');
+(8, 'Price');
 
 -- --------------------------------------------------------
 
@@ -51,10 +48,45 @@ CREATE TABLE `attribute_product` (
 --
 
 INSERT INTO `attribute_product` (`attr_id`, `product_id`) VALUES
-(7, 74),
-(7, 75),
-(8, 73),
-(8, 74);
+(11, 109),
+(11, 110),
+(11, 111),
+(11, 112),
+(11, 113),
+(11, 114),
+(11, 115),
+(11, 116),
+(11, 117),
+(11, 118),
+(11, 119),
+(11, 120),
+(11, 121),
+(11, 122),
+(11, 123),
+(11, 124),
+(11, 127),
+(11, 129),
+(11, 130),
+(11, 131),
+(11, 132),
+(11, 133),
+(11, 134),
+(11, 135),
+(11, 141),
+(11, 142),
+(11, 143),
+(12, 105),
+(12, 106),
+(12, 107),
+(12, 108),
+(12, 128),
+(12, 136),
+(12, 137),
+(12, 138),
+(14, 125),
+(14, 126),
+(17, 139),
+(17, 140);
 
 -- --------------------------------------------------------
 
@@ -73,8 +105,15 @@ CREATE TABLE `attribute_value` (
 --
 
 INSERT INTO `attribute_value` (`id`, `value`, `attr_group_id`) VALUES
-(7, 'testAttributettribute', 6),
-(8, 'nextTestAttribute', 7);
+(9, '0 - 50', 8),
+(10, '50 - 100', 8),
+(11, '100 - 150', 8),
+(12, '150 - 200', 8),
+(13, '200 - 250', 8),
+(14, '250 - 300', 8),
+(15, '300 - 350', 8),
+(16, '350 - 400', 8),
+(17, '400 - 450', 8);
 
 -- --------------------------------------------------------
 
@@ -102,11 +141,8 @@ INSERT INTO `category` (`id`, `title`, `alias`, `parent_id`, `keywords`, `descri
 (27, 'Nike', 'nike-27', 25, '', ''),
 (28, 'Adiddas', 'adiddas-28', 24, '', ''),
 (29, 'Adidas', 'adidas-29', 25, '', ''),
-(30, 'New Balance', 'new-balance', 25, '', ''),
-(31, 'Fila', 'fila', 25, '', ''),
-(33, 'Puma', 'puma', 24, '', ''),
-(34, 'Puma', 'puma-34', 25, '', ''),
-(35, 'Jordan', 'jordan', 24, '', '');
+(30, 'Jordan', 'jordan', 24, '', ''),
+(31, 'Jordan', 'jordan-31', 25, '', '');
 
 -- --------------------------------------------------------
 
@@ -148,42 +184,165 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `product_id`, `img`) VALUES
-(16, 69, '898fad4f42169d25f460e2b9916731ac.jpg'),
-(18, 71, '0989736b6a93db473ffb64c3ad701988.jpg'),
-(19, 72, '6682ed66e1abb4d5ba274d74e506a946.jpg'),
-(20, 73, '4f5537a5c6101af2eb8e0ad628751af6.jpg'),
-(21, 74, '43086ee514943f9b04debe375c41b42b.jpg'),
-(22, 75, 'fed157b7592d95cfc40ee01574bca976.jpg'),
-(23, 75, '9b7cc1c955c386a628b18c14f52a0754.jpg'),
-(28, 90, '6c71d6367d4de35c67134e3973ee3928.jpg'),
-(29, 90, '1a117b159b2b08c2396829f213ebcca0.jpg'),
-(32, 92, 'c398e8398fd53293cbc9641568f22731.jpg'),
-(33, 92, '75fb9c6549f3062d75fe9430f7f29852.jpg'),
-(34, 93, '2c9317fdd50c50807a47e825f2ddaa84.jpg'),
-(35, 93, '4691e777a6330ccd5d9b8700de52ebac.jpg'),
-(36, 94, '8a0fe8b9e55c41e40da8541b03d89a5b.jpg'),
-(37, 94, '5b01c00b5242db608167e400fb06b3be.jpg'),
-(38, 95, '76026ece71faa1c7f0d1a98c49a3f801.jpg'),
-(39, 95, 'cbe122aa13dac95521848d5b8e4f1ae8.jpg'),
-(40, 96, 'a2a26ca16bd3ded356533dafdf5d4978.jpg'),
-(41, 96, 'f6eacae5096cdae3a1b9d7c2847b5f4c.jpg'),
-(42, 97, 'c7e5a84e06e2201810e556c7863301bd.jpg'),
-(43, 97, 'ec4066d621251f840034f4ba7f75266e.jpg'),
-(44, 97, '7a3bcf04307a2c766eb9ed72de13d5b9.jpg'),
-(47, 99, 'b27461b0612e8e09f6dd489641dfcc02.jpg'),
-(48, 99, '3de4ab5d848b3697642d75dc468d31f4.jpg'),
-(49, 99, '8576ab63cea26d7996a012d999bbc138.jpg'),
-(50, 100, '61933487a0291a450a9e481e3f9ae6df.jpg'),
-(51, 100, 'e83574041ee38b9d0c5697cba7cd17eb.jpg'),
-(52, 101, 'c9e853013383e35529f61c8531869eb6.jpg'),
-(53, 101, '9daa00e0afa9b49cbc2621752ff8f50e.jpg'),
-(55, 102, '3ab872e2a9782c5402b81cebdbd49616.jpg'),
-(56, 102, 'e212dcc61bcd563c97cc8f76cf66737a.jpg'),
-(57, 102, '73e2a533a0cb90427196044ee43458a3.jpg'),
-(64, 103, 'fdf136a36abe445eb476c52b421c3aa1.jpg'),
-(65, 104, '741d94d3dd6841cb9f8ea4ed23c938d5.jpg'),
-(66, 104, '768d359f7466df07bc9afb9a668d9071.jpg'),
-(67, 104, 'baeef865fb1adab53ab40747e5c5ccb4.jpg');
+(68, 105, '85e27026c7793aae0b10faa99a0592a9.jpg'),
+(69, 105, '2fcd9baa2d6801497d18e6c418f0d86f.jpg'),
+(70, 105, 'eccc978b0904bb817d6a8812ba688073.jpg'),
+(71, 106, '723abf06fe62658920959b4112b5b542.jpg'),
+(72, 106, '45e4aa5fb472507bad67e17a8c0dde64.jpg'),
+(73, 106, '72aab8061159daa13b82f27566c607da.jpg'),
+(74, 107, 'b7f9b58db4f75ff5e925097c9b93a31f.jpg'),
+(75, 107, '1aeb6310ab167e11f9ff0f0061c8d9b4.jpg'),
+(76, 107, 'a9d253462e5240d216bbb20217c12094.jpg'),
+(77, 108, '74cc60330aa6e8cb130fb9d06f551b9d.jpg'),
+(78, 108, '83ca355a1910538abb8c4c1269900f72.jpg'),
+(79, 108, '523fead260df52eb463ee9176ad37e04.jpg'),
+(80, 109, '26481b7ee02d5e5b301b9675ef59e46e.jpg'),
+(81, 109, '77873009a2f0777da2fd42004b3aa3bc.jpg'),
+(82, 109, 'b57282a4a762721eea702cad18baea46.jpg'),
+(83, 110, 'f4d127228fcb52432f60b11f519af855.jpg'),
+(84, 110, 'bcb0296d55dd63604ac0faabac92c6aa.jpg'),
+(85, 110, 'd258c916b660d4dfcf9dfa180dd138c3.jpg'),
+(86, 110, '754a4b44a70fa7845b56723381007d6f.jpg'),
+(87, 111, '6270324017117096e2b0b9536181e79c.jpg'),
+(88, 111, '7f00dcded5e8c989312312c212f8d6a4.jpg'),
+(89, 111, '22b3974b8f8bc189fe1a93e1f00fbfc2.jpg'),
+(90, 111, 'e1e82949a18f52f571150f25f8e5ba1f.jpg'),
+(91, 112, '78b17b99f78171ba61c497aafb62b4b0.jpg'),
+(92, 112, 'dc4ad4d3e63126adb7fec62df5f42fc9.jpg'),
+(93, 112, '9a54283152cd188fd2606b72290c1052.jpg'),
+(94, 113, 'c7978c33643f08eaf8cb8ee1a45cb379.jpg'),
+(95, 113, '11d64b9fc5711dd3b90bdfe04a29b26d.jpg'),
+(96, 113, '2748e3b4fcd2db44a762bd64bc81e2a0.jpg'),
+(97, 113, '898f0193c08dfab49ee901844ad0fe33.jpg'),
+(98, 114, '24953a05a1f1960da6ffdc8d1481f83d.jpg'),
+(99, 114, '32dcacdf13bbf23ec54f452b604be530.jpg'),
+(100, 114, 'da4b7e6859c20893de7ada7105f6a0a0.jpg'),
+(101, 114, 'b97350def122bb7fa1f7d27550e97c45.jpg'),
+(102, 115, '8c5dccae5167f01eae5618e337cbceb5.jpg'),
+(103, 115, 'dbcce9901c90e9d65e380859c822f5c2.jpg'),
+(104, 115, 'd22918dd73082f31bfba13353bcef4c8.jpg'),
+(105, 115, '48a3a6223b0a1bda6e3191b9ffc5dce1.jpg'),
+(106, 116, '52bc8be94b3389993ceea84990df7388.jpg'),
+(107, 116, '143ccac487ccb7effc3763a463210621.jpg'),
+(108, 116, 'ba3b677ccfab5b40e6c56babb728449a.jpg'),
+(109, 116, 'd2f395469b56c7aaf89d6948bfac71e3.jpg'),
+(110, 116, '3a2b005bf098f6f1417f005f10470047.jpg'),
+(111, 117, '0128dcff6b9fb6e3e040c45d6ee5a128.jpg'),
+(112, 117, '52ea3bdd5c695beaef233bddd3fff057.jpg'),
+(113, 117, '50ca8456ab4c6ef0c9bebc01f8044d4d.jpg'),
+(114, 117, 'f3f6558aee5a5a969175c288c5465a97.jpg'),
+(115, 118, '18f8f5fd88c1a3c44bf2dae1d5338be0.jpg'),
+(116, 118, 'cd8d01710196a469c4296353695088c6.jpg'),
+(117, 118, 'e14969e94805864ce8ff92b135c73b9a.jpg'),
+(118, 118, '323b3f4e0c773dc869caa991304c13a1.jpg'),
+(119, 119, '0a59257de8c6f34ac2d317a3849d603b.jpg'),
+(120, 119, '6fe59d3bfab00c92c6688e8c40a71871.jpg'),
+(121, 119, 'eec53b07b797c5e84497d149bc55fb69.jpg'),
+(122, 119, 'c0bf921fa3e83f7806ddbf613a07c84c.jpg'),
+(123, 119, 'c084d5963b2b36e466905a2cbd11d5d2.jpg'),
+(124, 120, '52efcb2725b35a4552048232931cf028.jpg'),
+(125, 120, '7501f7def54d1f34d4f0f69fd010cd06.jpg'),
+(126, 120, '2eb0013e390e5e8f215cc51fee375fb4.jpg'),
+(127, 120, '2057a548a4d7e23a3c5c646c2a3c871f.jpg'),
+(128, 120, '4742a3dab496206b5f0a54acce372015.jpg'),
+(129, 121, '72b893485d6e739ac91683625eea50e7.jpg'),
+(130, 121, 'afe35dd08a219294034b8fe607ce7307.jpg'),
+(131, 121, '30049a78591772637c0c72d2ab8c91d3.jpg'),
+(132, 121, 'e420b4244ac0b7d7f9cb6230e3fcd98e.jpg'),
+(133, 121, '267f4e77363ac4cc59647f24cf370fda.jpg'),
+(134, 122, '2fd06809c7eb2ac3193deba38c2bcbfd.jpg'),
+(135, 122, '1e197ef7770e0742668b328cfe68eb3a.jpg'),
+(136, 122, '63f5989d96caf7bb1a84cffd2e0ed549.jpg'),
+(137, 122, 'b660b2e8876b971ab00268936b83953f.jpg'),
+(138, 122, '06ef683b51a1aa74ed060caebe4bf03d.jpg'),
+(139, 123, '895531c6a78cac4441919923bcc1586d.jpg'),
+(140, 123, '529585db1ca6ff732ace8880f9972353.jpg'),
+(141, 123, '7006295090f0f45d1a7f2977b2871dbc.jpg'),
+(142, 123, '8788e5ff3b275dc98579a9c0b10aba31.jpg'),
+(143, 123, '89c425f1be4da9587d625262a38c436a.jpg'),
+(144, 124, 'a2ac5f1b2f62bdbe1023e2c97931f7f4.jpg'),
+(145, 124, 'a1a58a85caec419eec0214e1d5fe9b6b.jpg'),
+(146, 124, 'a416275087d6eed13dec1b804d034a8b.jpg'),
+(147, 124, 'a3d913a9358d22f78dcc92a8f118332d.jpg'),
+(148, 124, '2777c15ea8d401829924cbeb59687576.jpg'),
+(149, 125, '55790a4f7d5a679471633b16c7468fa7.jpg'),
+(150, 125, '90073a37876061bd3cd5ef4cce36fd49.jpg'),
+(151, 125, '8f2c6205ca55dc0f1765f3a84a4df330.jpg'),
+(152, 125, 'edc3fea9a0282a30302dc90681db10f6.jpg'),
+(153, 125, '691ddbd544f1c0448c00f4f65b315a36.jpg'),
+(154, 126, 'c447cffe73c59b2f50c4d0a65e496226.jpg'),
+(155, 126, '0fe87b7e494dea8d1fab47d9752864df.jpg'),
+(156, 126, 'da264fc2c06af64a265521e4ae02d394.jpg'),
+(157, 126, '909252bf185e00d7f5605e59640df095.jpg'),
+(158, 127, 'a45293ea450dad8cacdfea96bcc24c02.jpg'),
+(159, 127, 'a6e7c7de0059c4c319b9863fea32b894.jpg'),
+(160, 127, 'b3db15ac38ec1ddec48d23e83169c299.jpg'),
+(161, 128, 'fa27ad56831c6e93110c75e2e877d0b7.jpg'),
+(162, 128, '76624d8611fdbd760b8e8ae62ea8a9ba.jpg'),
+(163, 128, 'aa49d62d7f1615381d5cf2bbf0f3b127.jpg'),
+(164, 129, 'b3553ca376991b274aff32969deb5aad.jpg'),
+(165, 129, '2e3882f07cc531c25060dcb1807dfdf2.jpg'),
+(166, 129, '0fc4647bbec78adb0b66a0aaa8a08494.jpg'),
+(167, 130, '37cd7e2ffde8de17e3dbe7b8cb47d760.jpg'),
+(168, 130, 'fd3d777d0752dfe042887ecfb4e222dc.jpg'),
+(169, 131, '1cf895565fcc702eb2eb8d1a0cff2614.jpg'),
+(170, 131, '56ca8710713fda29569318ddcab3163d.jpg'),
+(171, 131, '052e1e2074b415f795da0178a132fc83.jpg'),
+(172, 131, 'fc0c41973a1bf4df725188d7041325a7.jpg'),
+(173, 131, '12b5c76f71e20057636b532ea22678cb.jpg'),
+(174, 132, 'b00a1f80300a4cb65a7f22b046956a90.jpg'),
+(175, 132, 'ce75865f7fcbbe0564557495b6992f42.jpg'),
+(176, 132, 'aa8b1315823b31e155983a32d9faa976.jpg'),
+(177, 132, '9da889b367ee456e88be7870d0d1b3e8.jpg'),
+(178, 133, '8fca2098509ef44fec37c30a35250570.jpg'),
+(179, 133, '347256f27e976df081da3d662905b582.jpg'),
+(180, 133, 'e53b006790aacbce49573e1cb912d39c.jpg'),
+(181, 133, 'e598c66c9b2d0a91c9329d76062149d4.jpg'),
+(182, 134, '991799e5f18b82f6e7238edd11aca9e8.jpg'),
+(183, 134, '4ff86ecf8d252b311b79defa0c50fb1e.jpg'),
+(184, 134, '183148f1273eefbada02a0b21aeae01e.jpg'),
+(185, 134, '4b08cf97d3bcc58401cd59e43f98354a.jpg'),
+(186, 134, 'd4644f0ff4c920412f8c8038f073d7f0.jpg'),
+(187, 135, '16f4fbb257b2cab56a13100c57c89433.jpg'),
+(188, 135, '8e3d9de246020476804ea14aa370d82e.jpg'),
+(189, 136, '8f1dcc124b843412cbeacd3f12b27b1d.jpg'),
+(190, 136, '62daa9c74f91713b1d7264b6f363ef3a.jpg'),
+(191, 136, 'd2b01d21024374987a297d3b8cb53bf8.jpg'),
+(192, 136, 'b62d93387ef4b0ff2b0bd65628bb2d4e.jpg'),
+(193, 136, '98d590731b25e5971f716bf386a7a46c.jpg'),
+(194, 137, '7dc07ae0c3c296c7481d5c5504b07b0c.jpg'),
+(195, 137, 'c296287484e118f2cbaa6e12c9fd90e2.jpg'),
+(196, 137, '5704abb869277f865e327d4c818a7432.jpg'),
+(197, 137, '7530db3db31592a5be7d5541b04beede.jpg'),
+(198, 137, '21f98d3f6362838033f5767c68e77b3b.jpg'),
+(199, 138, '2e9a599b5f47df9109fb10cd16513aa6.jpg'),
+(200, 138, 'eb4b4a943453034e903495b2aece506b.jpg'),
+(201, 138, '47c0518072546e2433484537751c6d6a.jpg'),
+(202, 138, '65f0f6b6ff1e6c66aac2ef4f9c90e961.jpg'),
+(203, 138, '451203ff048ac4ab01c5a16a64a7efd5.jpg'),
+(204, 139, '657020e686e7316850fd3c9e59424f36.jpg'),
+(205, 139, '9c5c975ffd8ec3e80546795bb3ccaec6.jpg'),
+(206, 139, 'ce9f2e6098d69495db9aea567189712f.jpg'),
+(207, 139, 'b0811d8e62e8a89dcfc4e0d001f70c5a.jpg'),
+(208, 139, 'b876abc97b6eb6e921f6fc34fc0fb35e.jpg'),
+(209, 140, '4fe433c70842c8ed81f68dab67aec3de.jpg'),
+(210, 140, 'ba93a30902c023b9dc41dcf650df8bbb.jpg'),
+(211, 140, '172e91604531f61dac713b8c9eab3975.jpg'),
+(212, 140, '955f159a37d36f4af5349847d18ef666.jpg'),
+(213, 140, '6870adb226e639f1aace712f9f3b1c91.jpg'),
+(214, 141, '41c6ae0863f8dae3d1dc065efdd09fac.jpg'),
+(215, 141, '282543261c6d17565c51a26f8fffd283.jpg'),
+(216, 141, '0764efc9ebfdc58733b0ff112d9a63d4.jpg'),
+(217, 141, '65e6b3b99c64e25bfeed2e25f02acffd.jpg'),
+(218, 142, 'f035cffb1e464ba3def8d1d10454c3b5.jpg'),
+(219, 142, '8f61095ff8aa88094814b91634913b8a.jpg'),
+(220, 142, 'f5cad12ad40748dca1c1f84219f99fe8.jpg'),
+(221, 142, '3d52e816be60776f0dd34eefaef752aa.jpg'),
+(222, 142, 'c0210a400f36662c4b36d645a3cdee3b.jpg'),
+(223, 143, 'cf05138f2547df1e7e022720bd1a21b1.jpg'),
+(224, 143, '859efcd8c48245eb36d830919ec4dd6d.jpg'),
+(225, 143, 'e60ddacbb69ab7f4ed7babe102d1d26c.jpg'),
+(226, 143, 'eacb06db789669c12199aa04aac10e7c.jpg');
 
 -- --------------------------------------------------------
 
@@ -336,25 +495,45 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `category_id`, `title`, `color`, `alias`, `content`, `price`, `old_price`, `status`, `img`, `hit`) VALUES
-(69, 26, 'Nike Air Max 97 GS', '921522-011', 'd-69', '<p><b>The Nike Air</b> Max 97 shoes are inspired by the propagating waves caused by a drop of water falling on the surface of a pond. Now, this classic running model returns with a refined, ultra-light and soft look. Repeated \'NIKE\' graphics, combined overlays and a Max Air gas cushion for all-day comfort have been added to the new version.<br></p>', 100, 0, '1', 'f0bd199eeb1a1e6f200fa6d2e3744023.jpg', '1'),
-(71, 28, 'Adidas Nite Jogger', 'EE5549', 'd', '', 85, 0, '1', '3c676b3bebbf95a52ae954e83d84af8f.jpg', '0'),
-(72, 30, 'New Balance 547', 'WL574WNM', 'd-72', '', 50, 0, '0', 'd07a08c16894f901ac5ea304da9b03ed.jpg', '0'),
-(73, 29, 'Adidas Ozweego W', 'FV9747', 'd-73', '', 70, 0, '1', '2a288e6aa8ca4ed213a59bb5bb8e02cf.jpg', '0'),
-(74, 29, 'Adidas Continental J', 'EE6484', 'd-74', '', 50, 0, '1', 'd7a86366024bc9a219f2b0cdb917d999.jpg', '1'),
-(75, 31, 'Fila Disruptor Straps Wmn', '1010859.1FG', 'd-75', '', 60, 0, '1', '54aae6c50a174fc622df9b89bc8df836.jpg', '0'),
-(90, 33, 'Puma Palace Guard The Hundreds', '371382-01', 'puma-palace-guard-the-hundreds-371382-01', '', 90, 0, '1', '579062447059c0586cea271cba6ae4a6.jpg', '0'),
-(92, 26, 'Nike Air Max 720 20', 'CT5229-001', 'nike-air-max-720-20-ct5229-001', '', 130, 0, '1', '2d61f44566533bdf82b1db1fd7810374.jpg', '1'),
-(93, 26, 'Nike Air Max 95 \"Recycled Canvas\" Pack', 'CK6478-001', 'nike-air-max-95-recycled-canvas-pack-ck6478-001', '', 170, 0, '1', '7f4855fcb3b72db38984dcc19ebe39d1.jpg', '1'),
-(94, 34, 'Puma Cell Alien Ader Error', '37011201', 'puma-cell-alien-ader-error-37011201', '', 110, 0, '1', '8b0c0804d170d0d828e2c0500800f25d.jpg', '0'),
-(95, 33, 'Puma Rs-X3 Millenium', '373236-01', 'puma-rs-x3-millenium-373236-01', '', 95, 0, '1', '7f219bee50730b6de356dbeaac99fb90.jpg', '1'),
-(96, 27, 'Nike W AF1 Sage Low', 'AR5339-002', 'd-96', '', 120, 0, '1', '5433a4681051ac4389eab0163624a242.jpg', '1'),
-(97, 27, 'Nike W Air Max 2090', 'CT7698-600', 'd-97', '', 130, 0, '1', 'a3750c8d08e8e5df9205662bf6a38c35.jpg', '1'),
-(99, 27, 'Nike WMNS Zoom X Vista Grind', 'CT8919-200', 'd-99', '<p>Rebellious and Refined, that\'s how the <b>Nike</b> & <b>ZOOM X VISTA GRIND</b> are. This ultra-modern looking model was crafted using a synthetic fabric on the upper, and a TPU structure on the heel. Lining and details are in blue and ocher, visible from each angle, while the beige color to dominate the silhouette.On the lower side it comes with a Zoom X midsole, made from recycled foam.</p>', 150, 0, '1', 'a9462df7c880bc4affeff18ae4f0c2fc.jpg', '1'),
-(100, 35, 'Jordan Proto Max 720', 'BQ6623-002', 'jordan-proto-max-720-bq6623-002', '<p>The design of the Air Jordan Proto-Max 720 was inspired by astronaut gear to create a new and totally out of this world lifestyle shoe. It features a number of impressive details, with exterior reinforcement covering the sock-like shoe, a strap on the outside of the heel to ensure fit and stability, and eyelets around the ankle so you can play around with whichever way you want to tie the laces. The black and red Bulls-inspired details give a star quality to the silver shoe. The numbers and written codes show the coordinates of the map leading to Nike\'s (and Jordan brand’s) world headquarters in Beaverton, Oregon.</p><p><br></p><p>Chunky and futuristic style.</p><p>The Air Jordan Proto-Max 720 include unbeatable sports performance features. At critical moments they provide the resistance you need and might have hoped for upon first glance. The Air unit runs through the outer sole to provide reactive and visible cushioning with maximum response.</p>', 150, 220, '1', '75a5a47b8e4a87d1040093836d60ee01.jpg', '1'),
-(101, 26, 'Nike Air Max 720', 'CJ0585-002', 'd-101', '', 160, 0, '1', 'a45211946fa590b6a07fde4830980e6b.jpg', '0'),
-(102, 26, 'Nike Air Max 97 GS', '921522-010', 'd-102', '<p><b>The Nike Air</b> Max 97 shoes are inspired by the propagating waves caused by a drop of water falling on the surface of a pond. Now, this classic running model returns with a refined, ultra-light and soft look. Repeated \'NIKE\' graphics, combined overlays and a Max Air gas cushion for all-day comfort have been added to the new version.<br></p>', 120, 0, '1', '81febb7efaa4f0e8a195ac1c42a97e66.jpg', '0'),
-(103, 26, 'Nike Air Max 97 GS', '921522-020', 'd-103', '<p><b>The Nike Air</b>&nbsp;Max 97 shoes are inspired by the propagating waves caused by a drop of water falling on the surface of a pond. Now, this classic running model returns with a refined, ultra-light and soft look. Repeated \'NIKE\' graphics, combined overlays and a Max Air gas cushion for all-day comfort have been added to the new version.<br></p>', 130, 0, '1', '8f191cf47424b3f718e96cfe5abc0d01.jpg', '0'),
-(104, 26, 'Nike Air Max 97 GS', '921522-014', 'd-104', '<p><b>The Nike Air</b>&nbsp;Max 97 shoes are inspired by the propagating waves caused by a drop of water falling on the surface of a pond. Now, this classic running model returns with a refined, ultra-light and soft look. Repeated \'NIKE\' graphics, combined overlays and a Max Air gas cushion for all-day comfort have been added to the new version.<br></p>', 105, 0, '1', '9f1c39a1f1129f372abec0c743bfa4a2.jpg', '0');
+(105, 26, 'Nike Air Max 270', 'AH8050-002', 'nike-air-max-270-ah8050-002', 'The first Nike Air Max lifestyle model, the Nike Air Max 270, is comfortable and has a unique character and style.Inspired by the legends of the Air Max range, it features a fresh color gamut and a large window that shows off Nike\'s greatest innovation.', 170.4, 0, '1', '5054c2111baf2bf130ca4c9bb9db433b.jpg', '1'),
+(106, 26, 'Nike Air Max 270', 'AH8050-100', 'nike-air-max-270-ah8050-100', '<p><span style=\"caret-color: rgb(33, 37, 41); color: rgb(33, 37, 41); font-family: Quicksand;\">The first Nike Air Max lifestyle model, the Nike Air Max 270, is comfortable and has a unique character and style.Inspired by the legends of the Air Max range, it features a fresh color gamut and a large window that shows off Nike\'s greatest innovation.</span><br></p>', 170.4, 0, '1', '4797d5eb932fcbf3e3f23102c657a80b.jpg', '0'),
+(107, 26, 'Nike Air Max 270', 'AH8050-024', 'nike-air-max-270-ah8050-024', '<p><span style=\"caret-color: rgb(33, 37, 41); color: rgb(33, 37, 41); font-family: Quicksand;\">The first Nike Air Max lifestyle model, the Nike Air Max 270, is comfortable and has a unique character and style.Inspired by the legends of the Air Max range, it features a fresh color gamut and a large window that shows off Nike\'s greatest innovation.</span><br></p>', 142.6, 170.4, '1', 'e94646863cfe005f5d52d387645031db.jpg', '1'),
+(108, 26, 'Nike Air Max 270', 'AH8050-005', 'nike-air-max-270-ah8050-005', '<p><span style=\"caret-color: rgb(33, 37, 41); color: rgb(33, 37, 41); font-family: Quicksand;\">The first Nike Air Max lifestyle model, the Nike Air Max 270, is comfortable and has a unique character and style.Inspired by the legends of the Air Max range, it features a fresh color gamut and a large window that shows off Nike\'s greatest innovation.</span><br></p>', 169.1, 0, '1', '5fea9ef08c3ebc67db1d3d339503ce87.jpg', '0'),
+(109, 27, 'Nike Air Max 97 SE GS', 'CT9637-400', 'nike-air-max-97-se-gs-ct9637-400', 'With a sleek design inspired by the high-speed Japanese Bullet Train, the Nike Air Max 97 continues to be a favorite among sneakerheads. They\'re constructed with a combination leather and textile upper, full-length visible Max Air unit, reflective lines around the upper, and a rubber outsole.', 120.6, 162.5, '1', '05418cafd1f5b6ec36779a5afe64893e.jpg', '1'),
+(110, 27, 'Nike Air Max 97 SE GS', 'CT9637-900', 'nike-air-max-97-se-gs-ct9637-900', 'With a sleek design inspired by the high-speed Japanese Bullet Train, the Nike Air Max 97 continues to be a favorite among sneakerheads. They\'re constructed with a combination leather and textile upper, full-length visible Max Air unit, reflective lines around the upper, and a rubber outsole.', 130, 162.5, '1', '2e01bea168f5d2ee964ded72b08dac9b.jpg', '0'),
+(111, 27, 'Nike Air Max 97 GS', '921522-019', 'nike-air-max-97-gs-921522-019', 'The Nike Air Max 97 Shoe features the wavy design of the original Japanese train-inspired design for a dynamic feel.They provide stylish comfort with fresh colors, eye-catching details and a revolutionary full-size Nike Air gas cushion that shook the world of runners.', 125.8, 157.3, '1', 'b59f3f7f4e9b427434632748a11cb03d.jpg', '1'),
+(112, 27, 'Nike Air Max 97 GS', '921522-014', 'nike-air-max-97-gs-921522-014', 'The Nike Air Max 97 Shoe features the wavy design of the original Japanese train-inspired design for a dynamic feel.They provide stylish comfort with fresh colors, eye-catching details and a revolutionary full-size Nike Air gas cushion that shook the world of runners.', 123.8, 154.7, '1', '3caa36ac3c1af62d19b4df51bbadb131.jpg', '0'),
+(113, 27, 'Nike Air Max 97 GS', '921522-017', 'nike-air-max-97-gs-921522-017', '<p><span style=\"caret-color: rgb(33, 37, 41); color: rgb(33, 37, 41); font-family: Quicksand;\">The Nike Air Max 97 Shoe features the wavy design of the original Japanese train-inspired design for a dynamic feel.They provide stylish comfort with fresh colors, eye-catching details and a revolutionary full-size Nike Air gas cushion that shook the world of runners.</span><br></p>', 133.7, 157.3, '1', 'cde2073ea24f4952e97057dcebe56228.jpg', '0'),
+(114, 27, 'Nike Air Max 97 GS', '921522-011', 'nike-air-max-97-gs-921522-011', '<p><span style=\"caret-color: rgb(33, 37, 41); color: rgb(33, 37, 41); font-family: Quicksand;\">The Nike Air Max 97 Shoe features the wavy design of the original Japanese train-inspired design for a dynamic feel.They provide stylish comfort with fresh colors, eye-catching details and a revolutionary full-size Nike Air gas cushion that shook the world of runners.</span><br></p>', 125.8, 157.3, '1', '4dd22adaba298a8838b82788c004d2f6.jpg', '0'),
+(115, 27, 'Nike W Air Max 2090', 'CK2612-103', 'nike-w-air-max-2090-ck2612-103', 'The Nike Air Max 2090 Imagines the Future of Air. ... With the Air Max 2090 launch colorways pulling inspiration from the future of travel, the coloring on the front and the back of the shoe are meant to convey headlights and taillights. The Air Max 2090 tread design gets an updated pattern for modern performance.', 127.4, 170.4, '1', 'c022855762d262c7deafcc88037e9335.jpg', '1'),
+(116, 27, 'Nike W Air Max 2090', 'CK2612-500', 'nike-w-air-max-2090-ck2612-500', '<p>The Nike Air Max 2090 Imagines the Future of Air. With the Air Max 2090 launch colorways pulling inspiration from the future of travel, the coloring on the front and the back of the shoe are meant to convey headlights and taillights. The Air Max 2090 tread design gets an updated pattern for modern performance.<br></p>', 127.4, 170.4, '1', '6b374782cd9952576be59d7b9b6e9ca7.jpg', '0'),
+(117, 27, 'Nike W Air Max 2090', 'CK2612-100', 'nike-w-air-max-2090-ck2612-100', 'The Nike Air Max 2090 Imagines the Future of Air. With the Air Max 2090 launch colorways pulling inspiration from the future of travel, the coloring on the front and the back of the shoe are meant to convey headlights and taillights. The Air Max 2090 tread design gets an updated pattern for modern performance.', 127.4, 170.4, '1', '5bc5663e2735cda1612b7315777d341c.jpg', '0'),
+(118, 27, 'Nike W Air Max 2090', 'CT7698-100', 'nike-w-air-max-2090-ct7698-100', 'The Nike Air Max 2090 Imagines the Future of Air. With the Air Max 2090 launch colorways pulling inspiration from the future of travel, the coloring on the front and the back of the shoe are meant to convey headlights and taillights. The Air Max 2090 tread design gets an updated pattern for modern performance.', 136.4, 170.4, '1', '1c83701295597fce24284411ce6a33a7.jpg', '1'),
+(119, 27, 'Nike W Air Max 2090', 'CT7698-600', 'nike-w-air-max-2090-ct7698-600', 'The Nike Air Max 2090 Imagines the Future of Air. With the Air Max 2090 launch colorways pulling inspiration from the future of travel, the coloring on the front and the back of the shoe are meant to convey headlights and taillights. The Air Max 2090 tread design gets an updated pattern for modern performance.', 136.4, 170.4, '1', '10dc738372a4b1c7447e674bc741e395.jpg', '0'),
+(120, 27, 'Nike W Zoom X Vista Grind', 'CT8919-200', 'nike-w-zoom-x-vista-grind-ct8919-200', 'The Nike Zoom X Vista Grind brings you to a bold new place both rebellious and refined. It\'s comfort you can see and feel in a brand new silhouette. Angular heel offers a big and bold modern look. Originating from aerospace innovation, Zoom X foam is visible through windows in the midsole for comfort you can see.', 149.5, 199.3, '1', '8222d6670779e244333845aa1a09b5c9.jpg', '1'),
+(121, 27, 'Nike W Zoom X Vista Grind', 'CT8919-001', 'nike-w-zoom-x-vista-grind-ct8919-001', 'The Nike Zoom X Vista Grind brings you to a bold new place both rebellious and refined. It\'s comfort you can see and feel in a brand new silhouette. Angular heel offers a big and bold modern look. Originating from aerospace innovation, Zoom X foam is visible through windows in the midsole for comfort you can see.', 139.5, 199.3, '1', 'de192089f225ca6830f4ccfe93f85223.jpg', '0'),
+(122, 26, 'Nike Air Max 90 Flyease', 'CZ4270-001', 'nike-air-max-90-flyease-cz4270-001', 'The Air Max 90 FlyEase is Nike Sportswear\'s first use of FlyEase technology. Leveraging a new entry system, the Air Max 90 FlyEase offers quick, easy-on and off access through a flexible heel that collapses when wearers step into the shoe. The heel then snaps back into place upon entry to secure the fit.', 118, 157.3, '1', 'b13675457dfc979e6667de196a88e05f.jpg', '1'),
+(123, 26, 'Nike Air Max 90 Flyease', ' CZ4270-100', 'nike-air-max-90-flyease--cz4270-100', 'The Air Max 90 FlyEase is Nike Sportswear\'s first use of FlyEase technology. Leveraging a new entry system, the Air Max 90 FlyEase offers quick, easy-on and off access through a flexible heel that collapses when wearers step into the shoe. The heel then snaps back into place upon entry to secure the fit.', 118, 157.3, '1', 'c9a6447005d9cf1b14f288b8203c7485.jpg', '0'),
+(124, 26, 'Nike Air Max 90 Flyease', 'CZ4270-002', 'nike-air-max-90-flyease-cz4270-002', 'The Air Max 90 FlyEase is Nike Sportswear\'s first use of FlyEase technology. Leveraging a new entry system, the Air Max 90 FlyEase offers quick, easy-on and off access through a flexible heel that collapses when wearers step into the shoe. The heel then snaps back into place upon entry to secure the fit.', 118, 157.3, '1', 'e1a5f81b5e3da17029d88d67fcd10625.jpg', '0'),
+(125, 26, 'Nike Adapt Huarache', 'CT4092-300', 'nike-adapt-huarache-ct4092-300', '<p>The Nike Adapt Huarache is designed to adapt to your every move, featuring an adaptive-fit power-lacing system that provides a locked-in feel. Just like past Adapt footwear, the Adapt Huarache is compatible with the Nike Adapt App.<br></p>', 275.3, 367.1, '1', '23d2d1b024d7111130ef5adfa48522e3.jpg', '1'),
+(126, 26, 'Nike Adapt Huarache', 'CT4092-001', 'nike-adapt-huarache-ct4092-001', 'The Nike Adapt Huarache is designed to adapt to your every move, featuring an adaptive-fit power-lacing system that provides a locked-in feel. Just like past Adapt footwear, the Adapt Huarache is compatible with the Nike Adapt App.', 293.7, 367.1, '1', '9003ca3fb6939c9faec832911efdcb9d.jpg', '0'),
+(127, 28, 'Adidas Niteball', 'FX0363', 'adidas-niteball-fx0363', 'Adidas Niteball: Unbeatable swagger. These basketball-inspired kicks are an amalgamation of classic Streetball performance and the Adidas Night Jogger\'s modern style. These chunky sneakers feature a huge three stripes on the side while a reflective silver keeps your basketball vibe going from morning until night.', 104.9, 131.1, '1', '8d2c6186cf7eeda1d8d09efd3a973ab3.jpg', '0'),
+(128, 28, 'Adidas Torsion X', 'EE4885', 'adidas-torsion-x-ee4885', 'The Adidas Torsion X is equipped with Torsion X, a support system that allows your foot to move naturally. They also have a breathable textile upper, padded collar/tongue, energy-returning Boost cushioning, and a rubber outsoel.', 156, 222.9, '1', 'b68c397b2288a1c394e0074fd5f39248.jpg', '0'),
+(129, 28, 'Adidas Torsion X', 'FV4552', 'adidas-torsion-x-fv4552', 'The Adidas Torsion X is equipped with Torsion X, a support system that allows your foot to move naturally. They also have a breathable textile upper, padded collar/tongue, energy-returning Boost cushioning, and a rubber outsoel.', 137.7, 196.7, '1', '30b3111c1cc365f761e1e4a71a69c69b.jpg', '0'),
+(130, 28, 'Adidas Nite Jogger', 'EE5884', 'adidas-nite-jogger-ee5884', 'Adidas launched a new sneaker designed for nighttime runners, aptly named the Nite Jogger. Inspired by a sneaker of the same name from 1979, today\'s version features a full-length Boost midsole, a cut-and-sewn upper, and plenty of reflective accents for nighttime visibility.', 101.5, 145, '1', '49d42ad50a07c994b2b71c82d11021a8.jpg', '0'),
+(131, 28, 'Adidas Nite Jogger', 'EE5549', 'adidas-nite-jogger-ee5549', 'Adidas launched a new sneaker designed for nighttime runners, aptly named the Nite Jogger. Inspired by a sneaker of the same name from 1979, today\'s version features a full-length Boost midsole, a cut-and-sewn upper, and plenty of reflective accents for nighttime visibility.', 125.4, 179.2, '1', '4fd110323c1114d1af9f06f311b36f3b.jpg', '0'),
+(132, 28, 'Adidas Nite Jogger', 'EE5851', 'adidas-nite-jogger-ee5851', 'Adidas launched a new sneaker designed for nighttime runners, aptly named the Nite Jogger. Inspired by a sneaker of the same name from 1979, today\'s version features a full-length Boost midsole, a cut-and-sewn upper, and plenty of reflective accents for nighttime visibility.', 102.8, 158.1, '1', 'f8fd61fe55fa57dea6d76b2078db6dfd.jpg', '0'),
+(133, 30, 'Jordan Team Showcase', 'CD4150-600', 'jordan-team-showcase-cd4150-600', '<p>Jordan Team Showcase - because teamwork matters! But if you\'re far from playing basketball, perhaps you\'ll love designer footwear in the style of NBA players? The Jordan Team Showcase model features a red leather and synthetic upper, so you get a durable product that will last for years. No need to buy more pairs! Nike Air\'s cushioning technology knows how to react quickly to changing uneven terrain. A rubber outsole helps him in this, which maintains a high level of stabilization. The model is topped with a white JORDAN inscription and delicate ventilation holes.<br></p>', 137, 171.3, '1', '4b725d55cf80d29712a547a9e12972e9.jpg', '1'),
+(134, 30, 'Jordan Team Showcase', 'CD4150-104', 'jordan-team-showcase-cd4150-104', 'Jordan Team Showcase - because teamwork matters! But if you\'re far from playing basketball, perhaps you\'ll love designer footwear in the style of NBA players? The Jordan Team Showcase model features a red leather and synthetic upper, so you get a durable product that will last for years. No need to buy more pairs! Nike Air\'s cushioning technology knows how to react quickly to changing uneven terrain. A rubber outsole helps him in this, which maintains a high level of stabilization. The model is topped with a white JORDAN inscription and delicate ventilation holes.', 137, 171.3, '1', '07f172524cc30643234753e0ddaed810.jpg', '0'),
+(135, 30, 'Jordan Team Showcase', 'CD4150-102', 'jordan-team-showcase-cd4150-102', 'Jordan Team Showcase - because teamwork matters! But if you\'re far from playing basketball, perhaps you\'ll love designer footwear in the style of NBA players? The Jordan Team Showcase model features a red leather and synthetic upper, so you get a durable product that will last for years. No need to buy more pairs! Nike Air\'s cushioning technology knows how to react quickly to changing uneven terrain. A rubber outsole helps him in this, which maintains a high level of stabilization. The model is topped with a white JORDAN inscription and delicate ventilation holes.', 137, 171.3, '1', 'cfc8af1d17d7262ead63eb1e3861fda6.jpg', '0'),
+(136, 30, 'Jordan Aerospace 720', ' BV5502-002', 'jordan-aerospace-720--bv5502-002', 'Jordan Aerospace 720 is a new generation model. Totally modern, forward-thinking and comfortable you never dreamed of. The resilient upper made of leather and various high-quality materials ensures perfect technical and visual condition for a long time. Pleasant to the touch interior makes every step taken. The largest Air cushion to date absorbs all shocks. Match the model in black, white and beige colors with everyday basic clothes.', 179.2, 224, '1', 'e9cb7b47a39cd457d4ce81c3a14afee7.jpg', '0'),
+(137, 30, 'Jordan Aerospace 720', 'BV5502-004', 'jordan-aerospace-720-bv5502-004', 'Jordan Aerospace 720 is a new generation model. Totally modern, forward-thinking and comfortable you never dreamed of. The resilient upper made of leather and various high-quality materials ensures perfect technical and visual condition for a long time. Pleasant to the touch interior makes every step taken. The largest Air cushion to date absorbs all shocks. Match the model in black, white and beige colors with everyday basic clothes.', 179.2, 224, '1', 'd324ea8679070799c5a3cd69e731dbce.jpg', '1'),
+(138, 30, 'Jordan Proto Max 720', 'BQ6623-002', 'jordan-proto-max-720-bq6623-002', 'Inspired by outer space flight, the Jordan Proto-Max 720 provides all-day comfort with a future-forward look. An outer shroud covers the sock-like bootie construction, while Nike Air cushions every step. A 720 Air unit runs the length of the outsole for visible, bouncy cushioning.', 168.7, 224, '1', '3dcafb50020dabca47ad86aaab41f8f5.jpg', '0'),
+(139, 30, 'Air Jordan 4 Retro', '308497-116', 'air-jordan-4-retro-308497-116', 'Jordan fanatics and purists have been patiently waiting for this highly coveted retro release as this colorway in its state – with the Nike Air on the heel – has never been re-issued since its original release in 1989. An un-touched original is quite a rarity these days, and with the overall popularity of the Air Jordan 4 silhouette still flying high.', 421.6, 0, '1', '2940d7d3f18dacc32a1f87834b56b2a7.jpg', '1'),
+(140, 30, 'Air Jordan 4 Retro', '308497-060', 'air-jordan-4-retro-308497-060', 'Jordan fanatics and purists have been patiently waiting for this highly coveted retro release as this colorway in its state – with the Nike Air on the heel – has never been re-issued since its original release in 1989. An un-touched original is quite a rarity these days, and with the overall popularity of the Air Jordan 4 silhouette still flying high.', 421.6, 0, '1', '209a33d6c72b3c9d3bac82ce390823e1.jpg', '0'),
+(141, 31, 'Jordan Why Not Zer0.3', 'CD3003-101', 'jordan-why-not-zer0-3-cd3003-101', 'The Jordan \"Why Not?\" Zer0. 3 is tuned for Russ\' on-court chaos, featuring a midfoot strap to secure the fit and a large cushioning unit to help drive him hard and fast toward the basket. Designed specifically for Russ, the large Air Zoom Turbo unit in the front of the shoe is curved to follow the foot\'s natural shape.', 110.7, 158.1, '1', '2638d5d5efd5ff31a0694c0d6beabcae.jpg', '0'),
+(142, 30, 'Jordan Delta', 'CD6109-002', 'jordan-delta-cd6109-002', 'The Jordan Delta has a design that\'s expressive and comfortable from the inside out. Made with a mix of materials, this shoe has plush, lightweight foam underfoot. Its meticulously crafted for a look and feel only Jordan brand can deliver. Nike React foam is ultrasoft and lightweight with a responsive feel.', 116, 145, '1', '9d638500688ae25cdd49320876574717.jpg', '0'),
+(143, 31, 'Jordan Why Not Zer0.3', 'CD3003-006', 'jordan-why-not-zer0-3-cd3003-006', 'The Jordan \"Why Not?\" Zer0. 3 is tuned for Russ\' on-court chaos, featuring a midfoot strap to secure the fit and a large cushioning unit to help drive him hard and fast toward the basket. Designed specifically for Russ, the large Air Zoom Turbo unit in the front of the shoe is curved to follow the foot\'s natural shape.\r\n', 126.5, 158.1, '1', '07bd05e73335518bf8dcdc3ab1e71d07.jpg', '0');
 
 -- --------------------------------------------------------
 
@@ -373,18 +552,64 @@ CREATE TABLE `product_size` (
 --
 
 INSERT INTO `product_size` (`size_id`, `qty`, `product_id`) VALUES
-(10, 5, 89),
-(13, 3, 100),
-(7, 2, 75),
-(9, 2, 75),
-(8, 3, 75),
-(10, 6, 71),
-(10, 4, 100),
-(5, 2, 74),
-(10, 3, 69),
-(8, 4, 74),
-(7, 6, 74),
-(10, 2, 102);
+(10, 1, 130),
+(12, 3, 130),
+(15, 2, 130),
+(14, 1, 130),
+(10, 3, 131),
+(12, 2, 131),
+(10, 4, 132),
+(10, 4, 128),
+(11, 3, 128),
+(12, 4, 128),
+(14, 2, 128),
+(11, 1, 127),
+(13, 2, 127),
+(12, 3, 132),
+(13, 3, 132),
+(11, 3, 129),
+(13, 1, 129),
+(15, 2, 129),
+(10, 1, 139),
+(11, 1, 139),
+(12, 2, 139),
+(13, 3, 139),
+(13, 2, 140),
+(15, 1, 140),
+(11, 1, 140),
+(10, 2, 136),
+(11, 3, 136),
+(13, 2, 136),
+(15, 2, 136),
+(10, 1, 137),
+(11, 4, 137),
+(13, 3, 137),
+(11, 2, 142),
+(15, 1, 142),
+(12, 3, 138),
+(10, 1, 133),
+(13, 2, 133),
+(11, 3, 133),
+(12, 4, 134),
+(13, 1, 134),
+(15, 2, 134),
+(13, 4, 135),
+(14, 1, 135),
+(10, 2, 135),
+(6, 1, 141),
+(7, 2, 141),
+(8, 3, 141),
+(9, 1, 141),
+(7, 2, 143),
+(9, 1, 143),
+(8, 3, 143),
+(10, 3, 105),
+(11, 2, 105),
+(12, 4, 105),
+(15, 3, 105),
+(12, 2, 126),
+(10, 2, 125),
+(11, 3, 125);
 
 -- --------------------------------------------------------
 
@@ -402,28 +627,12 @@ CREATE TABLE `related_product` (
 --
 
 INSERT INTO `related_product` (`product_id`, `related_id`) VALUES
-(69, 73),
-(69, 102),
-(74, 69),
-(90, 89),
-(92, 69),
-(92, 71),
-(93, 69),
-(93, 70),
-(95, 73),
-(95, 94),
-(96, 92),
-(97, 69),
-(97, 71),
-(97, 89),
-(97, 92),
-(99, 69),
-(99, 98),
-(100, 69),
-(100, 89),
-(100, 92),
-(100, 98),
-(101, 92);
+(139, 106),
+(139, 115),
+(139, 133),
+(139, 136),
+(139, 138),
+(139, 141);
 
 -- --------------------------------------------------------
 
@@ -474,7 +683,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `login`, `password`, `email`, `name`, `address`, `role`) VALUES
-(5, 'ira', '$2y$10$FamdBWPFWYrjEQnqoHUwBuXQURpyXbXHwQB/eZBChw6bAU8uVkTke', 'irina@mail.com', 'Irina Avilova', 'Ukraina, Dnipro, ul.Bogomaza,17', 'user'),
 (18, 'dns', '$2y$10$UUeVZQu8IFnwuMx4Uz6PHufn23MPILgY6MEdbIQ.qxFmMGxKcY6RK', 'denis_m_@mail.ru', 'Denis Moiseienko', 'Poland  Bydgoszcz 85-011 ul.Sniadeckich b.43 m. 9', 'admin');
 
 --
@@ -570,19 +778,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `attribute_group`
 --
 ALTER TABLE `attribute_group`
-    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `attribute_value`
 --
 ALTER TABLE `attribute_value`
-    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `currency`
@@ -594,7 +802,7 @@ ALTER TABLE `currency`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 
 --
 -- AUTO_INCREMENT for table `order`
@@ -612,7 +820,7 @@ ALTER TABLE `order_product`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+    MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- AUTO_INCREMENT for table `size`
