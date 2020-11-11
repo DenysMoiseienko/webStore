@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row align-items-stretch">
              <?php foreach($hits as $hit): ?>
-                <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
                     <div class="card h-100">
                         <a href="product/<?=$hit->alias;?>" class="mask">
                             <img class="card-img-top" src="images/<?=$hit->img;?>" alt="" />

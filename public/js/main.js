@@ -247,6 +247,11 @@ $('.slider-nav').slick({
     focusOnSelect: true,
     vertical: true,
     arrows: true,
+    centerMode: true,
+    centerPadding: "15",
+    prevArrow:"<button type='button' class='slick-prev'><i class='fa fa-angle-up' aria-hidden='true'></i></button>",
+    nextArrow:"<button type='button' class='slick-next'><i class='fa fa-angle-down' aria-hidden='true'></i></button>"
+        
 });
 
 //tools

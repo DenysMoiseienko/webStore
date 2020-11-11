@@ -79,32 +79,35 @@
                     <?php endif; ?>
 
                     <?php if ($sizes): ?>
-                        <div class="available">
-                            <ul>
-                                <li>Size
-                                    <select class="custom-size-select">
-                                        <option>Choose size</option>
-                                        <?php foreach($sizes as $size): ?>
-                                            <option data-id="<?=$size['id'];?>" data-qty="<?=$size['qty'];?>" value="<?=$size['value'];?>">
-                                                <?=$size['value'];?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </li>
-                                <div class="clearfix"> </div>
-                            </ul>
-                        </div>
+                        <div class="d-flex">
+                            <div class="available my-2">
+                                <label class="d-block" for="size-select">Size</label>
+                                <select id="size-select" class="custom-size-select">
+                                    <!-- <option>Choose size</option> -->
+                                    <?php foreach($sizes as $size): ?>
+                                        <option data-id="<?=$size['id'];?>" data-qty="<?=$size['qty'];?>" value="<?=$size['value'];?>">
+                                            <?=$size['value'];?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
-                        <div class="quantity">
-                            <input type="number" size="4" value="1" name="quantity" min="1" step="1">
+                            <div class="quantity my-2 ml-3">
+                                <label class="d-block" for="quantity-input">Quantity</label>
+                                <span class="quantity-input">
+                                <input id="quantity-input" type="number" size="4" value="1" name="quantity" min="1" step="1">
+                                </span>
+                            </div>
                         </div>
-
-                        <a id="productAdd" class="btn custom-btn mt-3 add-cart item_add add-to-cart-link" data-id="<?=$product->id?>" href="cart/add?id=<?=$product->id?>">
-                            Add to cart
-                        </a>
+                        
+                        <div>
+                            <a id="productAdd" class="btn custom-btn mt-3 add-cart item_add add-to-cart-link" data-id="<?=$product->id?>" href="cart/add?id=<?=$product->id?>">
+                                Add to cart
+                            </a>
+                        </div>
                     <?php else: ?>
                         <div>
-                            <h3>Out of stock</h3>
+                            <span class="">Out of stock</span>
                         </div>
                     <?php endif; ?>
 

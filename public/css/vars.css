@@ -7,5 +7,7 @@
     --nav-text-color: #fff;
     --light-text-color: #6c757d;
     --contrast-color: rgb(255, 158, 128);
+    --contrast-color-rgba-strong: rgba(255, 158, 128, 0.5);
+    --contrast-color-rgba-light: rgba(255, 158, 128, 0.2);
     --contrast-color-rgba: rgb(255, 158, 128, 0.1);
 }
