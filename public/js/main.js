@@ -175,9 +175,7 @@ $('#currency'). change(function() {
 });
 
 $('.available select').on('change', function () {
-    var modId = $(this).val(),
-        color = $(this).find('option').filter(':selected').data('title'),
-        price = $(this).find('option').filter(':selected').data('price'),
+    var price = $(this).find('option').filter(':selected').data('price'),
         available_qty = $(this).find('option').filter(':selected').data('qty'),
         basePrice = $('#base-price').data('base');
 

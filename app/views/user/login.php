@@ -10,39 +10,33 @@
 <!--end-breadcrumbs-->
 
 <!--prdt-starts-->
-<div class="prdt">
-    <div class="container">
-        <div class="prdt-top">
-            <div class="col-md-12">
-                <div class="product-one signup">
-                    <div class="register-top heading">
-                        <h2>Log in</h2>
+<div class="container">
+    <div class="col-12">
+        <div class="account-top heading my-3">
+            <h2>Log in</h2>
+            <p>If you have previously made an order or have a customer account, you may login here. </p>
+        </div>
+
+        <div class="account-main">
+            <form method="post" action="user/login" id="signup" role="form" data-toggle="validator">
+                <div class="row">
+                    <div class="col form-group has-feedback">
+                        <label for="login">Login</label>
+                        <input type="text" name="login" class="form-control" id="login" placeholder="Login" required>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
 
-                    <div class="register-main">
-                        <div class="col-md-6 account-left">
-                            <form method="post" action="user/login" id="signup" role="form" data-toggle="validator">
-
-                                <div class="form-group has-feedback">
-                                    <label for="login">LogIn</label>
-                                    <input type="text" name="login" class="form-control" id="login" placeholder="Login" required>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-
-                                <div class="form-group has-feedback">
-                                    <label for="pasword">Password</label>
-                                    <input type="password"  name="password" class="form-control" id="pasword" placeholder="Password" required>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-
-                                <button type="submit" class="btn btn-success">Log in</button>
-                            </form>
-
-                        </div>
+                    <div class="col form-group has-feedback">
+                        <label for="pasword">Password</label>
+                        <input type="password"  name="password" class="form-control" id="pasword" placeholder="Password" required>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
                     </div>
                 </div>
-            </div>
+                <div class="text-right">
+                    <button type="submit" class="btn custom-btn-secondary">Log in</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
