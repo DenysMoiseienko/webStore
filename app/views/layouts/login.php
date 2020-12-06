@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <base href="/webStore/">
+    <base href="<?=PATH;?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AdminLTE 3 | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -34,4 +34,3 @@
 </body>
 
 </html>
-

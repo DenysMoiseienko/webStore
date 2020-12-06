@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/webStore/">
+    <base href="<?=PATH;?>">
     <?=$this->getMeta();?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,7 +95,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continue shopping</button>
                 <button type="button" class="btn custom-btn" onclick="recalculate()">Recalculate</button>
-                <a href="cart/view" type="button" class="btn custom-btn-secondary">Order</a>
+                <button onclick="location.href='cart/view'" type="button" class="btn custom-btn-secondary">Order</button>
                 <button type="button" class="btn btn-danger" onclick="clearCart()">Empty cart</button>
             </div>
         </div>

@@ -17,7 +17,6 @@
                         <td><a href="product/<?=$item['alias'];?>"><img class="cart-img img-fluid" src="images/<?=$item['img'];?>" alt=""></a></td>
                         <td><a href="product/<?=$item['alias'];?>"><?=$item['title'];?></td>
                         <td><?=$item['size']?></td>
-                        <!-- <td><input data-id="<?=$id;?>" class="cart-quantity" type="number" size="4" value="<?=$item['qty'];?>" name="quantity" min="1" step="1"></td> -->
                         <td>
                             <span class="quantity-input">
                                 <input data-id="<?=$id;?>" id="quantity-input" class="cart-quantity" type="number" size="4" value="<?=$item['qty'];?>" name="quantity" min="1" step="1">
