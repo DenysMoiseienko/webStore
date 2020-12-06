@@ -18,4 +18,6 @@
 - Denys Moiseienko - backend
 - Mariia Moiseienko - frontend
 ---
-![webStore](https://github.com/DenysMoiseienko/webStore/blob/master/public/images/for_readme.png)
+![webStore](https://github.com/DenysMoiseienko/webStore/blob/master/public/images/for_readme1.png)
+
+![webStore](https://github.com/DenysMoiseienko/webStore/blob/master/public/images/for_readme2.png)
