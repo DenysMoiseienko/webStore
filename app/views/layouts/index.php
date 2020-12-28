@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/webStore/">
+    <base href="<?=PATH;?>">
     <?=$this->getMeta();?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,23 +18,23 @@
     <div>
         <button class="open-nav" onclick="openNav()">&#9776;</button>
         <a class="navbar-brand" href="<?=PATH;?>"><h1><?=\store\App::$app->getProperty('shop_name')?></h1></a>
-        <nav id="sidebar-nav" class="sidebar-nav">  
+        <nav id="sidebar-nav" class="sidebar-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
             <?php new \app\widgets\menu\Menu(['tpl' => WWW . '/menu/menu.php']); ?>
-            
+
             <ul class="menu navbar-nav">
                 <li class="nav-item">
                     <a href="javascript:void(0);" class="nav-link">Account</a>
                     <button class="menu-has-items-toggle"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                     <?php if (!empty($_SESSION['user'])): ?>
                         <ul>
-                            <li><li><a href="user/myaccount" class="nav-link"><?=h($_SESSION['user']['name'])?></a></li></li>
+                            <li><li><a href="user/myaccount" class="nav-link"><?=h($_SESSION['user']['name'])?></a></li>
                             <li><a href="user/logout">Logout</a></li>
                         </ul>
                     <?php else: ?>
                         <ul>
                             <li><a href="user/login">Login</a></li>
-                            <a href="user/signup">Sign in</a></li>
+                            <li><a href="user/signup">Sign in</a></li>
                         </ul>
                     <?php endif; ?>
                 </li>
@@ -44,19 +44,19 @@
             </ul>
         </nav>
     </div>
-    <div class="box d-flex align-middle"> 
+    <div class="box d-flex align-middle">
         <form class="form-inline my-2 my-lg-0" action="search" method="get" autocomplete="off">
             <input class="form-control custom-input mr-sm-2 typeahead" type="text" id="typeahead" name="s" placeholder="Search" aria-label="Search">
             <button class="btn btn-dark my-2 my-sm-0" type="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </button>
-        </form>                   
+        </form>
         <!-- <select id="currency" tabindex="4" class="dropdown drop"> -->
-            <?php// new \app\widgets\currency\Currency()?>
+            <?//php// new \app\widgets\currency\Currency()?>
         <!-- </select> -->
         <div class="cart box_1">
             <a class="btn btn-dark my-2 my-sm-0 ml-2" href="cart/show" onclick="getCart(); return false;">
-                <div class="total">                    
+                <div class="total">
                     <?php if (!empty($_SESSION['cart'])): ?>
                         <span class="simpleCart_total">
                             <?=$_SESSION['cart.qty'];?>
@@ -68,7 +68,7 @@
             </a>
             <div class="clearfix"> </div>
         </div>
-    </div>  
+    </div>
 </header>
 <main>
 <?=$content;?>
@@ -95,14 +95,14 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continue shopping</button>
                 <button type="button" class="btn custom-btn" onclick="recalculate()">Recalculate</button>
-                <a href="cart/view" type="button" class="btn custom-btn-secondary">Order</a>
+                <button onclick="location.href='cart/view'" type="button" class="btn custom-btn-secondary">Order</button>
                 <button type="button" class="btn btn-danger" onclick="clearCart()">Empty cart</button>
             </div>
         </div>
     </div>
 </div>
 <!-- end Modal -->
-    
+
 <?php  $curr = \store\App::$app->getProperty('currency');?>
 <script>
     var path = '<?=PATH;?>',

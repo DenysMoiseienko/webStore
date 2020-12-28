@@ -10,7 +10,7 @@
 <!--end-breadcrumbs-->
 
 <div class="prdt">
-    <div class="container">
+    <div class="container py-3">
         <div class="prdt-top">
             <div class="col-md-12">
                 <div class="product-one cart">
@@ -20,7 +20,7 @@
                     <br><br>
                     <?php if(!empty($_SESSION['cart'])):?>
                         <div class="table-responsive">
-                            <table class="table table-hover table-striped">
+                            <table class="table">
                                 <thead>
                                 <tr>
                                     <th>Image</th>
@@ -28,7 +28,7 @@
                                     <th>Quantity</th>
                                     <th>Size</th>
                                     <th>Price</th>
-                                    <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
+                                    <th><span class="sr-only">Remove</span></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -39,16 +39,16 @@
                                         <td><?=$item['qty'];?></td>
                                         <td><?=$item['size'];?></td>
                                         <td><?=$item['price'];?></td>
-                                        <td><a href="cart/delete/?id=<?=$id ?>"><span data-id="<?=$id;?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></a></td>
+                                        <td class="text-center"><a href="cart/delete/?id=<?=$id ?>"><span data-id="<?=$id;?>" class="fa fa-times text-danger del-item" aria-hidden="true"></span></a></td>
                                     </tr>
                                 <?php endforeach;?>
                                 <tr>
                                     <td>Total:</td>
-                                    <td colspan="4" class="text-right cart-qty"><?=$_SESSION['cart.qty']; ?></td>
+                                    <td colspan="5" class="text-right cart-qty"><?=$_SESSION['cart.qty']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Total price:</td>
-                                    <td colspan="4" class="text-right cart-sum"><?= $_SESSION['cart.currency']['symbol_left'] . $_SESSION['cart.sum'] . " {$_SESSION['cart.currency']['symbol_right']}" ?></td>
+                                    <td colspan="5" class="text-right cart-sum"><?= $_SESSION['cart.currency']['symbol_left'] . $_SESSION['cart.sum'] . " {$_SESSION['cart.currency']['symbol_right']}" ?></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -68,8 +68,8 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="form-group has-feedback">
-                                        <label for="name">Имя</label>
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Имя" value="<?= isset($_SESSION['form_data']['name']) ? $_SESSION['form_data']['name'] : '' ?>" required>
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your name" value="<?= isset($_SESSION['form_data']['name']) ? $_SESSION['form_data']['name'] : '' ?>" required>
                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                     </div>
                                     <div class="form-group has-feedback">
@@ -84,7 +84,7 @@
                                     </div>
                                 <?php endif; ?>
 
-                                <button type="submit" class="btn btn-success">Checkout</button>
+                                <button type="submit" class="btn custom-btn-secondary">Checkout</button>
                             </form>
                             <?php if(isset($_SESSION['form_data'])) unset($_SESSION['form_data']); ?>
                         </div>

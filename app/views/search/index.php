@@ -10,7 +10,7 @@
 </div>
 <!--end-breadcrumbs-->
 
-<div class="container-fluid">
+<div class="container-fluid py-3">
     <div class="row">
         <?php if(!empty($products)): ?>
             <?php $curr = \store\App::$app->getProperty('currency') ; ?>                        
