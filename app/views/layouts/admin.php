@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <base href="/webStore/">
+    <base href="<?=PATH;?>">
     <?=$this->getMeta();?>
 
     <!-- Tell the browser to be responsive to screen width -->
@@ -59,7 +59,6 @@
             </div>
         </form>
         <div class="navbar-nav ml-auto">
-<!--            <a href="user/logout" class="btn btn-sm btn-default">Logout</a>-->
             <a href="admin/user/logout" class="btn btn-sm btn-default">Logout</a>
         </div>
 
@@ -232,14 +231,6 @@
         <?=$content; ?>
     </div>
     <!-- /.content-wrapper -->
-
-<!--    <footer class="main-footer">-->
-<!--        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>-->
-<!--        All rights reserved.-->
-<!--        <div class="float-right d-none d-sm-inline-block">-->
-<!--            <b>Version</b> 3.0.5-->
-<!--        </div>-->
-<!--    </footer>-->
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
