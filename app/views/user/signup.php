@@ -11,12 +11,12 @@
 
 <!--prdt-starts-->
 <div class="prdt">
-    <div class="container">
+    <div class="container py-3">
         <div class="prdt-top">
             <div class="col-md-12">
                 <div class="product-one signup">
                     <div class="register-top heading">
-                        <h2>REGISTER</h2>
+                        <h2>Register</h2>
                     </div>
 
                     <div class="register-main">
@@ -60,7 +60,7 @@
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
 
-                                <button type="submit" class="btn btn-success">Sign in</button>
+                                <button type="submit" class="btn custom-btn-secondary">Sign in</button>
                             </form>
                             <?php if (isset($_SESSION['form_data'])) unset($_SESSION['form_data']); ?>
                         </div>

@@ -26,3 +26,5 @@ public/receipts/
 /vendor/swiftmailer/
 
 /vendor/symfony/
+
+/vendor/store/core/Db.php

@@ -10,9 +10,9 @@
 <!--end-breadcrumbs-->
 
 <!--prdt-starts-->
-<div class="container">
+<div class="container py-3">
     <div class="col-12">
-        <div class="account-top heading my-3">
+        <div class="account-top heading">
             <h2>Log in</h2>
             <p>If you have previously made an order or have a customer account, you may login here. </p>
         </div>
