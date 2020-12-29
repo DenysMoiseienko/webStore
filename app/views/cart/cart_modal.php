@@ -23,7 +23,7 @@
                             </span>
                         </td>
                         <td><?=$item['price'];?></td>
-                        <td><span data-id="<?=$id;?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
+                        <td><span data-id="<?=$id;?>" class="fa fa-times text-danger del-item cursor-pointer" aria-hidden="true"></span></td>
                     </tr>
                 <?php endforeach; ?>
                     <tr>
