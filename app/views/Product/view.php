@@ -83,7 +83,7 @@
                             <div class="available my-2">
                                 <label class="d-block" for="size-select">Size</label>
                                 <select id="size-select" class="custom-size-select">
-                                    <!-- <option>Choose size</option> -->
+                                     <option selected disabled>--</option>
                                     <?php foreach($sizes as $size): ?>
                                         <option data-id="<?=$size['id'];?>" data-qty="<?=$size['qty'];?>" value="<?=$size['value'];?>">
                                             <?=$size['value'];?>
