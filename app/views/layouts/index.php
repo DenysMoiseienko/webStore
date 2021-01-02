@@ -5,13 +5,12 @@
     <?=$this->getMeta();?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/shoes_icon.ico"/>
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
     <link href="fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="libs/slick/slick.css" rel="stylesheet">
     <link rel="stylesheet" href="adminLTE/plugins/select2/css/select2.css">
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-
-
 </head>
 <body>
 <header class="navbar main-navbar">

@@ -107,9 +107,9 @@ $('#cart .modal-body').on('click', '.del-item', function () {
 
 function showCart(cart){
     if($.trim(cart) == '<h3>Cart is Empty</h3>') {
-        $('#cart .modal-footer a, #cart .modal-footer .btn-danger, #cart .modal-footer .btn-primary').css('display', 'none');
+        $('#cart .modal-footer .custom-btn-secondary, #cart .modal-footer .btn-danger, #cart .modal-footer .custom-btn').css('display', 'none');
     } else {
-        $('#cart .modal-footer a, #cart .modal-footer .btn-danger, #cart .modal-footer .btn-primary').css('display', 'inline-block');
+        $('#cart .modal-footer .custom-btn-secondary, #cart .modal-footer .btn-danger, #cart .modal-footer .custom-btn').css('display', 'inline-block');
     }
     $('#cart .modal-body').html(cart);
     $('#cart').modal();

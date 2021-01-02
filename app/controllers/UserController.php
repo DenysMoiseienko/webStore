@@ -20,7 +20,7 @@ class UserController extends AppController {
                     password_hash($user->attributes['password'], PASSWORD_DEFAULT);
                 if ($user->save('user')) {
                     $_SESSION['success'] = 'OK';
-                    /////////
+                    redirect('/webStore/user/login');
                 } else {
                     $_SESSION['error'] = 'Error!';
                 }
@@ -38,7 +38,7 @@ class UserController extends AppController {
             } else {
                 $_SESSION['error'] = 'Login/Password entered incorrectly';
             }
-            redirect();
+            redirect("/webStore/user/myaccount");
         }
         $this->setMeta('LogIn');
     }
@@ -49,16 +49,12 @@ class UserController extends AppController {
     }
 
     public function myAccountAction() {
-        if (!User::checkAuth()) {
-            redirect('/webStore/user/login');
-        }
+        $this->checkUser();
         $this->setMeta('My account');
     }
 
     public function editAction() {
-        if (!User::checkAuth()) {
-            redirect('/webStore/user/login');
-        }
+        $this->checkUser();
         if (!empty($_POST)) {
             $user = new \app\models\admin\User();
             $data = $_POST;
@@ -89,11 +85,15 @@ class UserController extends AppController {
     }
 
     public function ordersAction() {
-        if (!User::checkAuth()) {
-            redirect('/webStore/user/login');
-        }
+        $this->checkUser();
         $orders = R::findAll('order', 'user_id = ? ORDER BY date DESC',  [$_SESSION['user']['id']]);
         $this->setMeta('Order history');
         $this->set(compact('orders'));
+    }
+
+    private function checkUser() {
+        if (!User::checkAuth()) {
+            redirect('/webStore/user/login');
+        }
     }
 }

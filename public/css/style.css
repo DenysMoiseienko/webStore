@@ -466,6 +466,9 @@ select#currency {
 .cart-img{
     max-width: 70px;
 }
+.cursor-pointer:hover{
+    cursor: pointer;
+}
 /*table*/
 .table-hover tbody tr:hover {
     color: #212529;

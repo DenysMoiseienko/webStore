@@ -7,6 +7,8 @@ tmp/*
 
 public/images/
 
+!shoes_icon.ico
+
 !for_readme1.png
 
 !for_readme2.png
