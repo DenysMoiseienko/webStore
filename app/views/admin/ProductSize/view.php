@@ -76,7 +76,7 @@
                             </div>
                         </div>
 
-                        <form action="<?=ADMIN;?>/productsize/view?id=<?=$product['id'];?>" method="post" id="details">
+                        <form action="<?=ADMIN;?>/product-size/view?id=<?=$product['id'];?>" method="post" id="details">
                             <div class="card card-secondary collapsed-card">
                                 <div class="card-header">
                                     <h3 class="card-title">Size and quantity</h3>
