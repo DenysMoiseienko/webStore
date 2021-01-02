@@ -1,6 +1,6 @@
 <div class="container-fluid bg-container">
     <div class="row">
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-6">
             <!--start-breadcrumbs-->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -9,8 +9,8 @@
             </nav>
             <!--end-breadcrumbs-->
         </div>
-        <div class="col-12 col-md-4">
-            <div class=" container-fluid d-flex justify-content-end align-items-center">
+        <div class="col-12 col-md-6">
+            <div class=" container-fluid d-flex justify-content-md-end align-items-center p-0 flex-wrap">
                 <a class="btn btn-default toggle-filtres" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><i class="fa fa-filter"></i><span class="ml-3 mr-5">Filters</span></a>
                 <div class="sort">
                         <label class="sort-label m-0" for="sort-select"><span class="ml-2">Sort by price:</span></label>

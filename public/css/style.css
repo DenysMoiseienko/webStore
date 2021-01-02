@@ -27,7 +27,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px var(--main-color-rgba);
-    -webkit-box-shadow: inset 0 0 6px var(--main-color-rgba); 
+    -webkit-box-shadow: inset 0 0 6px var(--main-color-rgba);
     border-radius: 0;
     background: var(--main-color-rgba);
 }
@@ -35,7 +35,7 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: inset 0 0 6px var(--main-color);
-    -webkit-box-shadow: inset 0 0 6px var(--main-color); 
+    -webkit-box-shadow: inset 0 0 6px var(--main-color);
     background: var(--main-color);
 }
 main{
@@ -125,7 +125,7 @@ button:focus{
 .breadcrumb a{
     color: var(--light-text-color);
 }
-    
+
 /* search */
 @media (min-width: 576px) {
     .form-inline .form-control {
@@ -174,7 +174,7 @@ select#currency {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    bottom: 49px;    
+    bottom: 49px;
     background: rgba(255,255,255, 0.8);
     transition: all .3s ease;
 }
@@ -218,56 +218,56 @@ select#currency {
     max-width: 100px;
 }
 /*product page*/
-    /*slider*/
-    .slick-slide img {
-        display: block;
-        max-width: 100%;
-    }
-    .slick-arrow {
-        position: absolute;
-        z-index: 1;
-        border: none;
-        padding: 0;
-        background: rgba(255, 255, 255, 0.8);
-        width: 100%;
-        font-size: 2.5rem;
-        color: var(--contrast-color);
-        border-radius: 0;
-    }
-    #quantity-input {
-        height: 40px;
-        padding: 0 0 0 10px;
-        max-width: 63px;
-        width: 63px;
-        border: 1px solid var(--contrast-color);
-        color: var(--light-text-color);
-        background: transparent;
-        position: relative;
-        z-index: 1;
-    }
-    input[type="number"]::-webkit-outer-spin-button, 
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        background: transparent;
-        width: 1em;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-    }
-    .quantity-input{
-        position: relative;
-    }
-    .quantity-input::after {
-        font-family: 'FontAwesome';
-        content: "\f0dc";
-        color: var(--contrast-color);
-        position: absolute;
-        right: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 0;
-    }
+/*slider*/
+.slick-slide img {
+    display: block;
+    max-width: 100%;
+}
+.slick-arrow {
+    position: absolute;
+    z-index: 1;
+    border: none;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    font-size: 2.5rem;
+    color: var(--contrast-color);
+    border-radius: 0;
+}
+#quantity-input {
+    height: 40px;
+    padding: 0 0 0 10px;
+    max-width: 63px;
+    width: 63px;
+    border: 1px solid var(--contrast-color);
+    color: var(--light-text-color);
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    background: transparent;
+    width: 1em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.quantity-input{
+    position: relative;
+}
+.quantity-input::after {
+    font-family: 'FontAwesome';
+    content: "\f0dc";
+    color: var(--contrast-color);
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+}
 
 /*tools*/
 .filters{
@@ -281,7 +281,7 @@ select#currency {
     float: left;
     color: var(--light-text-color);
 }
-.filters > * {    
+.filters > * {
     padding: 0 15px;
 }
 .toggle-filtres{
@@ -338,6 +338,17 @@ select#currency {
     .filters:not(.show){
         transform: translateX(-100%);
         margin-left: -100%;
+    }
+}
+@media screen and (min-width:577px) and (max-width:620px) {
+    .filters{
+        width: 240px;
+        float: none;
+        position: absolute;
+    }
+    .filters:not(.show){
+        transform: translateX(-240px);
+        margin-left: -240px;
     }
 }
 /*sort*/
@@ -439,7 +450,7 @@ select#currency {
 
 .select2-container--default .custom-size-select-dropdown .select2-results > .select2-results__options::-webkit-scrollbar-track {
     box-shadow: inset 0 0 4px var(--contrast-color-rgba-light);
-    -webkit-box-shadow: inset 0 0 4px var(--contrast-color-rgba-light); 
+    -webkit-box-shadow: inset 0 0 4px var(--contrast-color-rgba-light);
     border-radius: 10px;
     background: var(--contrast-color-rgba-light);
 }
@@ -447,7 +458,7 @@ select#currency {
 .select2-container--default .custom-size-select-dropdown .select2-results > .select2-results__options::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: inset 0 0 4px var(--contrast-color-rgba-strong);
-    -webkit-box-shadow: inset 0 0 4px var(--contrast-color-rgba-strong); 
+    -webkit-box-shadow: inset 0 0 4px var(--contrast-color-rgba-strong);
     background: var(--contrast-color-rgba-strong);
 }
 
