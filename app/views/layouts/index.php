@@ -5,7 +5,7 @@
     <?=$this->getMeta();?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="images/shoes_icon.ico"/>
+    <link rel="icon" type="image/x-icon" href="icons/shoes_icon.ico"/>
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
     <link href="fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="libs/slick/slick.css" rel="stylesheet">
