@@ -20,7 +20,7 @@ class UserController extends AppController {
                     password_hash($user->attributes['password'], PASSWORD_DEFAULT);
                 if ($user->save('user')) {
                     $_SESSION['success'] = 'OK';
-                    /////////
+                    redirect('/webStore/user/login');
                 } else {
                     $_SESSION['error'] = 'Error!';
                 }
