@@ -48,12 +48,12 @@ $("#typeahead").typeahead({
     name: 'products',
     display: 'title',
     limit: 9,
-    source: products
-    // templates: {
-    //     suggestion: function(data) {
-    //         return '<p><img src="images/' + data.img + '" alt=""/>' + data.title + '</p>';
-    //     }
-    // }
+    source: products,
+    templates: {
+        suggestion: function(data) {
+            return '<div class="d-flex search-item"><img src="images/' + data.img + '" alt=""/><p>' + data.title + '<br>' + data.color + '</p></div>';
+        }
+    }
 });
 
 $('#typeahead').bind('typeahead:select', function (ev, suggestion) {

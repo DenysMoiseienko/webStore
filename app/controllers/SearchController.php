@@ -13,7 +13,7 @@ class SearchController extends AppController {
             $query = !empty(trim($_GET['query'])) ? trim($_GET['query']) : null;
             if ($query) {
                 $products = R::getAll(
-                   "SELECT id, title FROM product WHERE title LIKE ? AND status = '1' LIMIT 9",
+                   "SELECT id, title, color, img FROM product WHERE title LIKE ? AND status = '1' LIMIT 9",
                     ["%{$query}%"]);
                 echo json_encode($products);
             }
