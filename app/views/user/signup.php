@@ -10,8 +10,8 @@
 <!--end-breadcrumbs-->
 
 <!--prdt-starts-->
-<div class="prdt">
-    <div class="container py-3">
+<div class="prdt my-3">
+    <div class="container">
         <div class="prdt-top">
             <div class="col-md-12">
                 <div class="product-one signup">
