@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="register-main">
-                        <div class="col-md-6 account-left">
+                        <div class="col-md-6 account-left p-0">
                             <form method="post" action="user/signup" id="signup" role="form" data-toggle="validator">
                                 <div class="form-group has-feedback">
                                     <label for="login">Login</label>

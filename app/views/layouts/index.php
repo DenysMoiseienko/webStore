@@ -11,6 +11,8 @@
     <link href="libs/slick/slick.css" rel="stylesheet">
     <link rel="stylesheet" href="adminLTE/plugins/select2/css/select2.css">
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+
 </head>
 <body>
 <header class="navbar main-navbar">
@@ -27,13 +29,13 @@
                     <button class="menu-has-items-toggle"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                     <?php if (!empty($_SESSION['user'])): ?>
                         <ul>
-                            <li><li><a href="user/myaccount" class="nav-link"><?=h($_SESSION['user']['name'])?></a></li>
-                            <li><a href="user/logout">Logout</a></li>
+                            <li class="nav-item"><a href="user/myaccount" class="nav-link"><?=h($_SESSION['user']['name'])?></a></li>
+                            <li class="nav-item"><a href="user/logout">Logout</a></li>
                         </ul>
                     <?php else: ?>
                         <ul>
-                            <li><a href="user/login">Login</a></li>
-                            <li><a href="user/signup">Sign in</a></li>
+                            <li class="nav-item"><a href="user/login">Login</a></li>
+                            <li class="nav-item"><a href="user/signup">Sign in</a></li>
                         </ul>
                     <?php endif; ?>
                 </li>
