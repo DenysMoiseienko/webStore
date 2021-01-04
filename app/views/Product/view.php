@@ -23,7 +23,7 @@
                 <?php if($gallery): ?>
                 <div class="container">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="d-none d-md-block col-3">
                             <div id="slider" class="slider-nav">
                                 <?php foreach($gallery as $item): ?>
                                 <div>
@@ -32,7 +32,7 @@
                                 <?php endforeach; ?>
                             </div>
                         </div>
-                        <div class="col-9">
+                        <div class="col-12 col-md-9">
                             <div id="carousel" class="slider-for">
                                 <?php foreach($gallery as $item): ?>
                                 <div>
@@ -56,9 +56,9 @@
                 <div class="single-para simpleCart_shelfItem">
                     <h2><?=$product->title?> <?=$product->color?></h2>
 
-                    <h5 class="item_price" id="base-price" data-base="<?=$product->price * $curr['value'];?>">
+                    <span class="item_price" id="base-price" data-base="<?=$product->price * $curr['value'];?>">
                         <?=$curr['symbol_left'];?><?=$product->price * $curr['value'];?><?=$curr['symbol_right'];?>
-                    </h5>
+                    </span>
 
                     <?php if($product->old_price): ?>
                         <del>
@@ -67,15 +67,16 @@
                     <?php endif; ?>
 
                     <?php if ($colors): ?>
-                    <p>Colors:</p>
-                    <div class="color-choice">
-                        <?php foreach ($colors as $color): ?>
-                        <a href="product/<?=$color['alias'];?>" class="mask">
-                            <img src="images/<?=$color['img'];?>" alt="" />
-                        </a>
-                        <?php endforeach;?>
+                    <div class="mt-2">
+                        <span>Colors:</span>
+                        <div class="color-choice">
+                            <?php foreach ($colors as $color): ?>
+                            <a href="product/<?=$color['alias'];?>" class="mask">
+                                <img src="images/<?=$color['img'];?>" alt="" />
+                            </a>
+                            <?php endforeach;?>
+                        </div>
                     </div>
-
                     <?php endif; ?>
 
                     <?php if ($sizes): ?>

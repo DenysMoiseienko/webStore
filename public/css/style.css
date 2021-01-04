@@ -212,6 +212,9 @@ select#currency {
     color: #fff;
     text-align: right;
 }
+.card-footer .item_price {
+    margin-left: 7px;
+}
 .srch{
     position: absolute;
     right: 0;
@@ -256,6 +259,37 @@ select#currency {
     color: var(--contrast-color);
     border-radius: 0;
 }
+.slick-dots {
+    margin: 15px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+.slick-dots li{
+    list-style: none;
+    margin-right: 10px;
+}
+.slick-dots li button,
+.slick-dots li.slick-active button {
+    color: transparent;
+    opacity: 1;
+}
+.slick-dots li button{
+    background-color: var(--contrast-color-rgba);
+    border: 1px solid var(--contrast-color);
+    border-radius: 50%;
+    display: inline-block;
+    height: 7px;
+    width: 7px;
+    padding: 0;
+}
+.slick-dots li.slick-active button {
+    background-color: var(--contrast-color);
+}
+@media screen and (max-width: 649px){
+    .single-top-right h2{
+        font-size: 1.7rem;
+    }
+}
 #quantity-input {
     height: 40px;
     padding: 0 0 0 10px;
@@ -290,7 +324,10 @@ input[type="number"]::-webkit-inner-spin-button {
     transform: translateY(-50%);
     z-index: 0;
 }
-
+.single-top-right .item_price {
+    font-size: 1.3rem;
+    margin-right: 10px;
+}
 /*tools*/
 .filters{
     width: 240px;

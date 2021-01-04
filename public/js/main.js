@@ -235,7 +235,15 @@ $('.slider-for').slick({
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    asNavFor: '.slider-nav'
+    asNavFor: '.slider-nav',
+    dots: false,
+    responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            dots: true
+          }
+        }]
 });
 $('.slider-nav').slick({
     slidesToShow: 3,
