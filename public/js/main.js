@@ -51,7 +51,7 @@ $("#typeahead").typeahead({
     source: products,
     templates: {
         suggestion: function(data) {
-            return '<div class="d-flex search-item"><img src="images/' + data.img + '" alt=""/><p>' + data.title + '<br>' + data.color + '</p></div>';
+            return '<div class="d-flex search-item align-items-start"><img src="images/' + data.img + '" alt=""/><p>' + data.title + '<br>' + data.color + '</p></div>';
         }
     }
 });

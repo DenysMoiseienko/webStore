@@ -83,7 +83,7 @@
                             <div class="available my-2">
                                 <label class="d-block" for="size-select">Size</label>
                                 <select id="size-select" class="custom-size-select">
-                                     <option selected disabled>--</option>
+                                    <option selected disabled>--</option>
                                     <?php foreach($sizes as $size): ?>
                                         <option data-id="<?=$size['id'];?>" data-qty="<?=$size['qty'];?>" value="<?=$size['value'];?>">
                                             <?=$size['value'];?>
@@ -115,7 +115,7 @@
             </div>
             <!--end product-->
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-12">
                 <h2>Description</h2>
                 <hr>
@@ -131,7 +131,7 @@
         <h3 class="mt-3">With this product also bought:</h3>
         <div class="row">
             <?php foreach($related as $product): ?>
-            <div class="col-6 col-md-3 col-lg-2 mb-3">
+            <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
                 <div class="card h-100">
                     <a href="product/<?=$product['alias'];?>">
                         <img class="card-img-top" src="images/<?=$product['img'];?>" alt="" />
@@ -169,7 +169,7 @@
         <h3 class="mt-3">Recently viewed products:</h3>
         <div class="row">
             <?php foreach($recentlyViewed as $product): ?>
-            <div class="col-6 col-md-3 col-lg-2 mb-3">
+            <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
                 <div class="card h-100">
                     <a href="product/<?=$product['alias'];?>" class="mask">
                         <img class="card-img-top" src="images/<?=$product['img'];?>" alt="" />
