@@ -94,7 +94,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Continue shopping</button>
+                <button type="button" class="btn btn-outline-custom-secondary" data-dismiss="modal">Continue shopping</button>
                 <button type="button" class="btn custom-btn" onclick="recalculate()">Recalculate</button>
                 <button onclick="location.href='cart/view'" type="button" class="btn custom-btn-secondary">Order</button>
                 <button type="button" class="btn btn-danger" onclick="clearCart()">Empty cart</button>
