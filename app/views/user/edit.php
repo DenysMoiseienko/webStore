@@ -10,8 +10,8 @@
 </div>
 <!--end-breadcrumbs-->
 
-<div class="container">
-    <div class="col-md-12">
+<div class="container my-3">
+    <div class="col-md-6">
         <div>
             <form action="user/edit" method="post" data-toggle="validator">
                 <div class="box-body">
@@ -46,7 +46,7 @@
 
                 </div>
                 <div class="box-footer text-right">
-                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn custom-btn-secondary">Save</button>
                 </div>
             </form>
         </div>
