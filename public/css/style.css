@@ -534,6 +534,11 @@ input[type="number"]::-webkit-inner-spin-button {
 .modal-content *:not(.btn){
     color: var(--light-text-color);
 }
+.modal-content .cart-modal-item a,
+.cart .cart-modal-item a{
+    text-decoration: underline;
+    color: var(--main-color);
+}
 .cart-img{
     max-width: 110px;
 }

@@ -35,3 +35,16 @@
 img{
     height: 125px;
 }
+
+/*search input*/
+.tt-menu {
+    width: calc(100% + 30px);
+    background: #fff;
+}
+.tt-dataset.tt-dataset-products {
+    padding: 0 10px;
+}
+.tt-suggestion.tt-selectable {
+    border-bottom: 1px solid #eee;
+    padding: 10px 5px;
+}

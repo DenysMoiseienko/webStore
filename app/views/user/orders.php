@@ -10,12 +10,11 @@
 </div>
 <!--end-breadcrumbs-->
 
-<div class="container">
+<div class="container my-3">
     <div class="col-md-12">
-        <hr>
         <?php if ($orders): ?>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover table-striped">
+                <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th style="width: 10%">ID</th>

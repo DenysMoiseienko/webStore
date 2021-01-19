@@ -19,41 +19,43 @@
                     </div>
                     <br><br>
                     <?php if(!empty($_SESSION['cart'])):?>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Quantity</th>
-                                    <th>Size</th>
-                                    <th>Price</th>
-                                    <th><span class="sr-only">Remove</span></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php foreach($_SESSION['cart'] as $id => $item): ?>
-                                    <tr>
-                                        <td><a href="product/<?=$item['alias'];?>"><img src="images/<?= $item['img'];?>" alt="<?=$item['title'];?>"></a></td>
-                                        <td><a href="product/<?=$item['alias'];?>"><?=$item['title'];?></a></td>
-                                        <td><?=$item['qty'];?></td>
-                                        <td><?=$item['size'];?></td>
-                                        <td><?=$item['price'];?></td>
-                                        <td class="text-center"><a href="cart/delete/?id=<?=$id ?>"><span data-id="<?=$id;?>" class="fa fa-times text-danger del-item" aria-hidden="true"></span></a></td>
-                                    </tr>
-                                <?php endforeach;?>
-                                <tr>
-                                    <td>Total:</td>
-                                    <td colspan="5" class="text-right cart-qty"><?=$_SESSION['cart.qty']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Total price:</td>
-                                    <td colspan="5" class="text-right cart-sum"><?= $_SESSION['cart.currency']['symbol_left'] . $_SESSION['cart.sum'] . " {$_SESSION['cart.currency']['symbol_right']}" ?></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <?php foreach($_SESSION['cart'] as $id => $item): ?>                                   
+                            <div class="d-flex justify-content-between cart-modal-item">
+                                <div class="d-flex">
+                                    <a href="product/<?=$item['alias'];?>"><img class="cart-img img-fluid" src="images/<?=$item['img'];?>" alt="<?=$item['title'];?>"></a>
+                                    <div class="ml-3">
+                                        <a class="d-block bold" href="product/<?=$item['alias'];?>"><?=$item['title'];?></a>
+                                        <div>
+                                            <span>Size: </span>
+                                            <span class="bold"><?=$item['size']?></span>
+                                        </div>
+                                        <div>
+                                            <span>Quantity: </span>
+                                            <span class="bold"><?=$item['qty'];?></span>
+                                        </div>
+                                        <div class="bold">
+                                            <?=$_SESSION['cart.currency']['symbol_left'].$item['price'].$_SESSION['cart.currency']['symbol_right'];?>
+                                        </div>                    
+                                    </div>
+                                </div>
+                                <span data-id="<?=$id;?>" class="fa fa-trash-o text-danger del-item cursor-pointer" aria-hidden="true"></span>
+                            </div>
+                        <?php endforeach;?>
+                            <div class="cart-modal-item">
+                                <div>
+                                    <span>Total: </span>
+                                    <span class="text-center cart-qty bold"><?=$_SESSION['cart.qty'];?></span>
+                                </div>
+                                <div>
+                                    <span>Total price: </span>
+                                    <span class="text-left cart-sum bold">
+                                        <?=$_SESSION['cart.currency']['symbol_left'] . $_SESSION['cart.sum'] . $_SESSION['cart.currency']['symbol_right'];?>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6 account-left">
+                        <hr>
+                        <div class="col-md-6 account-left p-0">
                             <form method="post" action="cart/checkout" role="form" data-toggle="validator">
                                 <?php if(!isset($_SESSION['user'])): ?>
                                     <a class="btn custom-btn" href="user/login">Login</a>
