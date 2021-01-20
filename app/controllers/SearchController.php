@@ -27,13 +27,13 @@ class SearchController extends AppController {
             // pagination
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             $perPage = App::$app->getProperty('pagination');
-            $total = R::count('product', "title LIKE ? AND status = '1'", ["%{$query}%"]);
-            $pagination = new Pagination($page, $perPage, $total);
+            $count = R::count('product', "title LIKE ? AND status = '1'", ["%{$query}%"]);
+            $pagination = new Pagination($page, $perPage, $count);
             $start = $pagination->getStart();
 
             $products = R::find('product', "title LIKE ? AND status = '1' LIMIT $start, $perPage", ["%{$query}%"]);
             $this->setMeta('Search by: ' . h($query));
-            $this->set(compact('products', 'query', 'pagination'));
+            $this->set(compact('products', 'query', 'pagination', 'count', 'start', 'page', 'perPage'));
         }
     }
 }
