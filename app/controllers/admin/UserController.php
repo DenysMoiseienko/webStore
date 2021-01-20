@@ -90,7 +90,7 @@ class UserController extends AppController {
 
     public function logoutAction() {
         if (isset($_SESSION['user'])) unset($_SESSION['user']);
-        redirect('/webStore/admin/user/login-admin');
+        redirect(ADMIN . '/user/login-admin');
     }
 
     private function getAllOrdersByUser($user_id) {
