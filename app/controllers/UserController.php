@@ -91,6 +91,18 @@ class UserController extends AppController {
         $this->set(compact('orders'));
     }
 
+    public function contactAction() {
+        $this->checkUser();
+        if (!empty($_POST)) {
+            $user_email = $_SESSION['user']['email'];
+            $user_name = $_SESSION['user']['name'];
+            $subject = h($_POST['subject']);
+            $message = h($_POST['message']);
+            User::sendMail($subject, $user_name, $user_email, $message);
+        }
+        $this->setMeta('Contact form');
+    }
+
     private function checkUser() {
         if (!User::checkAuth()) {
             redirect('/webStore/user/login');

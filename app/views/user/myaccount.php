@@ -18,8 +18,12 @@
             <a href="user/edit" class="btn custom-btn-secondary">Update my info</a>
         </div>
         <div class="my-2">
-            <span class="pt-2">You can view your order history or find your order: </span><br>
+            <span class="pt-2">You can view your order history: </span><br>
             <a href="user/orders" class="btn custom-btn-secondary">Orders history</a>
+        </div>
+        <div class="my-2">
+            <span class="pt-2">If you have questions: </span><br>
+            <a href="user/contact" class="btn custom-btn-secondary">Contact with us</a>
         </div>
         <hr>
         <div class="my-4">

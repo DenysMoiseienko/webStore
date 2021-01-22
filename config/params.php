@@ -1,14 +1,14 @@
 <?php
 
 return [
-    'admin' => 'denis_m_@mail.ru',
+    'admin' => '',
     'shop_name' => 'TheBestStore',
     'pagination' => 24,
     'adminPagination' => 10,
-    'smtp_host' => 'smtp.mail.ru',
-    'smtp_port' => '465',
-    'smtp_protocol' => 'ssl',
-    'smtp_login' => 'denis_m_@mail.ru',
+    'smtp_host' => '',
+    'smtp_port' => '',
+    'smtp_protocol' => '',
+    'smtp_login' => '',
     'smtp_password' => '',
     'img_width' => 700,
     'img_height' => 1000,
