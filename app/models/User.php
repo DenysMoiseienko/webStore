@@ -100,8 +100,10 @@ class User extends AppModel {
             ->setBody($message . "\n\nUser: " . $user_name . "\nEmail: " . $user_email);
 
         $result = $mailer->send($message_admin);
-        printf("Sent %d messages\n", $result);
-
-        $_SESSION['success'] = 'Thanks for your mail:)';
+        if($result > 0) {
+            $_SESSION['success'] = 'Thanks for your mail:)';
+        } else {
+            $_SESSION['error'] = 'Something went wrong:(';
+        }
     }
 }

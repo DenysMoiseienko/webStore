@@ -1,4 +1,3 @@
-<!--start-breadcrumbs-->
 <div class="container-fluid p-0">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -7,14 +6,11 @@
         </ol>
     </nav>
 </div>
-<!--end-breadcrumbs-->
 
-<!--prdt-starts-->
 <div class="container py-3">
     <div class="col-12">
         <div class="account-top heading">
             <h2>Log in</h2>
-            <p>If you have previously made an order or have a customer account, you may login here. </p>
         </div>
 
         <div class="account-main">
@@ -27,8 +23,8 @@
                     </div>
 
                     <div class="col form-group has-feedback">
-                        <label for="pasword">Password</label>
-                        <input type="password"  name="password" class="form-control" id="pasword" placeholder="Password" required>
+                        <label for="password">Password</label>
+                        <input type="password"  name="password" class="form-control" id="password" placeholder="Password" required>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -40,4 +36,3 @@
         </div>
     </div>
 </div>
-<!--product-end-->

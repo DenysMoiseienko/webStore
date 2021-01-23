@@ -1,4 +1,3 @@
-<!-- content header -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -7,7 +6,6 @@
                     Currency list
                 </h1>
             </div>
-
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">
@@ -18,12 +16,10 @@
                     </li>
                 </ol>
             </div>
-
         </div>
     </div>
 </div>
 
-<!-- main content -->
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -32,7 +28,6 @@
                     <div class="box-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
-
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -43,10 +38,8 @@
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
-
                                 <tbody>
                                 <?php foreach ($currencies as $currency): ?>
-
                                     <tr>
                                         <td><?=$currency->id?></td>
                                         <td><?=$currency->title?></td>
@@ -61,7 +54,6 @@
                                                 <i class="fa fa-trash text-danger"></i></a>
                                         </td>
                                     </tr>
-
                                 <?php endforeach; ?>
                                 </tbody>
                             </table>

@@ -1,4 +1,3 @@
-<!-- content header -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -7,7 +6,6 @@
                     Filter groups
                 </h1>
             </div>
-
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">
@@ -22,7 +20,6 @@
     </div>
 </div>
 
-<!-- main content -->
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -31,7 +28,6 @@
                     <div class="box-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
-
                                 <thead>
                                 <tr>
                                     <th>Title</th>
@@ -39,7 +35,6 @@
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
-
                                 <tbody>
                                 <?php foreach ($attrs_group as $item): ?>
                                     <tr>
@@ -59,7 +54,6 @@
                             </table>
                         </div>
                     </div>
-
                     <a href="<?=ADMIN;?>/filter/group-add?" class="btn btn-primary">
                         <i class="fa fa-plus"></i> Add group</a>
                 </div>
@@ -67,5 +61,3 @@
         </div>
     </div>
 </section>
-
-

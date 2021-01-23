@@ -1,4 +1,3 @@
-<!-- content header -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -19,14 +18,12 @@
     </div>
 </div>
 
-<!-- main content -->
 <section class="content">
     <div class="container-fluid">
 
-        <!-- small boxes -->
         <div class="row">
+
             <div class="col-lg-3 col-6">
-                <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3><?=$countNewOrders; ?></h3>
@@ -40,7 +37,6 @@
             </div>
 
             <div class="col-lg-3 col-6">
-                <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
                         <h3><?=$countProducts?></h3>
@@ -54,7 +50,6 @@
             </div>
 
             <div class="col-lg-3 col-6">
-                <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
                         <h3><?=$countUsers?></h3>
@@ -68,7 +63,6 @@
             </div>
 
             <div class="col-lg-3 col-6">
-                <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
                         <h3><?=$countCategories?></h3>
@@ -84,4 +78,3 @@
         </div>
     </div>
 </section>
-

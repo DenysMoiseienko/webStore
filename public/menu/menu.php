@@ -7,4 +7,3 @@
         </ul>
     <?php endif; ?>
 </li>
-

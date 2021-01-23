@@ -1,4 +1,3 @@
-<!--start-breadcrumbs-->
 <div class="container-fluid p-0">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -7,9 +6,7 @@
         </ol>
     </nav>
 </div>
-<!--end-breadcrumbs-->
 
-<!--prdt-starts-->
 <div class="prdt my-3">
     <div class="container">
         <div class="prdt-top">
@@ -30,8 +27,8 @@
                                 </div>
 
                                 <div class="form-group has-feedback">
-                                    <label for="pasword">Password</label>
-                                    <input type="password" data-minlength="6" name="password" class="form-control" id="pasword" placeholder="Password"
+                                    <label for="password">Password</label>
+                                    <input type="password" data-minlength="6" name="password" class="form-control" id="password" placeholder="Password"
                                            value="<?=isset($_SESSION['form_data']['password']) ? h($_SESSION['form_data']['password']) : ''?>"
                                         data-error="Minimum of 6 characters" required>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -70,4 +67,3 @@
         </div>
     </div>
 </div>
-<!--product-end-->

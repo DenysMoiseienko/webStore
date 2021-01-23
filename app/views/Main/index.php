@@ -29,7 +29,7 @@
                             <span>-<?= round(100 - ($hit->price * 100) / $hit->old_price, 1);?>%</span>
                             </div>
                         <?php endif; ?>
-                    </div><!--/.card-->
+                    </div>
                 </div>
              <?php endforeach; ?>
         </div>

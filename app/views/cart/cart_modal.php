@@ -24,18 +24,18 @@
                 <span data-id="<?=$id;?>" class="fa fa-trash-o text-danger del-item cursor-pointer" aria-hidden="true"></span>
             </div>
         <?php endforeach; ?>
-            <div class="cart-modal-item">
-                <div>
-                    <span>Total: </span>
-                    <span class="text-center cart-qty bold"><?=$_SESSION['cart.qty'];?></span>
-                </div>
-                <div>
-                    <span>Total price: </span>
-                    <span class="text-left cart-sum bold">
-                        <?=$_SESSION['cart.currency']['symbol_left'] . $_SESSION['cart.sum'] . $_SESSION['cart.currency']['symbol_right'];?>
-                    </span>
-                </div>
+        <div class="cart-modal-item">
+            <div>
+                <span>Total: </span>
+                <span class="text-center cart-qty bold"><?=$_SESSION['cart.qty'];?></span>
             </div>
+            <div>
+                <span>Total price: </span>
+                <span class="text-left cart-sum bold">
+                    <?=$_SESSION['cart.currency']['symbol_left'] . $_SESSION['cart.sum'] . $_SESSION['cart.currency']['symbol_right'];?>
+                </span>
+            </div>
+        </div>
     </div>
 
 <?php else: ?>

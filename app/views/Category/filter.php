@@ -27,7 +27,7 @@
                     <span>-<?= round(100 - ($product['price'] * 100) / $product['old_price'], 1);?>%</span>
                     </div>
                 <?php endif; ?>
-            </div><!--/.card-->
+            </div>
         </div>
     <?php endforeach; ?>
 
@@ -36,6 +36,7 @@
             <?=$pagination;?>
         <?php endif; ?>
     </div>
+
 <?php else: ?>
     <h3>Products not found:(</h3>
 <?php endif; ?>

@@ -1,4 +1,3 @@
-<!--start-breadcrumbs-->
 <div class="container-fluid p-0">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -8,7 +7,6 @@
         </ol>
     </nav>
 </div>
-<!--end-breadcrumbs-->
 
 <div class="container my-3">
     <div class="col-md-12">

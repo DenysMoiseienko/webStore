@@ -11,116 +11,126 @@
     <link href="libs/slick/slick.css" rel="stylesheet">
     <link rel="stylesheet" href="adminLTE/plugins/select2/css/select2.css">
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-
-
 </head>
 <body>
-<header class="navbar main-navbar">
-    <div>
-        <button class="open-nav" onclick="openNav()">&#9776;</button>
-        <a class="navbar-brand" href="<?=PATH;?>"><h1><?=\store\App::$app->getProperty('shop_name')?></h1></a>
-        <nav id="sidebar-nav" class="sidebar-nav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-            <?php new \app\widgets\menu\Menu(['tpl' => WWW . '/menu/menu.php']); ?>
+    <header class="navbar main-navbar">
+        <div>
+            <button class="open-nav" onclick="openNav()">&#9776;</button>
+            <a class="navbar-brand" href="<?=PATH;?>"><h1><?=\store\App::$app->getProperty('shop_name')?></h1></a>
+            <nav id="sidebar-nav" class="sidebar-nav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                <?php new \app\widgets\menu\Menu(['tpl' => WWW . '/menu/menu.php']); ?>
 
-            <ul class="menu navbar-nav">
-                <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link">Account</a>
-                    <button class="menu-has-items-toggle"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                    <?php if (!empty($_SESSION['user'])): ?>
-                        <ul>
-                            <li class="nav-item"><a href="user/myaccount" class="nav-link"><?=h($_SESSION['user']['name'])?></a></li>
-                            <li class="nav-item"><a href="user/logout">Logout</a></li>
-                        </ul>
-                    <?php else: ?>
-                        <ul>
-                            <li class="nav-item"><a href="user/login">Login</a></li>
-                            <li class="nav-item"><a href="user/signup">Sign in</a></li>
-                        </ul>
-                    <?php endif; ?>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link">About us</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div class="box d-flex align-middle">
-        <form class="form-inline my-2 my-lg-0" action="search" method="get" autocomplete="off">
-            <input class="form-control custom-input mr-sm-2 typeahead" type="text" id="typeahead" name="s" placeholder="Search" aria-label="Search">
-            <button class="btn btn-dark my-2 my-sm-0" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-        </form>
-        <!-- <select id="currency" tabindex="4" class="dropdown drop"> -->
-            <?//php// new \app\widgets\currency\Currency()?>
-        <!-- </select> -->
-        <div class="cart box_1">
-            <a class="btn btn-dark my-2 my-sm-0 ml-2" href="cart/show" onclick="getCart(); return false;">
-                <div class="total">
-                    <?php if (!empty($_SESSION['cart'])): ?>
-                        <span class="simpleCart_total">
-                            <?=$_SESSION['cart.qty'];?>
-                        </span>
-                    <?php else: ?>
-                        <span class="simpleCart_total"></span>
-                    <?php endif; ?>
-                </div>
-            </a>
-            <div class="clearfix"> </div>
+                <ul class="menu navbar-nav">
+                    <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link">Account</a>
+                        <button class="menu-has-items-toggle"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                        <?php if (!empty($_SESSION['user'])): ?>
+                            <ul>
+                                <li class="nav-item"><a href="user/myaccount" class="nav-link"><?=h($_SESSION['user']['name'])?></a></li>
+                                <li class="nav-item"><a href="user/logout">Logout</a></li>
+                            </ul>
+                        <?php else: ?>
+                            <ul>
+                                <li class="nav-item"><a href="user/login">Login</a></li>
+                                <li class="nav-item"><a href="user/signup">Sign in</a></li>
+                            </ul>
+                        <?php endif; ?>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link">About us</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </div>
-</header>
-<main>
-<?=$content;?>
-</main>
-<footer>
-
-</footer>
-
-<!-- start Modal -->
-<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Cart</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+        <div class="box d-flex align-middle">
+            <form class="form-inline my-2 my-lg-0" action="search" method="get" autocomplete="off">
+                <input class="form-control custom-input mr-sm-2 typeahead" type="text" id="typeahead" name="s" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
+            </form>
+            <!-- <select id="currency" tabindex="4" class="dropdown drop"> -->
+                <?//php// new \app\widgets\currency\Currency()?>
+            <!-- </select> -->
+            <div class="cart box_1">
+                <a class="btn btn-dark my-2 my-sm-0 ml-2" href="cart/show" onclick="getCart(); return false;">
+                    <div class="total">
+                        <?php if (!empty($_SESSION['cart'])): ?>
+                            <span class="simpleCart_total">
+                                <?=$_SESSION['cart.qty'];?>
+                            </span>
+                        <?php else: ?>
+                            <span class="simpleCart_total"></span>
+                        <?php endif; ?>
+                    </div>
+                </a>
+                <div class="clearfix"> </div>
             </div>
+        </div>
+    </header>
 
-            <div class="modal-body">
+    <main>
+    <?=$content;?>
+    </main>
 
-            </div>
+    <footer>
+        <div>
+            <?php if(isset($_SESSION['error'])): ?>
+                <div class="alert alert-danger">
+                    <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+                </div>
+            <?php endif; ?>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-custom-secondary" data-dismiss="modal">Continue shopping</button>
-                <button type="button" class="btn custom-btn" onclick="recalculate()">Recalculate</button>
-                <button onclick="location.href='cart/view'" type="button" class="btn custom-btn-secondary">Order</button>
-                <button type="button" class="btn btn-danger" onclick="clearCart()">Empty cart</button>
+            <?php if(isset($_SESSION['success'])): ?>
+                <div class="alert alert-success">
+                    <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Cart</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-custom-secondary" data-dismiss="modal">Continue shopping</button>
+                    <button type="button" class="btn custom-btn" onclick="recalculate()">Recalculate</button>
+                    <button onclick="location.href='cart/view'" type="button" class="btn custom-btn-secondary">Order</button>
+                    <button type="button" class="btn btn-danger" onclick="clearCart()">Empty cart</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- end Modal -->
 
-<?php  $curr = \store\App::$app->getProperty('currency');?>
-<script>
-    var path = '<?=PATH;?>',
-        course = '<?=$curr['value'];?>',
-        symbolLeft = '<?=$curr['symbol_left']?>',
-        symbolRight = '<?=$curr['symbol_right']?>';
-</script>
+    <?php  $curr = \store\App::$app->getProperty('currency');?>
+    <script>
+        var path = '<?=PATH;?>',
+            course = '<?=$curr['value'];?>',
+            symbolLeft = '<?=$curr['symbol_left']?>',
+            symbolRight = '<?=$curr['symbol_right']?>';
+    </script>
 
-<script src="libs/jquery.min.js"></script>
-<script src="libs/popper.min.js"></script>
-<script src="libs/bootstrap/js/bootstrap.min.js"></script>
-<script src="libs/slick/slick.min.js"></script>
-<script src="libs/validator.js"></script>
-<script src="libs/megamenu/megamenu.js"></script>
-<script src="libs/typeahead.bundle.js"></script>
-<script src="adminLTE/plugins/select2/js/select2.full.js"></script>
-<script src="js/main.js"></script>
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/popper.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/slick/slick.min.js"></script>
+    <script src="libs/validator.js"></script>
+    <script src="libs/megamenu/megamenu.js"></script>
+    <script src="libs/typeahead.bundle.js"></script>
+    <script src="adminLTE/plugins/select2/js/select2.full.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>

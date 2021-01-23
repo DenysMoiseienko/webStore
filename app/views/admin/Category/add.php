@@ -1,4 +1,3 @@
-<!-- content header -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -7,7 +6,6 @@
                     New category
                 </h1>
             </div>
-
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">
@@ -21,12 +19,10 @@
                     </li>
                 </ol>
             </div>
-
         </div>
     </div>
 </div>
 
-<!-- main content -->
 <section class="content">
     <div class="container-fluid">
         <div class="row">

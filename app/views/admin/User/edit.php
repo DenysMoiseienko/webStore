@@ -1,4 +1,3 @@
-<!-- content header -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -7,7 +6,6 @@
                     Edit profile: <?=h($user->name);?>
                 </h1>
             </div>
-
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">
@@ -26,7 +24,6 @@
     </div>
 </div>
 
-<!-- main content -->
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -71,7 +68,6 @@
                                     <option value="admin" <?php  if ($user->role == 'admin') echo 'selected'?>>Admin</option>
                                 </select>
                             </div>
-
                         </div>
 
                         <div class="box-footer text-right">

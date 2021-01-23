@@ -20,7 +20,7 @@ class UserController extends AppController {
                     password_hash($user->attributes['password'], PASSWORD_DEFAULT);
                 if ($user->save('user')) {
                     $_SESSION['success'] = 'OK';
-                    redirect('/webStore/user/login');
+                    redirect(PATH . 'user/login');
                 } else {
                     $_SESSION['error'] = 'Error!';
                 }
@@ -38,14 +38,14 @@ class UserController extends AppController {
             } else {
                 $_SESSION['error'] = 'Login/Password entered incorrectly';
             }
-            redirect("/webStore/user/myaccount");
+            redirect(PATH . 'user/myaccount');
         }
         $this->setMeta('LogIn');
     }
 
     public function logoutAction() {
         if (isset($_SESSION['user'])) unset($_SESSION['user']);
-        redirect('/webStore/user/login');
+        redirect(PATH . 'user/login');
     }
 
     public function myAccountAction() {
@@ -93,19 +93,20 @@ class UserController extends AppController {
 
     public function contactAction() {
         $this->checkUser();
-        if (!empty($_POST)) {
+        if (!empty($_POST['message']) && !empty($_POST['subject'])) {
             $user_email = $_SESSION['user']['email'];
             $user_name = $_SESSION['user']['name'];
             $subject = h($_POST['subject']);
             $message = h($_POST['message']);
             User::sendMail($subject, $user_name, $user_email, $message);
+            redirect(PATH . '/user/myaccount');
         }
         $this->setMeta('Contact form');
     }
 
     private function checkUser() {
         if (!User::checkAuth()) {
-            redirect('/webStore/user/login');
+            redirect(PATH . 'user/login');
         }
     }
 }
