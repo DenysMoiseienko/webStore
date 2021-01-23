@@ -13,6 +13,7 @@
     <thead>
     <tr style="background: #f9f9f9;">
         <th style="padding: 8px; border: 1px solid #ddd;">Name</th>
+        <th style="padding: 8px; border: 1px solid #ddd;">Size</th>
         <th style="padding: 8px; border: 1px solid #ddd;">Quantity</th>
         <th style="padding: 8px; border: 1px solid #ddd;">Price</th>
         <th style="padding: 8px; border: 1px solid #ddd;">Amount</th>
@@ -22,6 +23,7 @@
     <?php foreach($_SESSION['cart'] as $item): ?>
         <tr>
             <td style="padding: 8px; border: 1px solid #ddd;"><?=$item['title'] ?></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><?=$item['size'] ?></td>
             <td style="padding: 8px; border: 1px solid #ddd;"><?=$item['qty'] ?></td>
             <td style="padding: 8px; border: 1px solid #ddd;"><?=$item['price'] ?></td>
             <td style="padding: 8px; border: 1px solid #ddd;"><?=$item['price'] * $item['qty'] ?></td>
