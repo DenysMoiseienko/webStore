@@ -32,6 +32,9 @@ class User extends AppModel {
         ],
         'lengthMin' => [
             ['password', 6]
+        ],
+        'lengthMax' => [
+            ['password', 16]
         ]
     ];
 
