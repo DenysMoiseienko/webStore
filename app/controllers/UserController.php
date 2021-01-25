@@ -18,8 +18,9 @@ class UserController extends AppController {
             } else {
                 $user->attributes['password'] =
                     password_hash($user->attributes['password'], PASSWORD_DEFAULT);
+                $user->attributes['email_token'] = md5($user->attributes['email']).rand(10,9999) ;
                 if ($user->save('user')) {
-                    $_SESSION['success'] = 'OK';
+                    User::sendConfirmationRegistration($user->attributes['email_token'], $user->attributes['email']);
                     redirect(PATH . 'user/login');
                 } else {
                     $_SESSION['error'] = 'Error!';
@@ -51,6 +52,32 @@ class UserController extends AppController {
     public function myAccountAction() {
         $this->checkUser();
         $this->setMeta('My account');
+    }
+
+    public function confirmAction() {
+        if ($_GET['key'] && $_GET['token']) {
+            $email = $_GET['key'];
+            $token = $_GET['token'];
+            $user = R::findOne("user", "email = ? AND email_token = ?", [$email, $token] );
+            if($user) {
+                if ($user->status == 0){
+                    $user->status = 1;
+                    $user->email_verified = date("Y-m-d H:i:s");
+                    R::store($user);
+                    $_SESSION['success'] = 'Congratulations! Your email has been verified';
+                    redirect(PATH . 'user/login');
+                } else {
+                    $_SESSION['success'] = 'You have already verified your account with us';
+                    redirect(PATH . 'user/login');
+                }
+            } else {
+                $_SESSION['error'] = 'This email has been not registered with us';
+                redirect(PATH . 'user/signup');
+            }
+        } else {
+            $_SESSION['error'] = 'Your something goes to wrong.';
+            redirect(PATH . 'user/signup');
+        }
     }
 
     public function editAction() {

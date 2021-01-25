@@ -16,8 +16,11 @@ class User extends AppModel {
         'name' => '',
         'email' => '',
         'address' => '',
-        'role' => 'user'
-    ];
+        'role' => 'user',
+        'status' => '0',
+        'email_token' => '',
+        'email_verified' => null
+     ];
 
     public $rules = [
         'required' => [
@@ -60,9 +63,9 @@ class User extends AppModel {
 
         if ($login && $password) {
             if ($isAdmin) {
-                $user = R::findOne('user', "login = ? AND role = 'admin'", [$login]);
+                $user = R::findOne('user', "login = ? AND role = 'admin' AND status = 1", [$login]);
             } else {
-                $user = R::findOne('user', 'login = ?', [$login]);
+                $user = R::findOne('user', 'login = ? AND status = 1', [$login]);
             }
             if ($user) {
                 if (password_verify($password, $user->password)) {
@@ -105,6 +108,31 @@ class User extends AppModel {
         $result = $mailer->send($message_admin);
         if($result > 0) {
             $_SESSION['success'] = 'Thanks for your mail:)';
+        } else {
+            $_SESSION['error'] = 'Something went wrong:(';
+        }
+    }
+
+    public static function sendConfirmationRegistration($token, $email) {
+        $transport = (new Swift_SmtpTransport(
+            App::$app->getProperty('smtp_host'),
+            App::$app->getProperty('smtp_port'),
+            App::$app->getProperty('smtp_protocol')))
+            ->setUsername(App::$app->getProperty('smtp_login'))
+            ->setPassword(App::$app->getProperty('smtp_password'));
+
+        $mailer = new Swift_Mailer($transport);
+        $link = "<a href='" . PATH . "user/confirm?key=".$email."&amp;token=".$token."'>here</a>";
+
+        $message_client = (new Swift_Message('Confirm your email'))
+            ->setFrom([App::$app->getProperty('smtp_login') => App::$app->getProperty('shop_name')])
+            ->setTo($email)
+            ->setBody('To verify your Email, click '. $link, 'text/html');
+
+        $result = $mailer->send($message_client);
+
+        if ($result > 0) {
+            $_SESSION['success'] = 'Thanks for the registration:) We have sent you an email to confirm your registration';
         } else {
             $_SESSION['error'] = 'Something went wrong:(';
         }
