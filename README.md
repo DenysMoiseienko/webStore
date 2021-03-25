@@ -1,6 +1,6 @@
 # webStore
 
-> This repository houses the assets used to build the online store, available at [link](http://thebeststore.mariia.top)
+> This repository houses the assets used to build the online store, available at [link](https://thebeststore.mariia.top)
 
 ##### Technologies:
 
