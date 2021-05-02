@@ -47,7 +47,7 @@
 
                                         <td>
                                             <a href="<?=ADMIN;?>/filter/attribute-edit?id=<?=$id;?>">
-                                                <i class="fa fa-pen text-black-50"></i></a>
+                                                <i class="fa fa-pencil text-black-50"></i></a>
                                         </td>
                                         <td>
                                             <a class="delete" href="<?=ADMIN;?>/filter/attribute-delete?id=<?=$id;?>">

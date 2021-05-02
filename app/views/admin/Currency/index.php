@@ -47,7 +47,7 @@
                                         <td><?=$currency->value?></td>
                                         <td>
                                             <a href="<?=ADMIN;?>/currency/edit?id=<?=$currency->id?>">
-                                                <i class="fa fa-pen text-black-50"></i></a>
+                                                <i class="fa fa-pencil text-black-50"></i></a>
                                         </td>
                                         <td>
                                             <a class="delete" href="<?=ADMIN;?>/currency/delete?id=<?=$currency->id?>">

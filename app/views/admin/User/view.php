@@ -35,7 +35,7 @@
 
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                <i class="fas fa-plus"></i></button>
+                                <i class="fa fa-plus"></i></button>
                         </div>
                     </div>
                     <div class="card-body" style="display: none;">
@@ -54,7 +54,7 @@
 
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                <i class="fas fa-plus"></i></button>
+                                <i class="fa fa-plus"></i></button>
                         </div>
                     </div>
                     <div class="card-body" style="display: none;">

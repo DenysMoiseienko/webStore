@@ -144,8 +144,8 @@ if (buttonSingle){
         },
         onComplete: function(file, response) {
             response = JSON.parse(response);
-                $('.' + buttonSingle.data('name')).html(
-                    '<img src="images/' + response.file + '" style="max-height: 150px;">');
+            $('.' + buttonSingle.data('name')).html(
+                '<img src="images/' + response.file + '" style="max-height: 150px;">');
         }
     });
 }
@@ -162,8 +162,8 @@ if (buttonMulti) {
         },
         onComplete: function(file, response) {
             response = JSON.parse(response);
-                $('.' + buttonMulti.data('name')).append(
-                    '<img src="images/' + response.file + '" style="max-height: 150px;">');
+            $('.' + buttonMulti.data('name')).append(
+                '<img src="images/' + response.file + '" style="max-height: 150px;">');
         }
     });
 }
@@ -187,7 +187,5 @@ $('#details').on('submit', function () {
 });
 
 function isNumeric(n) {
- return !isNaN(parseFloat(n)) && isFinite(n);
+    return !isNaN(parseFloat(n)) && isFinite(n);
 }
-
-

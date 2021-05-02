@@ -40,7 +40,7 @@
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                            <i class="fas fa-plus"></i></button>
+                                            <i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                                 <div class="card-body" style="display: none;">
@@ -97,7 +97,7 @@
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                            <i class="fas fa-plus"></i></button>
+                                            <i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                                 <div class="card-body" style="display: none;">
@@ -117,7 +117,7 @@
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                            <i class="fas fa-plus"></i></button>
+                                            <i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                                 <div class="card-body" style="display: none;">
@@ -133,11 +133,11 @@
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                            <i class="fas fa-plus"></i></button>
+                                            <i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                                 <div class="card-body" style="display: none;">
-                                    <?php new \app\widgets\filter\Filter($filter, WWW . '/filter/admin_filter_tpl.php'); ?>
+                                    <?php new \app\widgets\filter\Filter($filter, APP . '/widgets/filter/filter_tpl/admin_filter_tpl.php'); ?>
                                 </div>
                             </div>
 
@@ -147,7 +147,7 @@
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                            <i class="fas fa-plus"></i></button>
+                                            <i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                                 <div class="card-body" style="display: none;">
@@ -171,7 +171,7 @@
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                            <i class="fas fa-plus"></i></button>
+                                            <i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                                 <div class="card-body" style="display: none;">
@@ -190,7 +190,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="overlay">
-                                                    <i class="fas fa-2x fa-sync-alt fa-spin"></i>
+                                                    <i class="fa fa-2x fa-sync-alt fa-spin"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -214,7 +214,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="overlay">
-                                                    <i class="fas fa-2x fa-sync-alt fa-spin"></i>
+                                                    <i class="fa fa-2x fa-sync-alt fa-spin"></i>
                                                 </div>
                                             </div>
                                         </div>

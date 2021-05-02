@@ -69,7 +69,7 @@
                                                 <i class="fa fa-fw fa-eye text-black-50"></i></a>
                                         </td>
                                         <td><a href="<?=ADMIN;?>/user/edit?id=<?=$user->id;?>">
-                                                <i class="fa fa-pen text-black-50"></i></a>
+                                                <i class="fa fa-pencil text-black-50"></i></a>
                                         </td>
                                         <td>
                                             <a class="delete" href="<?=ADMIN;?>/user/delete?id=<?=$user->id;?>">
